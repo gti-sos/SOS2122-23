@@ -1,0 +1,16 @@
+{
+  "name": "l04",
+  "version": "1.0.0",
+  "description": "my first module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alberto",
+  "license": "ISC",
+  "dependencies": {
+    "cool-ascii-faces": "^1.3.4",
+    "express": "^4.17.3"
+  }
+}
