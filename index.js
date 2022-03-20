@@ -95,3 +95,52 @@ app.post(BASE_API_URL+"/premier-league-stats",(req,res)=>{
     stats.push(req.body);
     res.sendStatus(201,"Created");
 });
+
+//#### API TENNIS ###
+
+var tennis = [
+    {
+        countries: "serbia",
+        years: 2019,
+        most_grand_slam: 2,
+        masters_finals: 3,
+        olympic_gold_medals: 0
+    },
+    {
+        countries: "spain",
+        years: 2019,
+        most_grand_slam: 2,
+        masters_finals: 2,
+        olympic_gold_medals: 0
+    },
+    {
+        countries: "great-britain",
+        years: 2012,
+        most_grand_slam: 1,
+        masters_finals: 0,
+        olympic_gold_medals: 1
+    },
+    {
+        countries: "russia",
+        years: 2021,
+        most_grand_slam: 1,
+        masters_finals: 1,
+        olympic_gold_medals: 0
+    },
+    {
+        countries: "swirtzeland",
+        years: 2008,
+        most_grand_slam: 1,
+        masters_finals: 0,
+        olympic_gold_medals: 0
+    },
+];
+
+app.get(BASE_API_URL+"/tennis", (req, res)=>{
+    res.send(JSON.stringify(tennis, null, 2));
+});
+
+app.post(BASE_API_URL+"/tennis", (req,res)=>{
+    tennis.push(req.body);
+    res.sendStatus(201, "CREATED");
+});
