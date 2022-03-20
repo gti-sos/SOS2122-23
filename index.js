@@ -13,6 +13,7 @@ const port = process.env.PORT || 8080;
 
 const BASE_API_URL = "/api/v1"; 
 
+<<<<<<< HEAD
 var contacts = [
     {
         name:"peter",
@@ -27,6 +28,11 @@ var contacts = [
 
 app.get(BASE_API_URL+"/docs",(req,res)=>{
     res.redirect(API_DOC_PORTAL);
+=======
+app.get("/cool", (req,res)=>{
+    console.log("Requested /faces route");
+    res.send("<html><body><h1>"+cool()+"</h1></body></html>")
+>>>>>>> 3c7bde6925c96545d97f2f284620719721fc9cc4
 });
 
 app.get(BASE_API_URL+"/contacts",(req,res)=>{
