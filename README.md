@@ -9,7 +9,7 @@
 -  *APIs*:
     - [https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-1/docs](https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-1/docs) (developed by [Alberto Martín Martín](https://github.com/albmarmar6))
     - [https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-2/docs](https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-2/docs) (developed by [Fernando Pardo Beltrán](https://github.com/Nando13))
-    - [https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-3/docs](https://sos2122-23.herokuapp.com/api/v1/my-awesome-resource-3/docs) (developed by [Antonio Saborido Campos](https://github.com/Antoniiosc7))
+    - [https://sos2122-23.herokuapp.com/api/v1/tennis](https://sos2122-23.herokuapp.com/api/v1/tennis) (developed by [Antonio Saborido Campos](https://github.com/Antoniiosc7))
 
 Para ir al postman pinchar en el siguiente enlace: https://documenter.getpostman.com/view/19586040/UVsPQkGD
 
