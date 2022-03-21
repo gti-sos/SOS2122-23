@@ -157,10 +157,17 @@ var nba = [
     },
     {
         country:"usa",
-        year:2014   ,
+        year:2014,
         mostpoints:2593,
         fieldgoals:849,
         efficiency:31.8
+    },
+    {
+        country:"usa",
+        year:2015,
+        mostpoints:2217,
+        fieldgoals:647,
+        efficiency:27.2
     }
 ];
 
