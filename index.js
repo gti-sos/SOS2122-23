@@ -172,7 +172,7 @@ var nba = [
 ];
 
 app.get(BASE_API_URL+"/nba-stats",(req,res)=>{
-    res.send(JSON.stringify(stats,null,2));
+    res.send(JSON.stringify(nba,null,2));
 });
 
 app.post(BASE_API_URL+"/nba-stats",(req,res)=>{
