@@ -144,3 +144,30 @@ app.post(BASE_API_URL+"/tennis", (req,res)=>{
     tennis.push(req.body);
     res.sendStatus(201, "CREATED");
 });
+
+//TRABAJO OPCIONAL Fernando Pardo Beltrán
+var nba = [
+    {
+        country:"usa",
+        year:2013,
+        mostpoints:2280,
+        fieldgoals:731,
+        efficiency:30.4
+    },
+    {
+        country:"usa",
+        year:2014   ,
+        mostpoints:2593,
+        fieldgoals:849,
+        efficiency:31.8
+    }
+];
+
+app.get(BASE_API_URL+"/nba-stats",(req,res)=>{
+    res.send(JSON.stringify(stats,null,2));
+});
+
+app.post(BASE_API_URL+"/nba-stats",(req,res)=>{
+    stats.push(req.body);
+    res.sendStatus(201,"Created");
+});
