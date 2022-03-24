@@ -9,9 +9,7 @@ const API_DOC_PORTAL = "https://documenter.getpostman.com/view/19586040/UVsPQkGD
 
 app.use(bodyParser.json());
 
-app.get(BASE_API_URL+"/docs",(req,res)=>{
-    res.redirect(API_DOC_PORTAL);
-});
+
 const port = process.env.PORT || 8080;
 
 const BASE_API_URL = "/api/v1"; 
