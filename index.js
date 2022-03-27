@@ -24,31 +24,9 @@ app.listen(port, () => {
 });
 
 //############## TRABAJO OPCIONAL ALBERTO MARTIN MARTIN (API) ###########################
-var stats = [
-    {
-        country:"Great-Britain",
-        year:2018,
-        appearences:38,
-        cleanSheets:21,
-        mostWins:32
-    },
-    {
-        country:"Great-Britain",
-        year:2019,
-        appearences:38,
-        cleanSheets:16,
-        mostWins:32
-    }
-];
 
-app.get(BASE_API_URL+"/premier-league-stats",(req,res)=>{
-    res.send(JSON.stringify(stats,null,2));
-});
-
-app.post(BASE_API_URL+"/premier-league-stats",(req,res)=>{
-    stats.push(req.body);
-    res.sendStatus(201,"Created");
-});
+var stats = require("./premier-league");
+stats.register(app);
 
 //API Antonio Saborido
 
