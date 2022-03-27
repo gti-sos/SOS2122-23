@@ -1,5 +1,3 @@
-// APPI TENNIS - Antonio Saborido Campos //
-
 module.exports.register = (app) => {
     const BASE_API_URL = "/api/v1";
     const OWN_API_URL = "/tennis";
