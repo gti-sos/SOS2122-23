@@ -59,7 +59,7 @@ module.exports.register = (app) => {
     });
     
     app.get(BASE_API_URL + OWN_API_URL + "/docs",(req,res)=>{
-        res.redirect("https://documenter.getpostman.com/view/19481666/UVyn2eVt");
+        res.redirect("https://documenter.getpostman.com/view/19996738/UVyn2yXM");
     })
     
     //GET CONJUNTO
@@ -192,7 +192,6 @@ module.exports.register = (app) => {
     
         if(!newData.year ||
             !newData.country ||
-            !newData.code ||
             !newData.built-area||
             !newData.grazing-area||
             !newData.cropland-area){
