@@ -5,7 +5,14 @@ module.exports.register = (app) => {
     const bodyParser = require("body-parser");
     app.use(bodyParser.json());
     
-    var tennis = [];
+    var tennis = [
+        {
+        countries: "serbia",
+        years: 2019,
+        most_grand_slam: 2,
+        masters_finals: 3,
+        olympic_gold_medals: 0
+        },];
     var tennis_initial = [
         {
             countries: "serbia",
@@ -74,10 +81,10 @@ module.exports.register = (app) => {
         res.sendStatus(200, "OK"); // devuelve codigo correcto
     });
     //GET ELEMENTO POR PAIS
-    app.get(BASE_API_URL + OWN_API_URL+"/:country", (req,res)=>{
-        var country = req.params.country; // guarda el pais de la peticion
+    app.get(BASE_API_URL + OWN_API_URL+"/:countries", (req,res)=>{
+        var countries = req.params.countries    ; // guarda el pais de la peticion
         filteredCountry = tennis.filter((cont) =>{ // filtra por el pais 
-        return (cont.country == country); 
+        return (cont.countries == countries); 
         
         });
      
@@ -90,11 +97,11 @@ module.exports.register = (app) => {
     });
     
     //GET ELEMENTO POR PAIS Y ANYO
-    app.get(BASE_API_URL + OWN_API_URL+"/:country/:year", (req,res)=>{
-        var country = req.params.country; // guarda el pais de la peticion
-        var yearName = req.params.year; // guarda el anyo de la peticion
+    app.get(BASE_API_URL + OWN_API_URL+"/:countries/:years", (req,res)=>{
+        var countries = req.params.countries; // guarda el pais de la peticion
+        var yearsName = req.params.years; // guarda el anyo de la peticion
         filteredYear = tennis.filter((cont) =>{ 
-        return (cont.country == country) && (cont.year == yearName); // filtra los que coinciden con el anyo y el pais de la peticion 
+        return (cont.countries == countries) && (cont.years == yearsName); // filtra los que coinciden con el anyo y el pais de la peticion 
         });
     
         if(filteredYear == 0){ // si es 0(falso) devuelve error de no encontrado
@@ -107,12 +114,12 @@ module.exports.register = (app) => {
     //POST CONJUNTO // BIEN
     app.post(BASE_API_URL + OWN_API_URL, (req,res)=>{
         var newData = req.body;
-        var year = req.body.year;
-        var country = req.body.country;
+        var years = req.body.year;
+        var countries = req.body.countries;
     
         for(let i = 0;i<tennis.length;i++){
             let elem = tennis[i];
-            if(elem.year === year || elem.country === country){
+            if(elem.years === years || elem.countries === countries){
                 res.sendStatus(409,"Conflict");
             }
         }
@@ -121,7 +128,7 @@ module.exports.register = (app) => {
     });
     
     //POST RECURSO ERROR
-    app.post(BASE_API_URL + OWN_API_URL+ "/:country", (req,res)=>{
+    app.post(BASE_API_URL + OWN_API_URL+ "/:countries", (req,res)=>{
         res.sendStatus(405, "Method Not Allowed"); // devuelve codigo method not allowed
     });
     
@@ -132,21 +139,21 @@ module.exports.register = (app) => {
     });
     
     //DELETE ELEMENTO POR PAIS
-    app.delete(BASE_API_URL + OWN_API_URL+"/:country", (req,res)=>{ //borrar todos los recursos
-        var country = req.params.country; // pais de la peticion 
+    app.delete(BASE_API_URL + OWN_API_URL+"/:countries", (req,res)=>{ //borrar todos los recursos
+        var countries = req.params.countries; // pais de la peticion 
         tennis = tennis.filter((cont) =>{ // filtrar pais que coindice con la peticion
-            return (cont.country != country); 
+            return (cont.countries != countries); 
         });
         res.send(JSON.stringify(tennis, null,2));
         res.sendStatus(200, "OK");
     });
     
     // DELETE ELEMENTO POR PAIS Y ANYO
-    app.delete(BASE_API_URL + OWN_API_URL+"/:country/:year", (req,res)=>{ //borrar todos los recursos
-        var country = req.params.country; //pais de la peticion
-        var yearName = req.params.year; //anyo de la peticion
+    app.delete(BASE_API_URL + OWN_API_URL+"/:countries/:years", (req,res)=>{ //borrar todos los recursos
+        var countries = req.params.countries; //pais de la peticion
+        var yearsName = req.params.years; //anyo de la peticion
         tennis.filter((cont) =>{
-            return (cont.country != country) && (cont.year != yearName); //comprobar que el pais y el anyo de la peticion coindice mediante filtrado
+            return (cont.countries != countries) && (cont.years != yearsName); //comprobar que el pais y el anyo de la peticion coindice mediante filtrado
         });
         res.sendStatus(200, "OK"); // devolver codigo de ok 
     });
@@ -156,7 +163,7 @@ module.exports.register = (app) => {
     });
     
     // Actualización recurso concreto
-    app.put(BASE_API_URL+OWN_API_URL+"/:country/:year",(req,res)=>{
+    app.put(BASE_API_URL+OWN_API_URL+"/:countries/:years",(req,res)=>{
         if(req.body.country == null |
             req.body.year == null | 
             req.body.quantity == null | 
@@ -164,15 +171,15 @@ module.exports.register = (app) => {
             req.body.relative_change == null){
             res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
         }else{
-            var country = req.params.country;
-            var year = req.params.year;
+            var countries = req.params.countries;
+            var years = req.params.years;
             var body = req.body;
             var index = tennis.findIndex((reg) =>{
-                return (reg.country == country && reg.year == year)
+                return (reg.countries == countries && reg.years == years)
             })
             if(index == null){
                 res.sendStatus(404,"NOT FOUND");
-            }else if(country != body.country || year != body.year){
+            }else if(countries != body.countries || years != body.years){
                 res.sendStatus(400,"BAD REQUEST");
             }else{
                 var  update_landusage = {...body};
@@ -187,20 +194,20 @@ module.exports.register = (app) => {
     //POST CONJUNTO
     app.post(BASE_API_URL + OWN_API_URL, (req,res)=>{
         var newData = req.body;
-        var year = req.body.year;
-        var country = req.body.country;
+        var years = req.body.years;
+        var countries = req.body.countries;
     
-        if(!newData.year ||
-            !newData.country ||
-            !newData.built-area||
-            !newData.grazing-area||
-            !newData.cropland-area){
+        if(!newData.years ||
+            !newData.countries ||
+            !newData.most_grand_slam||
+            !newData.masters_finals||
+            !newData.olympic_gold_medals){
                 res.sendStatus(400,"Bad Request");
             }
         else{
             for(let i = 0;i<tennis.length;i++){
                 let elem = tennis[i];
-                if(elem.year === year && elem.country === country){
+                if(elem.years === years && elem.countries === countries){
                     res.sendStatus(409,"Conflict");
                 }
             }
