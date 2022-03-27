@@ -1,20 +1,13 @@
 const cool = require("cool-ascii-faces");
 const express = require("express");
 const bodyParser = require("body-parser");
-const res = require("express/lib/response");
-
 const app = express();
-
-const API_DOC_PORTAL = "https://documenter.getpostman.com/view/19586040/UVsPQkGD";
-
-app.use(bodyParser.json());
-
-
 const port = process.env.PORT || 8080;
-
 const BASE_API_URL = "/api/v1"; 
 
+app.use(bodyParser.json());
 app.use("/",express.static('public'));
+
 
 app.get("/cool", (req,res) => {
     console.log("Requested / route");
@@ -57,7 +50,10 @@ app.post(BASE_API_URL+"/premier-league-stats",(req,res)=>{
     res.sendStatus(201,"Created");
 });
 
+//API Antonio Saborido
 
+var tennis = require("./tennis");
+tennis.register(app);
 
 //TRABAJO OPCIONAL Fernando Pardo Beltrán
 
