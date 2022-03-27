@@ -164,11 +164,11 @@ module.exports.register = (app) => {
     
     // Actualización recurso concreto
     app.put(BASE_API_URL+OWN_API_URL+"/:countries/:years",(req,res)=>{
-        if(req.body.country == null |
-            req.body.year == null | 
-            req.body.quantity == null | 
-            req.body.absolute_change == null | 
-            req.body.relative_change == null){
+        if(req.body.countries == null |
+            req.body.years == null | 
+            req.body.most_grand_slam == null | 
+            req.body.masters_finals == null | 
+            req.body.olympic_gold_medals == null){
             res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
         }else{
             var countries = req.params.countries;
@@ -205,13 +205,13 @@ module.exports.register = (app) => {
                 res.sendStatus(400,"Bad Request");
             }
         else{
-            for(let i = 0;i<tennis.length;i++){
-                let elem = tennis[i];
+            for(let i = 0;i<stats.length;i++){
+                let elem = stats[i];
                 if(elem.years === years && elem.countries === countries){
                     res.sendStatus(409,"Conflict");
                 }
             }
-            tennis.push(req.body); // anyade lo que le pasemos en el cuerpo de la peticion
+            stats.push(req.body); // anyade lo que le pasemos en el cuerpo de la peticion
             res.sendStatus(201, "CREATED"); // devuelve codigo correcto
         }
     
