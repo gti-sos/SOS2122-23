@@ -64,6 +64,6 @@ app.get(BASE_API_URL+"/nba-stats",(req,res)=>{
 });
 
 app.post(BASE_API_URL+"/nba-stats",(req,res)=>{
-    stats.push(req.body);
+    nba.push(req.body);
     res.sendStatus(201,"Created");
 });
