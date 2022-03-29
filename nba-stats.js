@@ -28,13 +28,18 @@ var nbaStats = [
     }
 ];
 
-//GET todos los recursos
-app.get(BASE_API_URL,(req,res)=>{
-    res.send(JSON.stringify(nbaStats,null,2));
-});
 
-//POST de un recurso
-app.post(BASE_API_URL,(req,res)=>{
-    nbaStats.push(req.body);
+module.exports.register = (app) =>{
+
+    //GET todos los recursos
+    app.get(BASE_API_URL,(req,res)=>{
+        res.send(JSON.stringify(nbaStats,null,2));
+    });
+
+    //POST de un recurso
+    app.post(BASE_API_URL,(req,res)=>{
+        nbaStats.push(req.body);
     res.sendStatus(201,"Created");
-});
+    });
+}
+
