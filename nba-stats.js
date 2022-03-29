@@ -8,13 +8,23 @@ module.exports.register = (app) => {
         {
             country:"usa",
             year:2013,
+            name:"Kevin Durant",
             mostpoints:2280,
             fieldgoals:731,
             efficiency:30.4
         },
         {
+            country:"france",
+            year:2013,
+            name:"Tony Parker",
+            mostpoints:1341,
+            fieldgoals:519,
+            efficiency:21.2
+        },
+        {
             country:"usa",
             year:2014,
+            name:"Kevin Durant",
             mostpoints:2593,
             fieldgoals:849,
             efficiency:31.8
@@ -22,6 +32,7 @@ module.exports.register = (app) => {
         {
             country:"usa",
             year:2015,
+            name:"James Harden",
             mostpoints:2217,
             fieldgoals:647,
             efficiency:27.2
