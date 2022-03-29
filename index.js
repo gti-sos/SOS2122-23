@@ -33,37 +33,7 @@ stats.register(app);
 var tennis = require("./tennis");
 tennis.register(app);
 
-//TRABAJO OPCIONAL Fernando Pardo Beltrán
+//API Fernando Pardo Beltrán(nba-stats)
+var nbaStats = require("./nba-stats");
+nbaStats.register(app);
 
-var nba = [
-    {
-        country:"usa",
-        year:2013,
-        mostpoints:2280,
-        fieldgoals:731,
-        efficiency:30.4
-    },
-    {
-        country:"usa",
-        year:2014,
-        mostpoints:2593,
-        fieldgoals:849,
-        efficiency:31.8
-    },
-    {
-        country:"usa",
-        year:2015,
-        mostpoints:2217,
-        fieldgoals:647,
-        efficiency:27.2
-    }
-];
-
-app.get(BASE_API_URL+"/nba-stats",(req,res)=>{
-    res.send(JSON.stringify(nba,null,2));
-});
-
-app.post(BASE_API_URL+"/nba-stats",(req,res)=>{
-    nba.push(req.body);
-    res.sendStatus(201,"Created");
-});
