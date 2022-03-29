@@ -26,7 +26,7 @@ var nbaStats = [
         fieldgoals:647,
         efficiency:27.2
     }
-];
+]
 
 
 module.exports.register = (app) =>{
