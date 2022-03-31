@@ -103,7 +103,7 @@ module.exports.register = (app) => {
             if(filteredStats == 0){
                 res.sendStatus(404,"NOT FOUND");
             }else{
-                res.send(JSON.stringify(filteredStats[0],null,2)); 
+                res.send(JSON.stringify(filteredStats,null,2)); 
             }
         });
 
