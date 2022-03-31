@@ -44,10 +44,64 @@ module.exports.register = (app) => {
             res.send(JSON.stringify(nbaStats,null,2));
         });
 
+        //GET /loadInitialData
+        app.get(BASE_API_URL+"/loadInitialData",(req,res)=>{
+            if(nbaStats.length===0){
+                nbaStats = [
+                    {
+                        country:"usa",
+                        year:2013,
+                        name:"Kevin Durant",
+                        mostpoints:2280,
+                        fieldgoals:731,
+                        efficiency:30.4
+                    },
+                    {
+                        country:"france",
+                        year:2013,
+                        name:"Tony Parker",
+                        mostpoints:1341,
+                        fieldgoals:519,
+                        efficiency:21.2
+                    },
+                    {
+                        country:"usa",
+                        year:2014,
+                        name:"Kevin Durant",
+                        mostpoints:2593,
+                        fieldgoals:849,
+                        efficiency:31.8
+                    },
+                    {
+                        country:"usa",
+                        year:2015,
+                        name:"James Harden",
+                        mostpoints:2217,
+                        fieldgoals:647,
+                        efficiency:27.2
+                    },
+                    {
+                        country: "spain",
+                        year: 2015,
+                        name: "Marc Gasol",
+                        mostpoints: 1413,
+                        fieldgoals: 530,
+                        efficiency: 21.5
+                    }
+                ];
+            }
+        });
+
         //POST de un recurso
         app.post(BASE_API_URL,(req,res)=>{
             nbaStats.push(req.body);
             res.sendStatus(201,"Created");
+        });
+
+        //DELETE todos los recursos
+        app.delete(BASE_API_URL,(req,res)=>{
+            nbaStats = [];
+            res.sendStatus(200, "OK");
         });
 }
 
