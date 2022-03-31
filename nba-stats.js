@@ -109,16 +109,8 @@ module.exports.register = (app) => {
 
         //POST de un recurso
         app.post(BASE_API_URL,(req,res)=>{
-            var filteredStats = nbaStats.filter((i)=>{
-                return(i.body.country == i.country && req.body.year == reg.year)
-            })
-        
-            if(filteredStats.length != 0){
-                res.sendStatus(409,"CONFLICT");
-            }else{
-                nbaStats.push(req.body);
-                res.sendStatus(201,"CREATED");
-            }
+            nbaStats.push(req.body);
+            res.sendStatus(201,"Created");
         });
 
         //POST para un recurso específico
