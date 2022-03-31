@@ -109,13 +109,21 @@ module.exports.register = (app) => {
 
         //POST de un recurso
         app.post(BASE_API_URL,(req,res)=>{
-            nbaStats.push(req.body);
-            res.sendStatus(201,"Created");
+            var filteredStats = nbaStats.filter((i)=>{
+                return(i.body.country == i.country && req.body.year == reg.year)
+            })
+        
+            if(filteredStats.length != 0){
+                res.sendStatus(409,"CONFLICT");
+            }else{
+                nbaStats.push(req.body);
+                res.sendStatus(201,"CREATED");
+            }
         });
 
         //POST para un recurso específico
         app.post(BASE_API_URL+"/:country",(req,res)=>{
-            res.sendStatus(405,"METHOD NOT ALLOWED");
+            res.sendStatus(405,"Method Not Allowed");
         });
 
         //DELETE todos los recursos
