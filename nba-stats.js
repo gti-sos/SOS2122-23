@@ -118,5 +118,15 @@ module.exports.register = (app) => {
             nbaStats = [];
             res.sendStatus(200, "OK");
         });
+
+        //DELETE de un recurso
+        app.delete(BASE_API_URL+"/:country",(req,res)=>{
+            var country = req.params.country;
+            nbaStats = nbaStats.filter((i)=>{
+                return (i.country != country);
+            });
+            res.sendStatus(200, "OK");
+        });
+
 }
 
