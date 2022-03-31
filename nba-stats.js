@@ -93,6 +93,20 @@ module.exports.register = (app) => {
             res.sendStatus(200, "OK.");
         });
 
+        //GET de un recurso
+        app.get(BASE_API_URL+"/:country",(req,res)=>{
+            var country = req.params.country;
+            filteredStats = nbaStats.filter((i)=>{
+                return (i.country == country);
+            });
+
+            if(filteredStats == 0){
+                res.sendStatus(404,"NOT FOUND");
+            }else{
+                res.send(JSON.stringify(filteredStats[0],null,2)); 
+            }
+        });
+
         //POST de un recurso
         app.post(BASE_API_URL,(req,res)=>{
             nbaStats.push(req.body);
