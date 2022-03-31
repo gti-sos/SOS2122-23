@@ -90,7 +90,7 @@ module.exports.register = (app) => {
                     }
                 ];
             }
-            res.sendStatus(200, "OK.");
+            res.sendStatus(201, "Created.");
         });
 
         //GET de un recurso
@@ -111,6 +111,11 @@ module.exports.register = (app) => {
         app.post(BASE_API_URL,(req,res)=>{
             nbaStats.push(req.body);
             res.sendStatus(201,"Created");
+        });
+
+        //POST para un recurso específico
+        app.post(BASE_API_URL+"/:country",(req,res)=>{
+            res.sendStatus(405,"METHOD NOT ALLOWED");
         });
 
         //DELETE todos los recursos
