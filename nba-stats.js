@@ -90,6 +90,7 @@ module.exports.register = (app) => {
                     }
                 ];
             }
+            res.sendStatus(200, "OK.");
         });
 
         //POST de un recurso
