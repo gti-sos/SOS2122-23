@@ -45,8 +45,35 @@ module.exports.register = (app) => {
         });
 
         //GET todos los recursos
-        app.get(BASE_API_URL,(req,res)=>{
-            res.send(JSON.stringify(nbaStats,null,2));
+        app.get(BASE_API_URL,(req, res)=>{
+            var year = req.query.year;
+            var from = req.query.from;
+            var to = req.query.to;
+            if(year != null){
+                var filteredList = nbaStats.filter((i)=>
+                {
+                    return (i.year == year);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
+            }else if(from != null && to != null){
+                var filteredList = nbaStats.filter((i)=>
+                {
+                    return (i.year >= from && i.year <=to);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
+            }else if(year == null && from == null && to == null){
+                res.send(JSON.stringify(nbaStats,null,2));
+            }else{
+                res.sendStatus(400, "Bad Request");
+            }
         });
 
         //GET /loadInitialData
