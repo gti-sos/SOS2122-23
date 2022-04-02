@@ -113,9 +113,24 @@ module.exports.register = (app) => {
         });
 
         //POST de un recurso
-        app.post(BASE_API_URL,(req,res)=>{
-            nbaStats.push(req.body);
-            res.sendStatus(201,"Created");
+        app.post(BASE_API_URL,(req, res)=>{
+        
+            if(compBody(req)){
+                res.sendStatus(400,"Bad Request");
+            }else{
+                var filteredList = nbaStats.filter((i)=>
+                {
+                    return(req.body.country == i.country && req.body.year == i.year)
+                })
+            
+                if(filteredList.length != 0){
+                    res.sendStatus(409,"Conflict");
+                }else{
+                    nbaStats.push(req.body);
+                    res.sendStatus(201,"Created");
+                }
+            }
+        
         });
 
         //POST para un recurso específico
@@ -127,31 +142,6 @@ module.exports.register = (app) => {
         app.put(BASE_API_URL,(req,res)=>{
             res.sendStatus(405,"Method Not Allowed");
         });
-
-        app.put(BASE_API_URL+"/:country/:year",(req, res)=>{
-        
-            if(compBody(req)){
-                res.sendStatus(400, "Bad Request");
-            }else{
-                var country = req.params.country;
-                var year = req.params.year;
-                var body = req.body;  
-                var index = nbaStats.findIndex((i) =>{
-                    return (i.country === country && i.year === year)
-                })
-                if(index == null){
-                    res.sendStatus(404,"Not Found");
-                }else if(country != body.country || year != body.year){
-                    res.sendStatus(400,"Bad Request");
-                }else{
-                    var update_nbaStats = {...body};
-                    nbaStats[index] = update_nbaStats;
-                
-                    res.sendStatus(200,"UPDATED");
-                }
-            }
-        
-        })
 
         //DELETE todos los recursos
         app.delete(BASE_API_URL,(req,res)=>{
