@@ -128,6 +128,31 @@ module.exports.register = (app) => {
             res.sendStatus(405,"Method Not Allowed");
         });
 
+        app.put(BASE_API_URL+"/:country/:year",(req, res)=>{
+        
+            if(compBody(req)){
+                res.sendStatus(400, "Bad Request");
+            }else{
+                var country = req.params.country;
+                var year = req.params.year;
+                var body = req.body;  
+                var index = nbaStats.findIndex((i) =>{
+                    return (i.country === country && i.year === year)
+                })
+                if(index == null){
+                    res.sendStatus(404,"Not Found");
+                }else if(country != body.country || year != body.year){
+                    res.sendStatus(400,"Bad Request");
+                }else{
+                    var update_nbaStats = {...body};
+                    nbaStats[index] = update_nbaStats;
+                
+                    res.sendStatus(200,"UPDATED");
+                }
+            }
+        
+        })
+
         //DELETE todos los recursos
         app.delete(BASE_API_URL,(req,res)=>{
             nbaStats = [];
@@ -143,7 +168,7 @@ module.exports.register = (app) => {
             res.sendStatus(200, "Ok");
         });
 
-        function comprobar_body(req){
+        function compBody(req){
             return (req.body.country == null |
                      req.body.year == null | 
                      req.body.name == null |
