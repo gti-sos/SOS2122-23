@@ -31,12 +31,36 @@ module.exports.register = (app) => {
             efficiency:31.8
         },
         {
+            country:"england",
+            year:2014,
+            name:"Luol Deng",
+            mostpoints:1011,
+            fieldgoals:371,
+            efficiency:15.3
+        },
+        {
             country:"usa",
             year:2015,
             name:"James Harden",
             mostpoints:2217,
             fieldgoals:647,
             efficiency:27.2
+        },
+        {
+            country: "germany",
+            year: 2015,
+            name: "Dirk Nowitzki",
+            mostpoints: 1333,
+            fieldgoals: 487,
+            efficiency: 17.1
+        },
+        {
+            country: "australia",
+            year: 2016,
+            name: "Kyrie Irving",
+            mostpoints: 1041,
+            fieldgoals: 394,
+            efficiency: 16.8
         }
     ];
         //Redirect /docs
@@ -95,14 +119,6 @@ module.exports.register = (app) => {
                         mostpoints: 1333,
                         fieldgoals: 487,
                         efficiency: 17.1
-                    },
-                    {
-                        country: "australia",
-                        year: 2015,
-                        name: "Kyrie Irving",
-                        mostpoints: 1041,
-                        fieldgoals: 394,
-                        efficiency: 16.8
                     }
                 ];
             }
