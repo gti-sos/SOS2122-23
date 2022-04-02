@@ -106,7 +106,7 @@ module.exports.register = (app) => {
             });
 
             if(filteredStats == 0){
-                res.sendStatus(404,"NOT FOUND");
+                res.sendStatus(404,"Not Foundx");
             }else{
                 res.send(JSON.stringify(filteredStats,null,2)); 
             }
@@ -122,11 +122,16 @@ module.exports.register = (app) => {
         app.post(BASE_API_URL+"/:country",(req,res)=>{
             res.sendStatus(405,"Method Not Allowed");
         });
+        
+        //PUT todos los recursos
+        app.post(BASE_API_URL,(req,res)=>{
+            res.sendStatus(405,"Method Not Allowed");
+        });
 
         //DELETE todos los recursos
         app.delete(BASE_API_URL,(req,res)=>{
             nbaStats = [];
-            res.sendStatus(200, "OK");
+            res.sendStatus(200, "Ok");
         });
 
         //DELETE de un recurso
@@ -135,8 +140,16 @@ module.exports.register = (app) => {
             nbaStats = nbaStats.filter((i)=>{
                 return (i.country != country);
             });
-            res.sendStatus(200, "OK");
+            res.sendStatus(200, "Ok");
         });
 
+        function comprobar_body(req){
+            return (req.body.country == null |
+                     req.body.year == null | 
+                     req.body.name == null |
+                     req.body.mostpoints == null | 
+                     req.body.fieldgoals == null | 
+                     req.body.efficiency == null);
+        }
 }
 
