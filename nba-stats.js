@@ -44,38 +44,6 @@ module.exports.register = (app) => {
             res.redirect(API_DOC_PORTAL);
         });
 
-        //GET todos los recursos
-        app.get(BASE_API_URL,(req, res)=>{
-            var year = req.query.year;
-            var from = req.query.from;
-            var to = req.query.to;
-            if(year != null){
-                var filteredList = nbaStats.filter((i)=>
-                {
-                    return (i.year == year);
-                });
-                if (filteredList==0){
-                    res.sendStatus(404, "Not Found");
-                }else{
-                    res.send(JSON.stringify(filteredList,null,2));
-                }
-            }else if(from != null && to != null){
-                var filteredList = nbaStats.filter((i)=>
-                {
-                    return (i.year >= from && i.year <=to);
-                });
-                if (filteredList==0){
-                    res.sendStatus(404, "Not Found");
-                }else{
-                    res.send(JSON.stringify(filteredList,null,2));
-                }
-            }else if(year == null && from == null && to == null){
-                res.send(JSON.stringify(nbaStats,null,2));
-            }else{
-                res.sendStatus(400, "Bad Request");
-            }
-        });
-
         //GET /loadInitialData
         app.get(BASE_API_URL+"/loadInitialData",(req,res)=>{
             if(nbaStats.length===0){
@@ -124,8 +92,40 @@ module.exports.register = (app) => {
             }
             res.sendStatus(201, "Created.");
         });
+        
+        //GET todos los recursos
+        app.get(BASE_API_URL,(req, res)=>{
+            var year = req.query.year;
+            var from = req.query.from;
+            var to = req.query.to;
+            if(year != null){
+                var filteredList = nbaStats.filter((i)=>
+                {
+                    return (i.year == year);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
+            }else if(from != null && to != null){
+                var filteredList = nbaStats.filter((i)=>
+                {
+                    return (i.year >= from && i.year <=to);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
+            }else if(year == null && from == null && to == null){
+                res.send(JSON.stringify(nbaStats,null,2));
+            }else{
+                res.sendStatus(400, "Bad Request");
+            }
+        });
 
-        //GET de un recurso
+        //GET de un recurso (country)
         app.get(BASE_API_URL+"/:country",(req, res)=>{
     
             var country =req.params.country
@@ -155,6 +155,22 @@ module.exports.register = (app) => {
                 }
             }
         });
+
+        //GET de dosrecursos (country y year)
+        app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
+    
+            var country =req.params.country
+            var year = req.params.year
+            var filteredList = nbaStats.filter((i)=>
+            {
+                return (i.country == country && i.year == year);
+            });
+            if (filteredList==0){
+                res.sendStatus(404, "Not Found");
+            }else{
+                res.send(JSON.stringify(filteredList,null,2));
+            }
+        })
 
         //POST de un recurso
         app.post(BASE_API_URL,(req, res)=>{
