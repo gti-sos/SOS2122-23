@@ -73,6 +73,14 @@ module.exports.register = (app) => {
                         efficiency:31.8
                     },
                     {
+                        country:"england",
+                        year:2014,
+                        name:"Luol Deng",
+                        mostpoints:1011,
+                        fieldgoals:371,
+                        efficiency:15.3
+                    },
+                    {
                         country:"usa",
                         year:2015,
                         name:"James Harden",
@@ -81,18 +89,26 @@ module.exports.register = (app) => {
                         efficiency:27.2
                     },
                     {
-                        country: "spain",
+                        country: "germany",
                         year: 2015,
-                        name: "Marc Gasol",
-                        mostpoints: 1413,
-                        fieldgoals: 530,
-                        efficiency: 21.5
+                        name: "Dirk Nowitzki",
+                        mostpoints: 1333,
+                        fieldgoals: 487,
+                        efficiency: 17.1
+                    },
+                    {
+                        country: "australia",
+                        year: 2015,
+                        name: "Kyrie Irving",
+                        mostpoints: 1041,
+                        fieldgoals: 394,
+                        efficiency: 16.8
                     }
                 ];
             }
             res.sendStatus(201, "Created.");
         });
-        
+
         //GET todos los recursos
         app.get(BASE_API_URL,(req, res)=>{
             var year = req.query.year;
@@ -156,7 +172,7 @@ module.exports.register = (app) => {
             }
         });
 
-        //GET de dosrecursos (country y year)
+        //GET de dos recursos (country y year)
         app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     
             var country =req.params.country
