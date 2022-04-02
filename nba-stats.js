@@ -126,16 +126,33 @@ module.exports.register = (app) => {
         });
 
         //GET de un recurso
-        app.get(BASE_API_URL+"/:country",(req,res)=>{
-            var country = req.params.country;
-            filteredStats = nbaStats.filter((i)=>{
+        app.get(BASE_API_URL+"/:country",(req, res)=>{
+    
+            var country =req.params.country
+            var filteredList = nbaStats.filter((i)=>
+            {
                 return (i.country == country);
             });
-
-            if(filteredStats == 0){
-                res.sendStatus(404,"Not Foundx");
+        
+            var from = req.query.from;
+            var to = req.query.to;
+        
+            if(from != null && to != null){
+                filteredList = filteredList.filter((i)=>
+                {
+                    return (i.year >= from && i.year <=to);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
             }else{
-                res.send(JSON.stringify(filteredStats,null,2)); 
+                if (filteredList==0){
+                    res.sendStatus(404, "Not Found");
+                }else{
+                    res.send(JSON.stringify(filteredList,null,2));
+                }
             }
         });
 
