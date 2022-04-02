@@ -124,7 +124,7 @@ module.exports.register = (app) => {
         });
         
         //PUT todos los recursos
-        app.post(BASE_API_URL,(req,res)=>{
+        app.put(BASE_API_URL,(req,res)=>{
             res.sendStatus(405,"Method Not Allowed");
         });
 
