@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 8080;
 const BASE_API_URL = "/api/v1"; 
-const backend_tennis = require("./tennis");
+
 
 
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.get("/cool", (req,res) => {
                     <h1>`+cool()+`</h1>
                 </body>
             </html>`);
-})
+});
 
 
 app.listen(port, () => {
@@ -27,11 +27,12 @@ app.listen(port, () => {
 
 //############## TRABAJO OPCIONAL ALBERTO MARTIN MARTIN (API) ###########################
 
-var stats = require("./premier-league");
-stats.register(app);
+const backend_premier_league = require("./src/back/premier-league-stats/premier-league");
+backend_premier_league(app);
 
 //API Antonio Saborido
 
+const backend_tennis = require("./tennis");
 backend_tennis(app);
 
 //API Fernando Pardo Beltrán(nba-stats)
