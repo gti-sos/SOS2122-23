@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 8080;
 const BASE_API_URL = "/api/v1"; 
+const backend_tennis = require("./tennis");
+
 
 app.use(bodyParser.json());
 app.use("/",express.static('public'));
@@ -30,8 +32,7 @@ stats.register(app);
 
 //API Antonio Saborido
 
-var tennis = require("./tennis");
-tennis.register(app);
+backend_tennis(app);
 
 //API Fernando Pardo Beltrán(nba-stats)
 
