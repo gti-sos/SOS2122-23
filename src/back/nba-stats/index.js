@@ -259,4 +259,3 @@ module.exports.register = (app) => {
                      req.body.efficiency == null);
         }
 }
-
