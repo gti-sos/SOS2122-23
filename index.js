@@ -38,5 +38,3 @@ backend_tennis(app);
 
 const nbaStats_API = require("./src/back/nba-stats/index")
 nbaStats_API.register(app);
-
-//var nbaStats = require("./nba-stats");
