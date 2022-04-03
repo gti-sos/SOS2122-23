@@ -1,7 +1,6 @@
 module.exports.register = (app) => {
     const BASE_API_URL = "/api/v1/nba-stats";
     const API_DOC_PORTAL = "https://documenter.getpostman.com/view/19911170/UVyrUGFZ";
-    const path = require("path");
     const bodyParser = require("body-parser");
     app.use(bodyParser.json());
     
