@@ -1,11 +1,13 @@
 {
-  "name": "l04",
+  "name": "sos2122-23",
   "version": "1.0.0",
   "description": "my first module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npx newman run ./tests/backend.json -e ./tests/env/local.json"
+    "test-premier-league": "npx newman run ./tests/backend.json -e ./tests/env/local.json",
+    "test-nba-stats": "npx newman run ./tests/backend-FPB.json -e ./tests/env/heroku.json",
+    "test": "npm run test-nba-stats"
   },
   "author": "alberto",
   "license": "ISC",
