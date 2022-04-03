@@ -6,7 +6,7 @@ var db = new DataStore();
     //URL 
 const BASE_API_URL= "/api/v1";
 const API_NAME = "/tennis";
-const API_DOC_CC = "#";
+const API_DOC_CC = "https://documenter.getpostman.com/view/19996738/UVysxGDk";
 
 
 module.exports = (app) => {

@@ -32,7 +32,7 @@ backend_premier_league(app);
 
 //API Antonio Saborido
 
-const backend_tennis = require("./tennis");
+const backend_tennis = require("./src/back/tennis/tennis");
 backend_tennis(app);
 
 //API Fernando Pardo Beltrán(nba-stats)
