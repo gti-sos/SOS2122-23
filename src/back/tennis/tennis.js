@@ -93,7 +93,7 @@ module.exports = (app) => {
     });
 
     // GET - RESOURCE
-    
+ /*   
     app.get(BASE_API_URL + API_NAME,(req,res)=>{
         db.find({}, function(err,docs){
             res.send(JSON.stringify(docs.map((c)=>{
@@ -104,7 +104,26 @@ module.exports = (app) => {
         
 
     });
+   */
+    app.get(BASE_API_URL + API_NAME, (req, res)=>{
+        
+        if(coalStats == []){
+            res.sendStatus(404,"NOT FOUND");
+        }else{
+            res.send(JSON.stringify(co2,null,2));
+        }
     
+        res.sendStatus(200,"OK");
+
+        //paginacion
+        if (req.query.limit != undefined || req.query.offset != undefined) {
+            filteredList = paginacion(req, filteredList);
+        }
+        filteredList.forEach((element) => {
+            delete element._id;
+        });
+        res.send(JSON.stringify(filteredList, null, 2));
+    }); 
 
 
 /*          ALTERNATIVE GET RESOURCE
