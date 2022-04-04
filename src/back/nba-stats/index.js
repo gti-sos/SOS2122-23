@@ -125,58 +125,7 @@ module.exports.register = (app) => {
         });
 
         //GET todos los recursos
-        app.get(BASE_API_URL, (req,res)=>{ 
-            var query = req.query;
-            dbquery = {};
-            console.log("Peticion GET");
-            console.log(query.year);
-            var limit = Number.MAX_SAFE_INTEGER;
-            var offset = 0;
-            if(query.offset){
-                offset = parseInt(query.offset);
-                console.log(offset);
-                delete query.offset;
-            }
-            if(query.limit){
-                limit = parseInt(query.limit);
-                delete query.limit;
-            }
-            if(query.year){
-                dbquery['year'] = parseInt(query.year);
-                console.log(offset);
-            }
-            if(query.relative_change){
-                dbquery['relative_change'] = parseFloat(query.relative_change);
-            }
-            if(query.absolute_change){
-                dbquery['absolute_change'] = parseFloat(query.absolute_change);
-            }
-            if(query.quantity){
-                dbquery['quantity'] = parseInt(query.quantity);
-            }
-        
-            console.log(dbquery);
-            db.find(dbquery).skip(offset).limit(limit).exec((err,docs) =>{
-                console.log(docs);
-                if(err){
-                    res.sendStatus(500);
-                }
-                else{
-                    if(docs == 0){
-                        res.sendStatus(404);
-                    }
-                    else{
-                        docs.forEach((data) => {
-                            delete data._id;
-                        });
-                        res.status(200).send(JSON.stringify(docs,null,2));
-                    }
-                }
-            })
-        
-        
-        });
-        /*app.get(BASE_API_URL,(req, res)=>{
+        app.get(BASE_API_URL,(req, res)=>{
             var year = req.query.year;
             var from = req.query.from;
             var to = req.query.to;
@@ -206,7 +155,7 @@ module.exports.register = (app) => {
                 res.sendStatus(400, "Bad Request");
             }
         });
-        */
+        
         //GET de un recurso (country)
         app.get(BASE_API_URL+"/:country",(req, res)=>{
     
