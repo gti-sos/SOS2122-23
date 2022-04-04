@@ -153,6 +153,7 @@ module.exports = (app) => {
 
 
     // GET - SUBREPOSITORY - COUNTRY
+    /*
     app.get(BASE_API_URL + API_NAME + "/:country", (req, res)=>{ 
         var ccCountry = req.params.country;
 
@@ -174,9 +175,33 @@ module.exports = (app) => {
         });
 
     });
+*/
+app.get(BASE_API_URL + API_NAME + "/:country", (req, res)=>{
+    var countryName = req.params.country;
+    filteredCountries = coalStats.filter((c)=>{
+        return(c.country == countryName);
+    })
+    if(filteredCountries == 0){
+        res.sendStatus(404,"NOT FOUND");
+    }else{
+        res.send(JSON.stringify(filteredCountries[0],null,2));
+    }
+    //paginacion 
+    if(req.query.limit != undefined || req.query.offset != undefined){
+        newRegis = paginacion(req,newRegis);
+    }
+    newRegis.forEach((element)=>{
+        delete element._id;
+    });
+    res.send(JSON.stringify(newRegis,null,2));
 
+    res.sendStatus(200,"OK");
+
+
+});
 
     // GET - ELEMENT
+    /*
     app.get(BASE_API_URL + API_NAME + "/:country/:year", (req, res)=>{
         var ccCountry = req.params.country;
         var ccYear = parseInt(req.params.year);
@@ -199,7 +224,34 @@ module.exports = (app) => {
         });
 
     });
+*/
+app.get(BASE_API_URL + API_NAME + "/:country/:year", (req, res)=>{
+    var Year = parseInt(req.params.year);
+    var Country = req.params.country;
 
+
+    db.find({country : Country, year: Year}, {_id:0}, function(err,data){
+        console.log("0");
+        if(err){
+            console.log("1");
+            console.error("ERROR GET: "+ err);
+            res.sendStatus(500, "Internal Server Error");
+        }else {
+            console.log("2");
+            if(data.length != 0){
+                console.log("3");
+                res.send(JSON.stringify(data,null,2));
+                res.status(200);
+            } else{
+                console.log("4");
+                console.error("Data not found");
+                res.status(404);
+                res.send("Data not found");
+            }
+        }
+    });
+
+});
     // POST - RESOURCE
     app.post(BASE_API_URL + API_NAME,(req,res)=>{
         
