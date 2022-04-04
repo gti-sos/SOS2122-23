@@ -93,7 +93,7 @@ module.exports = (app) => {
     });
 
     // GET - RESOURCE
- /*   
+    
     app.get(BASE_API_URL + API_NAME,(req,res)=>{
         db.find({}, function(err,docs){
             res.send(JSON.stringify(docs.map((c)=>{
@@ -104,28 +104,59 @@ module.exports = (app) => {
         
 
     });
-   */
-    app.get(BASE_API_URL + API_NAME, (req, res)=>{
-        
-        if(coalStats == []){
-            res.sendStatus(404,"NOT FOUND");
-        }else{
-            res.send(JSON.stringify(co2,null,2));
-        }
     
-        res.sendStatus(200,"OK");
-
-        //paginacion
-        if (req.query.limit != undefined || req.query.offset != undefined) {
-            filteredList = paginacion(req, filteredList);
+/*
+    app.get(BASE_API_URL + OWN_API_URL, (req,res)=>{ 
+        var query = req.query;
+        dbquery = {};
+        console.log("Peticion GET");
+        console.log(query.year);
+        var limit = Number.MAX_SAFE_INTEGER;
+        var offset = 0;
+        if(query.offset){
+            offset = parseInt(query.offset);
+            console.log(offset);
+            delete query.offset;
         }
-        filteredList.forEach((element) => {
-            delete element._id;
-        });
-        res.send(JSON.stringify(filteredList, null, 2));
-    }); 
-
-
+        if(query.limit){
+            limit = parseInt(query.limit);
+            delete query.limit;
+        }
+        if(query.year){
+            dbquery['year'] = parseInt(query.year);
+            console.log(offset);
+        }
+        if(query.cropland_area){
+            dbquery['most_grand_slam'] = parseFloat(query.cropland_area);
+        }
+        if(query.masters_finals){
+            dbquery['masters_finals'] = parseFloat(query.masters_finals);
+        }
+        if(query.olympic_gold_medals){
+            dbquery['olympic_gold_medals'] = parseFloat(query.olympic_gold_medals);
+        }
+        
+        console.log(dbquery);
+        db.find(dbquery).skip(offset).limit(limit).exec((err,docs) =>{
+            console.log(docs);
+            if(err){
+                res.sendStatus(500);
+            }
+            else{
+                if(docs == 0){
+                    res.sendStatus(404);
+                }
+                else{
+                    docs.forEach((data) => {
+                        delete data._id;
+                    });
+                    res.status(200).send(JSON.stringify(docs,null,2));
+                }
+            }
+        })
+        //res.send(JSON.stringify(landusage_stats_copy, null,2)); // devuelve el conjunto 
+    });
+*/
 /*          ALTERNATIVE GET RESOURCE
     app.get(BASE_API_URL + url_sergio,(req,res)=>{
         var query = req.query;
@@ -153,7 +184,6 @@ module.exports = (app) => {
 
 
     // GET - SUBREPOSITORY - COUNTRY
-    /*
     app.get(BASE_API_URL + API_NAME + "/:country", (req, res)=>{ 
         var ccCountry = req.params.country;
 
@@ -175,33 +205,9 @@ module.exports = (app) => {
         });
 
     });
-*/
-app.get(BASE_API_URL + API_NAME + "/:country", (req, res)=>{
-    var countryName = req.params.country;
-    filteredCountries = coalStats.filter((c)=>{
-        return(c.country == countryName);
-    })
-    if(filteredCountries == 0){
-        res.sendStatus(404,"NOT FOUND");
-    }else{
-        res.send(JSON.stringify(filteredCountries[0],null,2));
-    }
-    //paginacion 
-    if(req.query.limit != undefined || req.query.offset != undefined){
-        newRegis = paginacion(req,newRegis);
-    }
-    newRegis.forEach((element)=>{
-        delete element._id;
-    });
-    res.send(JSON.stringify(newRegis,null,2));
 
-    res.sendStatus(200,"OK");
-
-
-});
 
     // GET - ELEMENT
-    /*
     app.get(BASE_API_URL + API_NAME + "/:country/:year", (req, res)=>{
         var ccCountry = req.params.country;
         var ccYear = parseInt(req.params.year);
@@ -224,34 +230,7 @@ app.get(BASE_API_URL + API_NAME + "/:country", (req, res)=>{
         });
 
     });
-*/
-app.get(BASE_API_URL + API_NAME + "/:country/:year", (req, res)=>{
-    var Year = parseInt(req.params.year);
-    var Country = req.params.country;
 
-
-    db.find({country : Country, year: Year}, {_id:0}, function(err,data){
-        console.log("0");
-        if(err){
-            console.log("1");
-            console.error("ERROR GET: "+ err);
-            res.sendStatus(500, "Internal Server Error");
-        }else {
-            console.log("2");
-            if(data.length != 0){
-                console.log("3");
-                res.send(JSON.stringify(data,null,2));
-                res.status(200);
-            } else{
-                console.log("4");
-                console.error("Data not found");
-                res.status(404);
-                res.send("Data not found");
-            }
-        }
-    });
-
-});
     // POST - RESOURCE
     app.post(BASE_API_URL + API_NAME,(req,res)=>{
         
