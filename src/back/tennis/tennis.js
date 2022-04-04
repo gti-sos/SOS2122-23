@@ -93,7 +93,7 @@ module.exports = (app) => {
     });
 
     // GET - RESOURCE
-    /*
+    
     app.get(BASE_API_URL + API_NAME,(req,res)=>{
         db.find({}, function(err,docs){
             res.send(JSON.stringify(docs.map((c)=>{
@@ -104,8 +104,8 @@ module.exports = (app) => {
         
 
     });
-    */
-
+    
+/*
     app.get(BASE_API_URL + OWN_API_URL, (req,res)=>{ 
         var query = req.query;
         dbquery = {};
@@ -156,7 +156,7 @@ module.exports = (app) => {
         })
         //res.send(JSON.stringify(landusage_stats_copy, null,2)); // devuelve el conjunto 
     });
-
+*/
 /*          ALTERNATIVE GET RESOURCE
     app.get(BASE_API_URL + url_sergio,(req,res)=>{
         var query = req.query;
