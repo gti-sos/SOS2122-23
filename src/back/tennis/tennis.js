@@ -93,6 +93,7 @@ module.exports = (app) => {
     });
 
     // GET - RESOURCE
+    /*
     app.get(BASE_API_URL + API_NAME,(req,res)=>{
         db.find({}, function(err,docs){
             res.send(JSON.stringify(docs.map((c)=>{
@@ -102,6 +103,58 @@ module.exports = (app) => {
         });
         
 
+    });
+    */
+
+    app.get(BASE_API_URL + OWN_API_URL, (req,res)=>{ 
+        var query = req.query;
+        dbquery = {};
+        console.log("Peticion GET");
+        console.log(query.year);
+        var limit = Number.MAX_SAFE_INTEGER;
+        var offset = 0;
+        if(query.offset){
+            offset = parseInt(query.offset);
+            console.log(offset);
+            delete query.offset;
+        }
+        if(query.limit){
+            limit = parseInt(query.limit);
+            delete query.limit;
+        }
+        if(query.year){
+            dbquery['year'] = parseInt(query.year);
+            console.log(offset);
+        }
+        if(query.cropland_area){
+            dbquery['most_grand_slam'] = parseFloat(query.cropland_area);
+        }
+        if(query.masters_finals){
+            dbquery['masters_finals'] = parseFloat(query.masters_finals);
+        }
+        if(query.olympic_gold_medals){
+            dbquery['olympic_gold_medals'] = parseFloat(query.olympic_gold_medals);
+        }
+        
+        console.log(dbquery);
+        db.find(dbquery).skip(offset).limit(limit).exec((err,docs) =>{
+            console.log(docs);
+            if(err){
+                res.sendStatus(500);
+            }
+            else{
+                if(docs == 0){
+                    res.sendStatus(404);
+                }
+                else{
+                    docs.forEach((data) => {
+                        delete data._id;
+                    });
+                    res.status(200).send(JSON.stringify(docs,null,2));
+                }
+            }
+        })
+        //res.send(JSON.stringify(landusage_stats_copy, null,2)); // devuelve el conjunto 
     });
 
 /*          ALTERNATIVE GET RESOURCE
