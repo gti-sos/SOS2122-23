@@ -7,7 +7,8 @@
     "start": "node index.js",
     "test-premier-league": "npx newman run ./tests/backend.json -e ./tests/env/local.json",
     "test-nba-stats": "npx newman run ./tests/backend-FPB.json -e ./tests/env/heroku.json",
-    "test": "npm run test-nba-stats"
+    "test": "npm run test-nba-stats && npm run test-tennis",
+    "test-tennis": "npx newman run ./tests/backend-ASC.json"  
   },
   "author": "alberto",
   "license": "ISC",
