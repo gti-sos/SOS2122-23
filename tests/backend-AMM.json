@@ -32,16 +32,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -66,16 +59,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Netherlands/2018",
-					"protocol": "http",
+					"raw": "{{HOST}}/Netherlands/2018",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Netherlands",
 						"2018"
 					]
@@ -111,16 +99,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -145,16 +126,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Netherlands/2018",
-					"protocol": "http",
+					"raw": "{{HOST}}/Netherlands/2018",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Netherlands",
 						"2018"
 					]
@@ -181,16 +157,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Netherlands/2018",
-					"protocol": "http",
+					"raw": "{{HOST}}/Netherlands/2018",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Netherlands",
 						"2018"
 					]
@@ -217,16 +188,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Netherlands/2018",
-					"protocol": "http",
+					"raw": "{{HOST}}/Netherlands/2018",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Netherlands",
 						"2018"
 					]
@@ -253,16 +219,11 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Spain/2013",
-					"protocol": "http",
+					"raw": "{{HOST}}/Spain/2013",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Spain",
 						"2013"
 					]
@@ -289,16 +250,9 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -332,16 +286,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Spain/2013",
-					"protocol": "http",
+					"raw": "{{HOST}}/Spain/2013",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Spain",
 						"2013"
 					]
@@ -368,16 +317,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Spain/2013",
-					"protocol": "http",
+					"raw": "{{HOST}}/Spain/2013",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Spain",
 						"2013"
 					]
@@ -413,16 +357,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Spain/2013",
-					"protocol": "http",
+					"raw": "{{HOST}}/Spain/2013",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Spain",
 						"2013"
 					]
@@ -458,16 +397,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Italy/2019",
-					"protocol": "http",
+					"raw": "{{HOST}}/Italy/2019",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Italy",
 						"2019"
 					]
@@ -503,16 +437,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/Spain/2014",
-					"protocol": "http",
+					"raw": "{{HOST}}/Spain/2014",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"Spain",
 						"2014"
 					]
@@ -548,16 +477,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -582,16 +504,9 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -624,16 +539,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league",
-					"protocol": "http",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"port": "{{PORT}}",
-					"path": [
-						"api",
-						"v1",
-						"premier-league"
 					]
 				}
 			},
@@ -666,16 +574,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/loadInitialData",
-					"protocol": "http",
+					"raw": "{{HOST}}/loadInitialData",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"loadInitialData"
 					]
 				}
@@ -701,16 +604,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/England",
-					"protocol": "http",
+					"raw": "{{HOST}}/England",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"England"
 					]
 				}
@@ -736,16 +634,11 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://{{HOST}}:{{PORT}}/api/v1/premier-league/England",
-					"protocol": "http",
+					"raw": "{{HOST}}/England",
 					"host": [
 						"{{HOST}}"
 					],
-					"port": "{{PORT}}",
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"England"
 					]
 				}
