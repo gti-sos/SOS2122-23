@@ -155,7 +155,7 @@ module.exports.register = (app) => {
                 res.sendStatus(400, "Bad Request");
             }
         });
-
+        
         //GET de un recurso (country)
         app.get(BASE_API_URL+"/:country",(req, res)=>{
     
