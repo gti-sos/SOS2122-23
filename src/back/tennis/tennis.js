@@ -94,7 +94,7 @@ module.exports = (app) => {
 
     // GET - RESOURCE
     
-    app.get(BASE_API_URL + API_NAME,(req,res)=>{
+    /*app.get(BASE_API_URL + API_NAME,(req,res)=>{
         db.find({}, function(err,docs){
             res.send(JSON.stringify(docs.map((c)=>{
                 return {country : c.country, year : c.year, most_grand_slam : c.most_grand_slam, masters_finals : c.masters_finals, olympic_gold_medals : c.olympic_gold_medals};
@@ -104,8 +104,8 @@ module.exports = (app) => {
         
 
     });
-    
-/*
+    */
+
     app.get(BASE_API_URL + OWN_API_URL, (req,res)=>{ 
         var query = req.query;
         dbquery = {};
@@ -126,8 +126,8 @@ module.exports = (app) => {
             dbquery['year'] = parseInt(query.year);
             console.log(offset);
         }
-        if(query.cropland_area){
-            dbquery['most_grand_slam'] = parseFloat(query.cropland_area);
+        if(query.most_grand_slam){
+            dbquery['most_grand_slam'] = parseFloat(query.most_grand_slam);
         }
         if(query.masters_finals){
             dbquery['masters_finals'] = parseFloat(query.masters_finals);
@@ -156,7 +156,7 @@ module.exports = (app) => {
         })
         //res.send(JSON.stringify(landusage_stats_copy, null,2)); // devuelve el conjunto 
     });
-*/
+
 /*          ALTERNATIVE GET RESOURCE
     app.get(BASE_API_URL + url_sergio,(req,res)=>{
         var query = req.query;
