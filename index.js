@@ -31,9 +31,14 @@ const backend_premier_league = require("./src/back/premier-league-stats/premier-
 backend_premier_league(app);
 
 //API Antonio Saborido
+const tennis_API = require("./src/back/tennis/tennis.js");
+const Datastore = require('nedb');
 
-const backend_tennis = require("./src/back/tennis/tennis");
-backend_tennis(app);
+db_tennis = new Datastore();
+app.use(bodyParser.json());
+
+tennis_API.register(app,db_tennis);
+
 
 //API Fernando Pardo Beltrán(nba-stats)
 
