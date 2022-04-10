@@ -6,53 +6,39 @@ const BASI_API_TENNIS2 = "/api/v2/tennis";
 
 var tennis = [
     {
-        country: "argentina",
+        country: "serbia",
         year: 2019,
-        most_grand_slam: 8,
-        masters_finals: 77,
-        olympic_gold_medals: 17
+        most_grand_slam: 2,
+        masters_finals: 3,
+        olympic_gold_medals: 0
     },
     {
         country: "spain",
-        year: 2015,
-        most_grand_slam: 9,
-        masters_finals: 57,
-        olympic_gold_medals: 12
-    },
-    {
-        country: "spain",
-        year: 2016,
-        most_grand_slam: 7,
-        masters_finals: 62,
-        olympic_gold_medals: 13
-    },
-    {
-        country: "canada",
-        year: 2016,
-        most_grand_slam: 7,
-        masters_finals: 82,
-        olympic_gold_medals: 11
-    },
-    {
-        country: "brazil",
-        year: 2016,
-        most_grand_slam: 6,
-        masters_finals: 75,
-        olympic_gold_medals: 14
-    },
-    {
-        country: "belgium",
         year: 2019,
-        most_grand_slam: 10,
-        masters_finals: 82,
-        olympic_gold_medals: 10
+        most_grand_slam: 2,
+        masters_finals: 2,
+        olympic_gold_medals: 0
     },
     {
-        country: "australia",
-        year: 2019,
-        most_grand_slam: 7,
-        masters_finals: 82,
-        olympic_gold_medals: 12
+        country: "great-britain",
+        year: 2012,
+        most_grand_slam: 1,
+        masters_finals: 0,
+        olympic_gold_medals: 1
+    },
+    {
+        country: "russia",
+        year: 2021,
+        most_grand_slam: 1,
+        masters_finals: 1,
+        olympic_gold_medals: 0
+    },
+    {
+        country: "swirtzeland",
+        year: 2008,
+        most_grand_slam: 1,
+        masters_finals: 0,
+        olympic_gold_medals: 0
     }
 ]
 
