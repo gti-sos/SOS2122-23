@@ -13,5 +13,5 @@
         <li><a href="https://sos2122-23.herokuapp.com/api/v1/nba-stats">https://sos2122-23.herokuapp.com/api/v1/nba-stats (developed by Fernando Pardo Beltrán)</a></li>
         
         <li><a href="https://sos2122-23.herokuapp.com/api/v1/tennis">https://sos2122-23.herokuapp.com/api/v1/tennis </a> (developed by Antonio Saborido Campos) <a href="https://sos2122-23.herokuapp.com/#/tennis">Funcionalidades básicas de gestión </a></li> 
-    hola
+    
 </main>
