@@ -125,7 +125,7 @@ app.get(BASE_API_URL,(req,res)=>{
 
     for(var i = 0; i<Object.keys(req.query).length;i++){
         var element = Object.keys(req.query)[i];
-        if(element != "years" && element != "from" && element != "to" && element != "limit" && element != "offset"){
+        if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset"){
             res.sendStatus(400, "BAD REQUEST");
             
         }
