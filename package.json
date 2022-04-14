@@ -1,7 +1,7 @@
 {
   "name": "sos2122-23",
   "version": "1.0.0",
-  "description": "Proyecto para SOS2122 del grupo 10",
+  "description": "Proyecto para SOS2122 del grupo 23",
   "main": "index.js",
   "dependencies": {
     "accepts": "^1.3.8",
@@ -71,7 +71,7 @@
     "test-premier-league": "npx newman run ./tests/backend-AMM.json -e ./tests/env/heroku-AMM.json",
     "test-nba-stats": "npx newman run ./tests/backend-FPB.json -e ./tests/env/heroku.json",
     "test-tennis": "npx newman run ./tests/backend-ASC.json",
-    "test": "npm run test-nba-stats && npm run test-premier-league",
+    "test": "npm run test-nba-stats",
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
