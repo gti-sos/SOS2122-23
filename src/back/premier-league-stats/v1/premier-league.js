@@ -55,7 +55,7 @@ module.exports.register = (app,db) => {
 
 //Portal de Documentacion
 
-app.get(BASE_API_URL_DEFENSE+"/docs",(req,res)=>
+app.get(BASE_API_URL+"/docs",(req,res)=>
 {
     res.redirect(pman);
 });
