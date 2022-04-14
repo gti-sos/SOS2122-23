@@ -6,7 +6,43 @@
 	},
 	"item": [
 		{
-			"name": "GET todo http://localhost:8080/api/v1/premier-league",
+			"name": "GET Cargar datos iniciales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2122-23.herokuapp.com/api/v1/premier-league/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2122-23",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"premier-league",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET todo",
 			"event": [
 				{
 					"listen": "test",
@@ -41,14 +77,19 @@
 			"response": []
 		},
 		{
-			"name": "GET NETHERLANDS/2018 FAIL http://localhost:8080/api/v1/premier-league/Netherlands/2018",
+			"name": "GET pais",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404. Not Found.\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an object\", function (){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(typeof jsonData == 'object').to.eql(true);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -59,20 +100,207 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/Netherlands/2018",
+					"raw": "{{HOST}}/Belgium",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
-						"Netherlands",
-						"2018"
+						"Belgium"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST variable http://localhost:8080/api/v1/premier-league",
+			"name": "GET por pais y año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is an object\", function (){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(typeof jsonData == 'object').to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/Belgium/2017",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"Belgium",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET por año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse is an Array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse has contact\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check if year==2019\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for(var i = 0; i<jsonData.length;i++){\r",
+							"        pm.expect(jsonData[i].year).to.eql(2017);\r",
+							"    };\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?year=2017",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Global pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse is an Array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse has at least 1 element\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?offset=2&limit=3",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET from to",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse is an Array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responsse has at least 1 element\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"From <= to\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var from = pm.request.url.query.toObject().from;\r",
+							"    var to = pm.request.url.query.toObject().to;\r",
+							"    pm.expect(from<=to).to.be.eql(true);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?from=2017&to=2020",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2017"
+						},
+						{
+							"key": "to",
+							"value": "2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST variable",
 			"event": [
 				{
 					"listen": "test",
@@ -80,6 +308,10 @@
 						"exec": [
 							"pm.test(\"Successful POST request. Status code 201.\", function () {\r",
 							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -91,7 +323,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Netherlands\",\r\n    \"years\":2018,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -108,131 +340,7 @@
 			"response": []
 		},
 		{
-			"name": "GET NETHERLANDS 2018 http://localhost:8080/api/v1/premier-league/Netherlands/2018",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/Netherlands/2018",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Netherlands",
-						"2018"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE por pais http://localhost:8080/api/v1/premier-league/Spain",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/Netherlands/2018",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Netherlands",
-						"2018"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET NETHERLANDS 2018 FAIL2 http://localhost:8080/api/v1/premier-league",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404. NOT FOUND\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/Netherlands/2018",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Netherlands",
-						"2018"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST SPAIN 2013 FAILED 405 http://localhost:8080/api/v1/premier-league/France/2016",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 405. Unable to post\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/Spain/2013",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Spain",
-						"2013"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT FAILED 405 http://localhost:8080/api/v1/premier-league",
+			"name": "POST variable para recurso",
 			"event": [
 				{
 					"listen": "test",
@@ -240,6 +348,9 @@
 						"exec": [
 							"pm.test(\"Status code is 405\", function () {\r",
 							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -247,25 +358,37 @@
 				}
 			],
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{HOST}}/Netherlands",
 					"host": [
 						"{{HOST}}"
+					],
+					"path": [
+						"Netherlands"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PUT SPAIN 2013 GOALS http://localhost:8080/api/v1/premier-league/Spain/2013",
+			"name": "PUT para recurso",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Status code is 200\", function(){\r",
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
@@ -278,7 +401,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Spain\",\r\n    \"years\":2013,\r\n    \"appearences\":37,\r\n    \"cleanSheets\":10,\r\n    \"goals\":12\r\n}",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -286,27 +409,27 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Spain/2013",
+					"raw": "{{HOST}}/Netherlands/2017",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
-						"Spain",
-						"2013"
+						"Netherlands",
+						"2017"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET SPAIN 2013 NEW http://localhost:8080/api/v1/premier-league/Spain/2013",
+			"name": "PUT para lista de recursos",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 405\", function(){\r",
+							"    pm.response.to.have.status(405);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -314,29 +437,34 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{HOST}}/Spain/2013",
+					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					],
-					"path": [
-						"Spain",
-						"2013"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PUT SPAIN 2013 FAILED 400 http://localhost:8080/api/v1/premier-league/Spain/2013",
+			"name": "PUT fallo para recurso",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function () {\r",
+							"pm.test(\"Status code is 400\", function(){\r",
 							"    pm.response.to.have.status(400);\r",
 							"});"
 						],
@@ -349,7 +477,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Spain\",\r\n    \"years\":2013,\r\n    \"appearences\":37,\r\n    \"cleanSheets\":10\r\n}",
+					"raw": "{\r\n    \"country\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -357,107 +485,27 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Spain/2013",
+					"raw": "{{HOST}}/Netherlands/2017",
 					"host": [
 						"{{HOST}}"
 					],
 					"path": [
-						"Spain",
-						"2013"
+						"Netherlands",
+						"2017"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PUT ITALY 2019 FAILED 404 http://localhost:8080/api/v1/premier-league/Italy/2019",
+			"name": "POST fallo json de una lista de recursos",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Spain\",\r\n    \"years\":2013,\r\n    \"appearences\":37,\r\n    \"cleanSheets\":10,\r\n    \"goals\":12\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{HOST}}/Italy/2019",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Italy",
-						"2019"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT SPAIN 2014 FAILED 404 http://localhost:8080/api/v1/premier-league/Spain/2014",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Spain\",\r\n    \"years\":2013,\r\n    \"appearences\":37,\r\n    \"cleanSheets\":10,\r\n    \"goals\":12\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{HOST}}/Spain/2014",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Spain",
-						"2014"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST SPAIN 2013 FAILED 409 http://localhost:8080/api/v1/premier-league",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 409\", function () {\r",
-							"    pm.response.to.have.status(409);\r",
+							"pm.test(\"Status code is 400\", function(){\r",
+							"    pm.response.to.have.status(400);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -469,7 +517,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"countries\":\"Spain\",\r\n    \"years\":2013,\r\n    \"appearences\":37,\r\n    \"cleanSheets\":12,\r\n    \"goals\":23\r\n}",
+					"raw": "{\r\n    \"city\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -486,13 +534,55 @@
 			"response": []
 		},
 		{
-			"name": "DELETE ALL http://localhost:8080/api/v1/premier-league",
+			"name": "GET fallo recurso",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Status code is 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/Greece",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"Greece"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
@@ -503,143 +593,59 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/Netherlands/2017",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"Netherlands",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE lista de recursos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "{{HOST}}",
 					"host": [
 						"{{HOST}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET ALL VACIO http://localhost:8080/api/v1/premier-league",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response is an array\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
-							"});\r",
-							"pm.test(\"Response has no data\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.be.at.most(0);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}",
-					"host": [
-						"{{HOST}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET INITIALDATA http://localhost:8080/api/v1/premier-league/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Response is an array\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(Array.isArray(jsonData)).to.eql(true);\r",
-							"});\r",
-							"pm.test(\"Response has data\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/loadInitialData",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"loadInitialData"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET RECURSO 200 http://localhost:8080/api/v1/premier-league/England",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/England",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"England"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PUT ENGLAND FAILED 405 http://localhost:8080/api/v1/premier-league/England",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 405\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/England",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"England"
 					]
 				}
 			},
