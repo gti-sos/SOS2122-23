@@ -7,43 +7,43 @@ const pman = "https://documenter.getpostman.com/view/19586040/UVyn2yuS";
 
 var stats = [
     {
-        countries:"England",
-        years:2018,
+        country:"England",
+        year:2018,
         appearences:38,
         cleanSheets:21,
         goals:22
     },
     {
-        countries:"England",
-        years:2019,
+        country:"England",
+        year:2019,
         appearences:38,
         cleanSheets:16,
         goals:21
     },
     {
-        countries:"Belgium",
-        years:2015,
+        country:"Belgium",
+        year:2015,
         appearences:38,
         cleanSheets:11,
         goals:18
     },
     {
-        countries:"Belgium",
-        years:2017,
+        country:"Belgium",
+        year:2017,
         appearences:38,
         cleanSheets:16,
         goals:16
     },
     {
-        countries:"Spain",
-        years:2013,
+        country:"Spain",
+        year:2013,
         appearences:37,
         cleanSheets:12,
         goals:9
     },
     {
-        countries:"Spain",
-        years:2020,
+        country:"Spain",
+        year:2020,
         appearences:37,
         cleanSheets:10,
         goals:7
@@ -86,8 +86,8 @@ app.get(BASE_API_URL+"/loadInitialData",(req,res)=>{
 //Metodo auxiliar
 
 function check_body(req){
-    return (req.body.countries == null |
-             req.body.years == null | 
+    return (req.body.country == null |
+             req.body.year == null | 
              req.body.appearences == null | 
              req.body.cleanSheets == null | 
              req.body.goals == null);
@@ -116,7 +116,7 @@ function pagination(req, lista){
 //GET Global y años
 
 app.get(BASE_API_URL,(req,res)=>{
-    var years = req.query.years;
+    var year = req.query.year;
     var from = req.query.from;
     var to   = req.query.to;
 
@@ -125,7 +125,7 @@ app.get(BASE_API_URL,(req,res)=>{
 
     for(var i = 0; i<Object.keys(req.query).length;i++){
         var element = Object.keys(req.query)[i];
-        if(element != "years" && element != "from" && element != "to" && element != "limit" && element != "offset"){
+        if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset"){
             res.sendStatus(400, "BAD REQUEST");
             
         }
@@ -146,10 +146,10 @@ app.get(BASE_API_URL,(req,res)=>{
 
         // Apartado para búsqueda por año
         
-        if(years != null){
+        if(year != null){
             var filteredList = filteredList.filter((reg)=>
             {
-                return (reg.years == years);
+                return (reg.year == year);
             });
             if (filteredList==0){
                 res.sendStatus(404, "NOT FOUND");     
@@ -161,7 +161,7 @@ app.get(BASE_API_URL,(req,res)=>{
         if(from != null && to != null){
             filteredList = filteredList.filter((reg)=>
             {
-                return (reg.years >= from && reg.years <=to);
+                return (reg.year >= from && reg.year <=to);
             });
 
             if (filteredList==0){
@@ -187,9 +187,9 @@ app.get(BASE_API_URL,(req,res)=>{
 
 //GET Pais y opcion entre años
 
-app.get(BASE_API_URL+"/:countries",(req, res)=>{
+app.get(BASE_API_URL+"/:country",(req, res)=>{
 
-    var countries =req.params.countries
+    var country =req.params.country
     var from = req.query.from;
     var to = req.query.to;
 
@@ -220,14 +220,14 @@ app.get(BASE_API_URL+"/:countries",(req, res)=>{
 
         filteredList = filteredList.filter((reg)=>
         {
-            return (reg.countries == countries);
+            return (reg.country == country);
         });
 
 
         if(from != null && to != null && from<=to){
             filteredList = filteredList.filter((reg)=>
             {
-               return (reg.years >= from && reg.years <=to);
+               return (reg.year >= from && reg.year <=to);
             }); 
             
         }
@@ -251,10 +251,10 @@ app.get(BASE_API_URL+"/:countries",(req, res)=>{
 
 //GET por Pais y Año
 
-app.get(BASE_API_URL+"/:countries/:years",(req, res)=>{
+app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
 
-    var countries =req.params.countries
-    var years = req.params.years
+    var country =req.params.country
+    var year = req.params.year
 
     db.find({},function(err, filteredList){
 
@@ -265,7 +265,7 @@ app.get(BASE_API_URL+"/:countries/:years",(req, res)=>{
 
         filteredList = filteredList.filter((reg)=>
         {
-            return (reg.countries == countries && reg.years == years);
+            return (reg.country == country && reg.year == year);
         });
         if (filteredList==0){
             res.sendStatus(404, "NO EXISTE");
@@ -306,7 +306,7 @@ app.post(BASE_API_URL,(req, res)=>{
 
             filteredList = filteredList.filter((reg)=>
             {
-                return(req.body.countries == reg.countries && req.body.years == reg.years)
+                return(req.body.country == reg.country && req.body.year == reg.year)
             })
         
             if(filteredList.length != 0){
@@ -321,7 +321,7 @@ app.post(BASE_API_URL,(req, res)=>{
 });
 // POST para recurso concreto
 
-app.post(BASE_API_URL+"/:countries",(req, res)=>{
+app.post(BASE_API_URL+"/:country",(req, res)=>{
     res.sendStatus(405,"METHOD NOT ALLOWED");
 });
 
@@ -337,14 +337,14 @@ app.put(BASE_API_URL,(req, res)=>{
 
 // PUT de un recurso especifico
 
-app.put(BASE_API_URL+"/:countries/:years",(req, res)=>{
+app.put(BASE_API_URL+"/:country/:year",(req, res)=>{
     
     //Comprobamos formato JSON
     if(check_body(req)){
         res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
     }
-    var countryR = req.params.countries;
-    var yearR = req.params.years;
+    var countryR = req.params.country;
+    var yearR = req.params.year;
     var body = req.body;  
 
     db.find({},function(err,filteredList){
@@ -366,14 +366,14 @@ app.put(BASE_API_URL+"/:countries/:years",(req, res)=>{
 
             //COMPROBAMOS SI LOS CAMPOS ACTUALIZADOS SON IGUALES
 
-            if(countryR != body.countries || yearR != body.years){
+            if(countryR != body.country || yearR != body.year){
                 res.sendStatus(400,"BAD REQUEST");
                 return;
             }
 
             //ACTUALIZAMOS VALOR
                 
-            db.update({$and:[{countries: String(countryR)}, {years: parseInt(yearR)}]}, {$set: body}, {},function(err, numUpdated) {
+            db.update({$and:[{country: String(countryR)}, {year: parseInt(yearR)}]}, {$set: body}, {},function(err, numUpdated) {
                 if (err) {
                     res.sendStatus(500, "CLIENT ERROR");
                     return;
@@ -404,10 +404,10 @@ app.delete(BASE_API_URL,(req, res)=>{
 
 // DELETE de un recurso especifico
 
-app.delete(BASE_API_URL+"/:countries/:years",(req, res)=>{
-    var countryR = req.params.countries;
-    var yearR = req.params.years;
-    db.find({countries: countryR, years: parseInt(yearR)}, {}, (err, filteredList)=>{
+app.delete(BASE_API_URL+"/:country/:year",(req, res)=>{
+    var countryR = req.params.country;
+    var yearR = req.params.year;
+    db.find({country: countryR, year: parseInt(yearR)}, {}, (err, filteredList)=>{
         if (err){
             res.sendStatus(500,"ERROR EN CLIENTE");
             return;
@@ -416,7 +416,7 @@ app.delete(BASE_API_URL+"/:countries/:years",(req, res)=>{
             res.sendStatus(404,"NOT FOUND");
             return;
         }
-        db.remove({countries: countryR, years: yearR}, {}, (err, numRemoved)=>{
+        db.remove({country: countryR, year: yearR}, {}, (err, numRemoved)=>{
             if (err){
                 res.sendStatus(500,"ERROR EN CLIENTE");
                 return;
