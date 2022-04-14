@@ -24,43 +24,43 @@ module.exports.register = (app) => {
 
         var statsIni = [
             {
-                countries:"England",
-                years:2018,
+                country:"England",
+                year:2018,
                 appearences:38,
                 cleanSheets:21,
                 goals:22
             },
             {
-                countries:"England",
-                years:2019,
+                country:"England",
+                year:2019,
                 appearences:38,
                 cleanSheets:16,
                 goals:21
             },
             {
-                countries:"Belgium",
-                years:2015,
+                country:"Belgium",
+                year:2015,
                 appearences:38,
                 cleanSheets:11,
                 goals:18
             },
             {
-                countries:"Belgium",
-                years:2017,
+                country:"Belgium",
+                year:2017,
                 appearences:38,
                 cleanSheets:16,
                 goals:16
             },
             {
-                countries:"Spain",
-                years:2013,
+                country:"Spain",
+                year:2013,
                 appearences:37,
                 cleanSheets:12,
                 goals:9
             },
             {
-                countries:"Spain",
-                years:2020,
+                country:"Spain",
+                year:2020,
                 appearences:37,
                 cleanSheets:10,
                 goals:7
@@ -91,14 +91,14 @@ module.exports.register = (app) => {
         var dbquery = {};
 
         //"Parseamos" los datos a su tipo original antes de buscar
-        if (req.query.countries) dbquery["countries"] = req.query.countries;
-        if (req.query.years) dbquery["years"] = parseInt(req.query.years);
+        if (req.query.country) dbquery["country"] = req.query.country;
+        if (req.query.year) dbquery["year"] = parseInt(req.query.year);
         if (req.query.appearences) dbquery["appearences"] = parseFloat(req.query.appearences);
         if (req.query.cleanSheets) dbquery["cleanSheets"] = parseFloat(req.query.cleanSheets);
         if (req.query.goals) dbquery["goals"] = parseFloat(req.query.goals);
 
         //Búsqueda de datos y ordenación por parametro country
-        db.find(dbquery).sort({countries:1, years:-1}).skip(offset).limit(limit).exec((error, dataPremier) => {
+        db.find(dbquery).sort({country:1, year:-1}).skip(offset).limit(limit).exec((error, dataPremier) => {
             if (error){
                 console.error("Error accessing DB in POST: " + err);
                 res.sendStatus(500);
@@ -117,11 +117,11 @@ module.exports.register = (app) => {
 
 
      //GET A UN RECURSO CONCRETO DE SMOKER POR COUNTRY/YEAR    
-     app.get(BASE_API_PATH+"/:countries/:years", (req, res) => {
-        var reqCountry = req.params.countries;
-        var reqYear = parseInt(req.params.years);
+     app.get(BASE_API_PATH+"/:country/:year", (req, res) => {
+        var reqCountry = req.params.country;
+        var reqYear = parseInt(req.params.year);
 
-        db.find({ countries: reqCountry, years: reqYear }, { _id: 0 }, function (err, data) {
+        db.find({ country: reqCountry, year: reqYear }, { _id: 0 }, function (err, data) {
             if (err) {
                 console.error("ERROR in GET: "+err);
                 res.sendStatus(500);
@@ -144,18 +144,18 @@ module.exports.register = (app) => {
     //POST A LA LISTA DE RECURSOS DE PREMIER-LEAGUE-STATS 
     app.post(BASE_API_PATH,(req,res)=>{
         var dataNew = req.body;
-        var countryNew = req.body.countries;
-        var yearNew = req.body.years;
+        var countryNew = req.body.country;
+        var yearNew = req.body.year;
         
         
-        db.find({ countries: countryNew, years: yearNew }, (err, data) => {
+        db.find({ country: countryNew, year: yearNew }, (err, data) => {
             if (err) {
                 console.error("Error accessing DB in POST: " + err);
                 res.sendStatus(500);
             } else {
                 if (data.length == 0) {
-                    if (!dataNew.countries ||
-                        !dataNew.years ||
+                    if (!dataNew.country ||
+                        !dataNew.year ||
                         !dataNew.appearences ||
                         !dataNew.cleanSheets ||
                         !dataNew.goals) {
@@ -175,7 +175,7 @@ module.exports.register = (app) => {
     });
 
      //POST A UN RECURSO DE DEFENSE (No está permitido)
-     app.post(BASE_API_PATH+"/:countries/:years",(req,res)=>{
+     app.post(BASE_API_PATH+"/:country/:year",(req,res)=>{
         res.sendStatus(405);
         console.log("Se ha intentado hacer POST a un recurso concreto.");
     });
@@ -183,17 +183,17 @@ module.exports.register = (app) => {
     /*------------------- PUTs -------------------*/
 
      //PUT A UN RECURSO CONCRETO DE DEFENSE POR COUNTRY/YEAR
-     app.put(BASE_API_PATH+"/:countries/:years", (req,res) => {
+     app.put(BASE_API_PATH+"/:country/:year", (req,res) => {
         
-        var reqcountry = req.params.countries;
-        var reqyear = parseInt(req.params.years);
+        var reqcountry = req.params.country;
+        var reqyear = parseInt(req.params.year);
         var data = req.body;
 
         if (Object.keys(data).length != 7) {
             console.log("Actualizacion de campos no valida");
             res.sendStatus(400);
         }else {
-            db.update({ countries: reqcountry, years: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
+            db.update({ country: reqcountry, year: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
                 if (err) {
                     console.error("ERROR accesing DB in GET");
                     res.sendStatus(500);
@@ -234,10 +234,10 @@ module.exports.register = (app) => {
     });
 
     //DELETE A UN RECURSO DE DEFENSE POR COUNTRY/YEAR
-    app.delete(BASE_API_PATH + "/:countries/:years", (req,res)=>{
-        var reqcountry = req.params.countries;
-        var reqyear = parseInt(req.params.years);
-        db.remove({countries : reqcountry, years : reqyear},{multi:true}, (err, data) => {
+    app.delete(BASE_API_PATH + "/:country/:year", (req,res)=>{
+        var reqcountry = req.params.country;
+        var reqyear = parseInt(req.params.year);
+        db.remove({country : reqcountry, year : reqyear},{multi:true}, (err, data) => {
             if (err) {
                 console.error("ERROR in GET");
                 res.sendStatus(500);
