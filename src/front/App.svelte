@@ -14,7 +14,7 @@
 		"/tennis/:country/:year" : Edit,
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit
-
+//
 	};
 
 
