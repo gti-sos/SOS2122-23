@@ -168,7 +168,7 @@
 							"    pm.expect(jsonData.length).to.be.at.least(1);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check if year==2019\", function () {\r",
+							"pm.test(\"Check if year==2017\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    for(var i = 0; i<jsonData.length;i++){\r",
 							"        pm.expect(jsonData[i].year).to.eql(2017);\r",
