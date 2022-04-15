@@ -4,9 +4,6 @@
 	import List from "./tennis/list.svelte";
 	import Edit from "./tennis/edit.svelte";
 
-	import Footer from "./components/Footer.svelte";
-	import Header from "./components/Header.svelte";
-
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
 
@@ -23,10 +20,8 @@
 
 </script>
 
-<Header />
+
 
 <main>
 	<Router {routes} />
 </main>
-
-<Footer />
