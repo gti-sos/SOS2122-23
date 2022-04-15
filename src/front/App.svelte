@@ -4,6 +4,9 @@
 	import List from "./tennis/list.svelte";
 	import Edit from "./tennis/edit.svelte";
 
+	import Footer from "./components/Footer.svelte";
+	import Header from "./components/Header.svelte";
+
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
 
@@ -14,14 +17,16 @@
 		"/tennis/:country/:year" : Edit,
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit
-//
+
 	};
 
 
 </script>
 
-
+<Header />
 
 <main>
 	<Router {routes} />
 </main>
+
+<Footer />
