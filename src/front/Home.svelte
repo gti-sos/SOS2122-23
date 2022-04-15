@@ -13,6 +13,9 @@
         <li><a href="https://sos2122-23.herokuapp.com/api/v1/nba-stats">https://sos2122-23.herokuapp.com/api/v1/nba-stats (developed by Fernando Pardo Beltrán)</a></li>
         
         <li><a href="https://sos2122-23.herokuapp.com/api/v1/tennis">https://sos2122-23.herokuapp.com/api/v1/tennis </a> (developed by Antonio Saborido Campos) <a href="https://sos2122-23.herokuapp.com/#/tennis">Funcionalidades básicas de gestión </a></li> 
+        <br>
+        <hr>
+        <br>
         <div class="row">
             <div class="col-sm-4">
                
@@ -64,14 +67,42 @@
                     <div class="container">
                         <h4><b>Tennis</b></h4>
                         <p> Antonio Saborido Campos</p>
-                        <a href="/#/tennis">
+                        <a href="/api/v1/tennis">
                         <button class="btn btn-primary" type="submit"
-                            >Link</button
+                            >API V1</button
                         >
                         </a>
+                        <a href="/api/v2/tennis">
+                            <button class="btn btn-primary" type="submit"
+                                >API V2</button
+                            >
+                        </a>
+                        <a href="/#/tennis">
+                            <button class="btn btn-primary" type="submit"
+                                >Interfaz</button
+                            >
+                        </a>
+                            
                     </div>
                 </div>
             </div>
         </div>
         
 </main>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 90%;
+        text-align: center;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+        padding: 2px 16px;
+        text-align: center;
+    }
+</style>
