@@ -43,15 +43,18 @@
                      console.log("Data introduced");
                      color = "success";
                      checkMSG="Entrada introducida correctamente a la base de datos";
+					 window.alert("Entrada introducida correctamente");
                 }else if(res.status == 400){
                      console.log("ERROR Data was not correctly introduced");
                      color = "danger";
                      checkMSG= "Los datos de la entrada no fueron introducidos correctamente";
+					 window.alert("Entrada introducida incorrectamente");
                 }else if(res.status == 409){
                      console.log("ERROR There is already a data with that country and year in the da tabase");
                      color = "danger";
                      checkMSG= "Ya existe una entrada en la base de datos con el pais y el año introducido";
-                }
+					 window.alert("Ya existe dicha entrada");
+				}
 				
 			}); 
     }
