@@ -340,6 +340,42 @@
 			"response": []
 		},
 		{
+			"name": "POST variable fallo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}",
+					"host": [
+						"{{HOST}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST variable para recurso",
 			"event": [
 				{

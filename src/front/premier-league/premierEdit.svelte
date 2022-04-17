@@ -5,7 +5,9 @@
     import { onMount } from 'svelte';
     import Button from 'sveltestrap/src/Button.svelte';
     import Table from 'sveltestrap/src/Table.svelte';
+import { getTransitionDuration } from "sveltestrap/src/utils";
 
+    let visile = false;
     let entry = {};
 
     let updatedCountry;
@@ -48,7 +50,18 @@
 				headers: {
 					"Content-Type": "application/json"
 				}
-			}); 
+			}).then(function(res){
+                visible=true;
+                if(res.status==200){
+                    getStat();
+                    console.log("Data introduced");
+                    color="success";
+                    errorMsg = "Recurso actualizado correctamente";
+                }else{
+                    console.log("Data not edited");
+                    errorMsg="Rellene todos los campos";
+                }
+            }); 
     }
 
     async function Errores(code){

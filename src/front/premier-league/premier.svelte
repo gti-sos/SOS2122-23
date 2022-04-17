@@ -14,6 +14,8 @@
         goals: ""
 	}
 
+	let visible = false;
+
     onMount(getEntries);
 
     async function getEntries(){
