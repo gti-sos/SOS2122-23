@@ -29,8 +29,7 @@
 	async function insertEntry(){
         console.log("Inserting entry...."+JSON.stringify(newEntry));
 		if (newEntry.country == "" || newEntry.year == null ||
-            newEntry.spen_mill_eur == null || newEntry.public_percent == null || newEntry.pib_percent == null 
-            || newEntry.per_capita == null || newEntry.var == null) {
+            newEntry.appearences == null || newEntry.cleanSheets == null || newEntry.goals == null) {
              alert("Los campos no pueden estar vacios");
 		}
         else{

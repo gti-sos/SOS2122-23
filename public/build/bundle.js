@@ -2022,11 +2022,11 @@ var app = (function () {
     			t44 = space();
     			a9 = element("a");
     			button1 = element("button");
-    			button1.textContent = "Interfaz";
+    			button1.textContent = "Api";
     			t46 = space();
     			a10 = element("a");
     			button2 = element("button");
-    			button2.textContent = "Api";
+    			button2.textContent = "Interfaz";
     			t48 = space();
     			div8 = element("div");
     			div7 = element("div");
@@ -2113,14 +2113,14 @@ var app = (function () {
     			add_location(p4, file$d, 49, 24, 2638);
     			attr_dev(button1, "class", "btn btn-primary");
     			attr_dev(button1, "type", "submit");
-    			add_location(button1, file$d, 51, 24, 2747);
-    			attr_dev(a9, "href", "/#/premier-league");
+    			add_location(button1, file$d, 51, 28, 2756);
+    			attr_dev(a9, "href", "/api/v1/premier-league");
     			add_location(a9, file$d, 50, 24, 2693);
     			attr_dev(button2, "class", "btn btn-primary");
     			attr_dev(button2, "type", "submit");
-    			add_location(button2, file$d, 54, 28, 2929);
-    			attr_dev(a10, "href", "/api/v1/premier-league");
-    			add_location(a10, file$d, 53, 24, 2866);
+    			add_location(button2, file$d, 54, 24, 2924);
+    			attr_dev(a10, "href", "/#/premier-league");
+    			add_location(a10, file$d, 53, 24, 2870);
     			attr_dev(div3, "class", "container svelte-110ltv7");
     			add_location(div3, file$d, 47, 20, 2533);
     			attr_dev(div4, "class", "card svelte-110ltv7");
@@ -2130,36 +2130,36 @@ var app = (function () {
     			if (!src_url_equal(img2.src, img2_src_value = "https://photoresources.wtatennis.com/photo-resources/2019/08/15/dbb59626-9254-4426-915e-57397b6d6635/tennis-origins-e1444901660593.jpg?width=1200&height=630")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "Avatar");
     			set_style(img2, "width", "100%");
-    			add_location(img2, file$d, 62, 20, 3201);
-    			add_location(b2, file$d, 68, 28, 3574);
-    			add_location(h42, file$d, 68, 24, 3570);
-    			add_location(p5, file$d, 69, 24, 3618);
+    			add_location(img2, file$d, 63, 20, 3227);
+    			add_location(b2, file$d, 69, 28, 3600);
+    			add_location(h42, file$d, 69, 24, 3596);
+    			add_location(p5, file$d, 70, 24, 3644);
     			attr_dev(button3, "class", "btn btn-primary");
     			attr_dev(button3, "type", "submit");
-    			add_location(button3, file$d, 71, 24, 3726);
+    			add_location(button3, file$d, 72, 24, 3752);
     			attr_dev(a11, "href", "/api/v1/tennis");
-    			add_location(a11, file$d, 70, 24, 3675);
+    			add_location(a11, file$d, 71, 24, 3701);
     			attr_dev(button4, "class", "btn btn-primary");
     			attr_dev(button4, "type", "submit");
-    			add_location(button4, file$d, 76, 28, 3959);
+    			add_location(button4, file$d, 77, 28, 3985);
     			attr_dev(a12, "href", "/api/v1/tennis/docs");
-    			add_location(a12, file$d, 75, 24, 3899);
+    			add_location(a12, file$d, 76, 24, 3925);
     			attr_dev(button5, "class", "btn btn-primary");
     			attr_dev(button5, "type", "submit");
-    			add_location(button5, file$d, 81, 28, 4204);
+    			add_location(button5, file$d, 82, 28, 4230);
     			attr_dev(a13, "href", "/api/v2/tennis");
-    			add_location(a13, file$d, 80, 24, 4149);
+    			add_location(a13, file$d, 81, 24, 4175);
     			attr_dev(button6, "class", "btn btn-primary");
     			attr_dev(button6, "type", "submit");
-    			add_location(button6, file$d, 86, 28, 4435);
+    			add_location(button6, file$d, 87, 28, 4461);
     			attr_dev(a14, "href", "/#/tennis");
-    			add_location(a14, file$d, 85, 24, 4385);
+    			add_location(a14, file$d, 86, 24, 4411);
     			attr_dev(div6, "class", "container svelte-110ltv7");
-    			add_location(div6, file$d, 67, 20, 3521);
+    			add_location(div6, file$d, 68, 20, 3547);
     			attr_dev(div7, "class", "card svelte-110ltv7");
-    			add_location(div7, file$d, 61, 16, 3161);
+    			add_location(div7, file$d, 62, 16, 3187);
     			attr_dev(div8, "class", "col-sm-4");
-    			add_location(div8, file$d, 59, 12, 3103);
+    			add_location(div8, file$d, 60, 12, 3129);
     			attr_dev(div9, "class", "row");
     			add_location(div9, file$d, 18, 8, 1352);
     			add_location(main, file$d, 0, 0, 0);
@@ -6546,7 +6546,7 @@ var app = (function () {
     	return block;
     }
 
-    // (135:1) {:then entries}
+    // (134:1) {:then entries}
     function create_then_block$1(ctx) {
     	let table;
     	let current;
@@ -6595,14 +6595,14 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(135:1) {:then entries}",
+    		source: "(134:1) {:then entries}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (158:8) <Button outline color="primary" on:click="{insertEntry}">
+    // (157:8) <Button outline color="primary" on:click="{insertEntry}">
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -6622,14 +6622,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(158:8) <Button outline color=\\\"primary\\\" on:click=\\\"{insertEntry}\\\">",
+    		source: "(157:8) <Button outline color=\\\"primary\\\" on:click=\\\"{insertEntry}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (170:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/premier-league/${entry.country}/${entry.year}`       }}>
+    // (169:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/premier-league/${entry.country}/${entry.year}`       }}>
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -6649,14 +6649,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(170:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/premier-league/${entry.country}/${entry.year}`       }}>",
+    		source: "(169:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/premier-league/${entry.country}/${entry.year}`       }}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (175:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
+    // (174:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -6676,14 +6676,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(175:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
+    		source: "(174:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (163:3) {#each entries as entry}
+    // (162:3) {#each entries as entry}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
@@ -6766,14 +6766,14 @@ var app = (function () {
     			t10 = space();
     			td6 = element("td");
     			create_component(button1.$$.fragment);
-    			add_location(td0, file$2, 164, 5, 4981);
-    			add_location(td1, file$2, 165, 5, 5012);
-    			add_location(td2, file$2, 166, 5, 5040);
-    			add_location(td3, file$2, 167, 20, 5090);
-    			add_location(td4, file$2, 168, 20, 5140);
-    			add_location(td5, file$2, 169, 5, 5169);
-    			add_location(td6, file$2, 174, 5, 5355);
-    			add_location(tr, file$2, 163, 4, 4970);
+    			add_location(td0, file$2, 163, 5, 4901);
+    			add_location(td1, file$2, 164, 5, 4932);
+    			add_location(td2, file$2, 165, 5, 4960);
+    			add_location(td3, file$2, 166, 20, 5010);
+    			add_location(td4, file$2, 167, 20, 5060);
+    			add_location(td5, file$2, 168, 5, 5089);
+    			add_location(td6, file$2, 173, 5, 5275);
+    			add_location(tr, file$2, 162, 4, 4890);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -6843,14 +6843,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(163:3) {#each entries as entry}",
+    		source: "(162:3) {#each entries as entry}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (182:8) <Button outline color="success" on:click={LoadEntries}>
+    // (181:8) <Button outline color="success" on:click={LoadEntries}>
     function create_default_slot_2$1(ctx) {
     	let t;
 
@@ -6870,14 +6870,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(182:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
+    		source: "(181:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (185:8) <Button outline color="danger" on:click={BorrarEntries}>
+    // (184:8) <Button outline color="danger" on:click={BorrarEntries}>
     function create_default_slot_1$1(ctx) {
     	let t;
 
@@ -6897,14 +6897,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(185:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
+    		source: "(184:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:1) <Table bordered>
+    // (135:1) <Table bordered>
     function create_default_slot$1(ctx) {
     	let thead;
     	let tr0;
@@ -7055,32 +7055,32 @@ var app = (function () {
     			t19 = space();
     			td7 = element("td");
     			create_component(button2.$$.fragment);
-    			add_location(th0, file$2, 141, 4, 4330);
-    			add_location(th1, file$2, 142, 4, 4349);
-    			add_location(th2, file$2, 143, 4, 4367);
-    			add_location(th3, file$2, 144, 4, 4393);
-    			add_location(th4, file$2, 145, 16, 4434);
-    			add_location(th5, file$2, 146, 4, 4454);
-    			add_location(th6, file$2, 147, 4, 4469);
-    			add_location(tr0, file$2, 139, 3, 4314);
+    			add_location(th0, file$2, 140, 4, 4250);
+    			add_location(th1, file$2, 141, 4, 4269);
+    			add_location(th2, file$2, 142, 4, 4287);
+    			add_location(th3, file$2, 143, 4, 4313);
+    			add_location(th4, file$2, 144, 16, 4354);
+    			add_location(th5, file$2, 145, 4, 4374);
+    			add_location(th6, file$2, 146, 4, 4389);
+    			add_location(tr0, file$2, 138, 3, 4234);
     			attr_dev(thead, "id", "titulitos");
-    			add_location(thead, file$2, 138, 2, 4287);
-    			add_location(input0, file$2, 152, 8, 4531);
-    			add_location(td0, file$2, 152, 4, 4527);
-    			add_location(input1, file$2, 153, 8, 4585);
-    			add_location(td1, file$2, 153, 4, 4581);
-    			add_location(input2, file$2, 154, 8, 4636);
-    			add_location(td2, file$2, 154, 4, 4632);
-    			add_location(input3, file$2, 155, 20, 4706);
-    			add_location(td3, file$2, 155, 16, 4702);
-    			add_location(input4, file$2, 156, 20, 4776);
-    			add_location(td4, file$2, 156, 16, 4772);
-    			add_location(td5, file$2, 157, 4, 4824);
-    			add_location(tr1, file$2, 151, 3, 4517);
-    			add_location(td6, file$2, 181, 4, 5519);
-    			add_location(td7, file$2, 184, 4, 5623);
-    			add_location(tr2, file$2, 180, 3, 5509);
-    			add_location(tbody, file$2, 150, 2, 4505);
+    			add_location(thead, file$2, 137, 2, 4207);
+    			add_location(input0, file$2, 151, 8, 4451);
+    			add_location(td0, file$2, 151, 4, 4447);
+    			add_location(input1, file$2, 152, 8, 4505);
+    			add_location(td1, file$2, 152, 4, 4501);
+    			add_location(input2, file$2, 153, 8, 4556);
+    			add_location(td2, file$2, 153, 4, 4552);
+    			add_location(input3, file$2, 154, 20, 4626);
+    			add_location(td3, file$2, 154, 16, 4622);
+    			add_location(input4, file$2, 155, 20, 4696);
+    			add_location(td4, file$2, 155, 16, 4692);
+    			add_location(td5, file$2, 156, 4, 4744);
+    			add_location(tr1, file$2, 150, 3, 4437);
+    			add_location(td6, file$2, 180, 4, 5439);
+    			add_location(td7, file$2, 183, 4, 5543);
+    			add_location(tr2, file$2, 179, 3, 5429);
+    			add_location(tbody, file$2, 149, 2, 4425);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -7263,14 +7263,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(136:1) <Table bordered>",
+    		source: "(135:1) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (133:16)   loading   {:then entries}
+    // (132:16)   loading   {:then entries}
     function create_pending_block$1(ctx) {
     	let t;
 
@@ -7293,7 +7293,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(133:16)   loading   {:then entries}",
+    		source: "(132:16)   loading   {:then entries}",
     		ctx
     	});
 
@@ -7342,16 +7342,16 @@ var app = (function () {
     			img = element("img");
     			t4 = space();
     			info.block.c();
-    			add_location(h1, file$2, 124, 4, 4016);
+    			add_location(h1, file$2, 123, 4, 3936);
     			attr_dev(blockquote, "class", "blockquote");
-    			add_location(blockquote, file$2, 123, 2, 3979);
-    			add_location(p, file$2, 126, 2, 4064);
+    			add_location(blockquote, file$2, 122, 2, 3899);
+    			add_location(p, file$2, 125, 2, 3984);
     			if (!src_url_equal(img.src, img_src_value = "images/premier_league.jpg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background image");
-    			add_location(img, file$2, 129, 2, 4134);
+    			add_location(img, file$2, 128, 2, 4054);
     			attr_dev(figure, "class", "text-center");
-    			add_location(figure, file$2, 122, 1, 3947);
-    			add_location(main, file$2, 121, 0, 3938);
+    			add_location(figure, file$2, 121, 1, 3867);
+    			add_location(main, file$2, 120, 0, 3858);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7440,7 +7440,7 @@ var app = (function () {
     	async function insertEntry() {
     		console.log("Inserting entry...." + JSON.stringify(newEntry));
 
-    		if (newEntry.country == "" || newEntry.year == null || newEntry.spen_mill_eur == null || newEntry.public_percent == null || newEntry.pib_percent == null || newEntry.per_capita == null || newEntry.var == null) {
+    		if (newEntry.country == "" || newEntry.year == null || newEntry.appearences == null || newEntry.cleanSheets == null || newEntry.goals == null) {
     			alert("Los campos no pueden estar vacios");
     		} else {
     			await fetch("/api/v1/premier-league", {
