@@ -48,12 +48,13 @@
                     <div class="container">
                         <h4><b>Premier League</b></h4>
                         <p> Alberto Martin Martin</p>
-                        <a href="/#/premier-league">
-                        <button class="btn btn-primary" type="submit">Interfaz</button>
-                        </a>
                         <a href="/api/v1/premier-league">
                             <button class="btn btn-primary" type="submit">Api</button>
                         </a>
+                        <a href="/#/premier-league">
+                        <button class="btn btn-primary" type="submit">Interfaz</button>
+                        </a>
+                        
                     </div>
                 </div>
             </div>
