@@ -1,8 +1,14 @@
 const bodyParser = require("body-parser");
 
-const BASI_API_TENNIS = "/api/v1/tennis";
-
+const BASI_API_TENNIS2 = "/api/v2/tennis";
 //API Antonio Saborido
+
+    // ########################################################### //
+
+    //                          API V2                             //
+                        //(BASI_API_TENNIS22)
+
+    // ########################################################### //
 
 var tennis = [
     {
@@ -49,7 +55,7 @@ module.exports.register = (app,db) =>{
     
     // Cargar datos iniciales
     
-    app.get(BASI_API_TENNIS+"/loadInitialData",(req, res)=>{
+    app.get(BASI_API_TENNIS2+"/loadInitialData",(req, res)=>{
 
         db.find({},function(err, filteredList){
 
@@ -72,7 +78,7 @@ module.exports.register = (app,db) =>{
     
     // Documentos
     
-    app.get(BASI_API_TENNIS+"/docs",(req,res)=>
+    app.get(BASI_API_TENNIS2+"/docs",(req,res)=>
     {
         res.redirect("https://documenter.getpostman.com/view/19996738/UVysxGDk")
     })
@@ -81,7 +87,7 @@ module.exports.register = (app,db) =>{
     
     // GET global y GET por año
     
-    app.get(BASI_API_TENNIS,(req, res)=>{
+    app.get(BASI_API_TENNIS2,(req, res)=>{
     
         var year = req.query.year;
         var from = req.query.from;
@@ -168,7 +174,7 @@ module.exports.register = (app,db) =>{
     
     // GET por país
     
-    app.get(BASI_API_TENNIS+"/:country",(req, res)=>{
+    app.get(BASI_API_TENNIS2+"/:country",(req, res)=>{
     
         var country =req.params.country;
         var from = req.query.from;
@@ -254,7 +260,7 @@ module.exports.register = (app,db) =>{
     
     // GET por país y año
     
-    app.get(BASI_API_TENNIS+"/:country/:year",(req, res)=>{
+    app.get(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
     
         var country =req.params.country
         var year = req.params.year
@@ -310,7 +316,7 @@ module.exports.register = (app,db) =>{
     
     // POST para lista de recursos
     
-    app.post(BASI_API_TENNIS,(req, res)=>{
+    app.post(BASI_API_TENNIS2,(req, res)=>{
         
         if(comprobar_body(req)){
             res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
@@ -341,7 +347,7 @@ module.exports.register = (app,db) =>{
     
     // POST para recurso concreto
     
-    app.post(BASI_API_TENNIS+"/:country",(req, res)=>{
+    app.post(BASI_API_TENNIS2+"/:country",(req, res)=>{
         res.sendStatus(405,"METHOD NOT ALLOWED");
     })
     
@@ -350,14 +356,14 @@ module.exports.register = (app,db) =>{
     
     // PUT de una lista de recursos
     
-    app.put(BASI_API_TENNIS,(req, res)=>{
+    app.put(BASI_API_TENNIS2,(req, res)=>{
         
         res.sendStatus(405,"METHOD NOT ALLOWED");
     })
     
     // PUT de un recurso especifico
     
-    app.put(BASI_API_TENNIS+"/:country/:year",(req, res)=>{
+    app.put(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
         
         //COMPROBAMOS FORMATO JSON
 
@@ -413,7 +419,7 @@ module.exports.register = (app,db) =>{
     
     // DELETE de una lista de recursos
     
-    app.delete(BASI_API_TENNIS,(req, res)=>{
+    app.delete(BASI_API_TENNIS2,(req, res)=>{
         db.remove({}, { multi: true }, (err, numRemoved)=>{
             if (err){
                 res.sendStatus(500,"ERROR EN CLIENTE");
@@ -426,7 +432,7 @@ module.exports.register = (app,db) =>{
     
     // DELETE de un recurso especifico
     
-    app.delete(BASI_API_TENNIS+"/:country/:year",(req, res)=>{
+    app.delete(BASI_API_TENNIS2+"/:country/:year",(req, res)=>{
         var countryR = req.params.country;
         var yearR = req.params.year;
 
@@ -546,7 +552,6 @@ module.exports.register = (app,db) =>{
         return lista;
 
     }
-
 
 }
 
