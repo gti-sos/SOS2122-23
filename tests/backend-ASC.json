@@ -720,39 +720,8 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "GET ALL SERBIA",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}/{{API}}/tennis/serbia",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"{{API}}",
-						"tennis",
-						"serbia"
-					]
-				}
-			},
-			"response": []
 		}
+		
 	],
 	"variable": [
 		{
