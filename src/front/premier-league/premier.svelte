@@ -36,8 +36,23 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function (res){
-				getEntries();
-				window.alert("Entrada introducida con éxito");
+				visible=true;
+                if (res.status == 201){
+                     getEntries()
+                     totaldata++;
+                     console.log("Data introduced");
+                     color = "success";
+                     checkMSG="Entrada introducida correctamente a la base de datos";
+                }else if(res.status == 400){
+                     console.log("ERROR Data was not correctly introduced");
+                     color = "danger";
+                     checkMSG= "Los datos de la entrada no fueron introducidos correctamente";
+                }else if(res.status == 409){
+                     console.log("ERROR There is already a data with that country and year in the da tabase");
+                     color = "danger";
+                     checkMSG= "Ya existe una entrada en la base de datos con el pais y el año introducido";
+                }
+				
 			}); 
     }
 
@@ -58,8 +73,22 @@
 			{
 				method: "DELETE"
 			}).then(function (res){
-				getEntries();
-				window.alert("Entradas elimidas con éxito");
+				visible = true;
+            getEntries();      
+            if (res.status==200) {
+                totaldata--;
+                color = "success";
+                checkMSG = "Recurso "+countryD+" "+yearD+ " borrado correctamente";
+                console.log("Deleted " + countryD);            
+            } else if (res.status==404) {
+                color = "danger";
+                checkMSG = "No se ha encontrado el objeto " + countryD;
+                console.log("Resource NOT FOUND");            
+            } else {
+                color = "danger";
+                checkMSG= res.status + ": " + "No se pudo borrar el recurso";
+                console.log("ERROR!");
+            }      
 			});
     }
 
