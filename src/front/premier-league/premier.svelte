@@ -28,7 +28,13 @@
 
 	async function insertEntry(){
         console.log("Inserting entry...."+JSON.stringify(newEntry));
-        const res = await fetch("/api/v1/premier-league",
+		if (newEntry.country == "" || newEntry.year == null ||
+            newEntry.spen_mill_eur == null || newEntry.public_percent == null || newEntry.pib_percent == null 
+            || newEntry.per_capita == null || newEntry.var == null) {
+             alert("Los campos no pueden estar vacios");
+		}
+        else{
+			const res = await fetch("/api/v1/premier-league",
 			{
 				method: "POST",
 				body: JSON.stringify(newEntry),
@@ -56,7 +62,8 @@
 					 window.alert("Ya existe dicha entrada");
 				}
 				
-			}); 
+			});
+		} 
     }
 
 	async function BorrarEntry(countryDelete, yearDelete){
