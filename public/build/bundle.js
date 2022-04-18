@@ -4706,7 +4706,7 @@ var app = (function () {
     	return block;
     }
 
-    // (96:1) {:then entries}
+    // (110:1) {:then entries}
     function create_then_block$3(ctx) {
     	let table;
     	let current;
@@ -4755,14 +4755,14 @@ var app = (function () {
     		block,
     		id: create_then_block$3.name,
     		type: "then",
-    		source: "(96:1) {:then entries}",
+    		source: "(110:1) {:then entries}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (119:8) <Button outline color="primary" on:click="{insertEntry}">
+    // (133:8) <Button outline color="primary" on:click="{insertEntry}">
     function create_default_slot_5$1(ctx) {
     	let t;
 
@@ -4782,14 +4782,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(119:8) <Button outline color=\\\"primary\\\" on:click=\\\"{insertEntry}\\\">",
+    		source: "(133:8) <Button outline color=\\\"primary\\\" on:click=\\\"{insertEntry}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (131:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/tennis/${entry.country}/${entry.year}`       }}>
+    // (145:9) <Button outline color="warning" on:click={function (){        window.location.href = `/#/tennis/${entry.country}/${entry.year}`       }}>
     function create_default_slot_4$1(ctx) {
     	let t;
 
@@ -4809,14 +4809,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(131:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/tennis/${entry.country}/${entry.year}`       }}>",
+    		source: "(145:9) <Button outline color=\\\"warning\\\" on:click={function (){        window.location.href = `/#/tennis/${entry.country}/${entry.year}`       }}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
+    // (150:9) <Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
     function create_default_slot_3$1(ctx) {
     	let t;
 
@@ -4836,14 +4836,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(136:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
+    		source: "(150:9) <Button outline color=\\\"danger\\\" on:click={BorrarEntry(entry.country,entry.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (124:3) {#each entries as entry}
+    // (138:3) {#each entries as entry}
     function create_each_block$1(ctx) {
     	let tr;
     	let td0;
@@ -4926,14 +4926,14 @@ var app = (function () {
     			t10 = space();
     			td6 = element("td");
     			create_component(button1.$$.fragment);
-    			add_location(td0, file$6, 125, 5, 3064);
-    			add_location(td1, file$6, 126, 5, 3095);
-    			add_location(td2, file$6, 127, 5, 3123);
-    			add_location(td3, file$6, 128, 20, 3177);
-    			add_location(td4, file$6, 129, 20, 3230);
-    			add_location(td5, file$6, 130, 5, 3273);
-    			add_location(td6, file$6, 135, 5, 3451);
-    			add_location(tr, file$6, 124, 4, 3053);
+    			add_location(td0, file$6, 139, 5, 3815);
+    			add_location(td1, file$6, 140, 5, 3846);
+    			add_location(td2, file$6, 141, 5, 3874);
+    			add_location(td3, file$6, 142, 20, 3928);
+    			add_location(td4, file$6, 143, 20, 3981);
+    			add_location(td5, file$6, 144, 5, 4024);
+    			add_location(td6, file$6, 149, 5, 4202);
+    			add_location(tr, file$6, 138, 4, 3804);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -5003,14 +5003,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(124:3) {#each entries as entry}",
+    		source: "(138:3) {#each entries as entry}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (143:8) <Button outline color="success" on:click={LoadEntries}>
+    // (157:8) <Button outline color="success" on:click={LoadEntries}>
     function create_default_slot_2$3(ctx) {
     	let t;
 
@@ -5030,14 +5030,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(143:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
+    		source: "(157:8) <Button outline color=\\\"success\\\" on:click={LoadEntries}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:8) <Button outline color="danger" on:click={BorrarEntries}>
+    // (160:8) <Button outline color="danger" on:click={BorrarEntries}>
     function create_default_slot_1$3(ctx) {
     	let t;
 
@@ -5057,14 +5057,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$3.name,
     		type: "slot",
-    		source: "(146:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
+    		source: "(160:8) <Button outline color=\\\"danger\\\" on:click={BorrarEntries}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:1) <Table bordered>
+    // (111:1) <Table bordered>
     function create_default_slot$3(ctx) {
     	let thead;
     	let tr0;
@@ -5215,32 +5215,32 @@ var app = (function () {
     			t19 = space();
     			td7 = element("td");
     			create_component(button2.$$.fragment);
-    			add_location(th0, file$6, 102, 4, 2365);
-    			add_location(th1, file$6, 103, 4, 2384);
-    			add_location(th2, file$6, 104, 4, 2402);
-    			add_location(th3, file$6, 105, 4, 2436);
-    			add_location(th4, file$6, 106, 16, 2483);
-    			add_location(th5, file$6, 107, 4, 2516);
-    			add_location(th6, file$6, 108, 4, 2531);
-    			add_location(tr0, file$6, 100, 3, 2349);
+    			add_location(th0, file$6, 116, 4, 3116);
+    			add_location(th1, file$6, 117, 4, 3135);
+    			add_location(th2, file$6, 118, 4, 3153);
+    			add_location(th3, file$6, 119, 4, 3187);
+    			add_location(th4, file$6, 120, 16, 3234);
+    			add_location(th5, file$6, 121, 4, 3267);
+    			add_location(th6, file$6, 122, 4, 3282);
+    			add_location(tr0, file$6, 114, 3, 3100);
     			attr_dev(thead, "id", "titulitos");
-    			add_location(thead, file$6, 99, 2, 2322);
-    			add_location(input0, file$6, 113, 8, 2593);
-    			add_location(td0, file$6, 113, 4, 2589);
-    			add_location(input1, file$6, 114, 8, 2647);
-    			add_location(td1, file$6, 114, 4, 2643);
-    			add_location(input2, file$6, 115, 8, 2698);
-    			add_location(td2, file$6, 115, 4, 2694);
-    			add_location(input3, file$6, 116, 20, 2772);
-    			add_location(td3, file$6, 116, 16, 2768);
-    			add_location(input4, file$6, 117, 20, 2845);
-    			add_location(td4, file$6, 117, 16, 2841);
-    			add_location(td5, file$6, 118, 4, 2907);
-    			add_location(tr1, file$6, 112, 3, 2579);
-    			add_location(td6, file$6, 142, 4, 3615);
-    			add_location(td7, file$6, 145, 4, 3719);
-    			add_location(tr2, file$6, 141, 3, 3605);
-    			add_location(tbody, file$6, 111, 2, 2567);
+    			add_location(thead, file$6, 113, 2, 3073);
+    			add_location(input0, file$6, 127, 8, 3344);
+    			add_location(td0, file$6, 127, 4, 3340);
+    			add_location(input1, file$6, 128, 8, 3398);
+    			add_location(td1, file$6, 128, 4, 3394);
+    			add_location(input2, file$6, 129, 8, 3449);
+    			add_location(td2, file$6, 129, 4, 3445);
+    			add_location(input3, file$6, 130, 20, 3523);
+    			add_location(td3, file$6, 130, 16, 3519);
+    			add_location(input4, file$6, 131, 20, 3596);
+    			add_location(td4, file$6, 131, 16, 3592);
+    			add_location(td5, file$6, 132, 4, 3658);
+    			add_location(tr1, file$6, 126, 3, 3330);
+    			add_location(td6, file$6, 156, 4, 4366);
+    			add_location(td7, file$6, 159, 4, 4470);
+    			add_location(tr2, file$6, 155, 3, 4356);
+    			add_location(tbody, file$6, 125, 2, 3318);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -5423,14 +5423,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$3.name,
     		type: "slot",
-    		source: "(97:1) <Table bordered>",
+    		source: "(111:1) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:16)   loading   {:then entries}
+    // (108:16)   loading   {:then entries}
     function create_pending_block$3(ctx) {
     	let t;
 
@@ -5453,7 +5453,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$3.name,
     		type: "pending",
-    		source: "(94:16)   loading   {:then entries}",
+    		source: "(108:16)   loading   {:then entries}",
     		ctx
     	});
 
@@ -5502,16 +5502,16 @@ var app = (function () {
     			img = element("img");
     			t4 = space();
     			info.block.c();
-    			add_location(h1, file$6, 85, 4, 2041);
+    			add_location(h1, file$6, 99, 4, 2792);
     			attr_dev(blockquote, "class", "blockquote");
-    			add_location(blockquote, file$6, 84, 2, 2004);
-    			add_location(p, file$6, 87, 2, 2081);
+    			add_location(blockquote, file$6, 98, 2, 2755);
+    			add_location(p, file$6, 101, 2, 2832);
     			if (!src_url_equal(img.src, img_src_value = "images/Nadal_banner.jpg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background image");
-    			add_location(img, file$6, 90, 2, 2170);
+    			add_location(img, file$6, 104, 2, 2921);
     			attr_dev(figure, "class", "text-center");
-    			add_location(figure, file$6, 83, 1, 1972);
-    			add_location(main, file$6, 82, 0, 1963);
+    			add_location(figure, file$6, 97, 1, 2723);
+    			add_location(main, file$6, 96, 0, 2714);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5600,14 +5600,27 @@ var app = (function () {
     	async function insertEntry() {
     		console.log("Inserting entry...." + JSON.stringify(newEntry));
 
-    		await fetch("/api/v1/tennis", {
-    			method: "POST",
-    			body: JSON.stringify(newEntry),
-    			headers: { "Content-Type": "application/json" }
-    		}).then(function (res) {
-    			getEntries();
-    			window.alert("Entrada introducida con éxito");
-    		});
+    		if (newEntry.country == "" || newEntry.year == "" || newEntry.productions == "" || newEntry.exports == "" || newEntry.consumption == "") {
+    			alert("Los campos no pueden estar vacios");
+    		} else {
+    			await fetch("/api/v1/tennis", {
+    				method: "POST",
+    				body: JSON.stringify(newEntry),
+    				headers: { "Content-Type": "application/json" }
+    			}).then(function (res) {
+    				if (res.status == 201 || res.status == 200) {
+    					getEntries();
+    					console.log("Data introduced");
+    					window.alert("Entrada introducida correctamente");
+    				} else if (res.status == 400) {
+    					console.log("ERROR Data was not correctly introduced");
+    					window.alert("Entrada introducida incorrectamente");
+    				} else if (res.status == 409) {
+    					console.log("ERROR There is already a data with that country and year in the da tabase");
+    					window.alert("Ya existe dicha entrada");
+    				}
+    			});
+    		}
     	}
 
     	async function BorrarEntry(countryDelete, yearDelete) {

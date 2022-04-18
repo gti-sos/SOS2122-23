@@ -28,6 +28,10 @@
 
 	async function insertEntry(){
         console.log("Inserting entry...."+JSON.stringify(newEntry));
+		if (newEntry.country == "" || newEntry.year == "" ||
+            newEntry.productions == "" || newEntry.exports == "" || newEntry.consumption == "") {
+             alert("Los campos no pueden estar vacios");
+		}else{
         const res = await fetch("/api/v1/tennis",
 			{
 				method: "POST",
@@ -47,7 +51,8 @@
                      console.log("ERROR There is already a data with that country and year in the da tabase");
 					 window.alert("Ya existe dicha entrada");
 				}
-			}); 
+			});
+		} 
     }
 
 	async function BorrarEntry(countryDelete, yearDelete){
