@@ -30,8 +30,8 @@
 
 	async function insertEntry(){
         console.log("Inserting entry...."+JSON.stringify(newEntry));
-		if (newEntry.country == "" || newEntry.year == null ||
-            newEntry.appearences == null || newEntry.cleanSheets == null || newEntry.goals == null) {
+		if (newEntry.country == "" || newEntry.year == "" ||
+            newEntry.appearences == "" || newEntry.cleanSheets == "" || newEntry.goals == "") {
              alert("Los campos no pueden estar vacios");
 		}
         else{

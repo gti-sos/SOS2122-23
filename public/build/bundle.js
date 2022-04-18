@@ -6792,14 +6792,14 @@ var app = (function () {
     			t10 = space();
     			td6 = element("td");
     			create_component(button1.$$.fragment);
-    			add_location(td0, file$2, 165, 5, 4926);
-    			add_location(td1, file$2, 166, 5, 4957);
-    			add_location(td2, file$2, 167, 5, 4985);
-    			add_location(td3, file$2, 168, 20, 5035);
-    			add_location(td4, file$2, 169, 20, 5085);
-    			add_location(td5, file$2, 170, 5, 5114);
-    			add_location(td6, file$2, 175, 5, 5300);
-    			add_location(tr, file$2, 164, 4, 4915);
+    			add_location(td0, file$2, 165, 5, 4918);
+    			add_location(td1, file$2, 166, 5, 4949);
+    			add_location(td2, file$2, 167, 5, 4977);
+    			add_location(td3, file$2, 168, 20, 5027);
+    			add_location(td4, file$2, 169, 20, 5077);
+    			add_location(td5, file$2, 170, 5, 5106);
+    			add_location(td6, file$2, 175, 5, 5292);
+    			add_location(tr, file$2, 164, 4, 4907);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -7081,32 +7081,32 @@ var app = (function () {
     			t19 = space();
     			td7 = element("td");
     			create_component(button2.$$.fragment);
-    			add_location(th0, file$2, 142, 4, 4275);
-    			add_location(th1, file$2, 143, 4, 4294);
-    			add_location(th2, file$2, 144, 4, 4312);
-    			add_location(th3, file$2, 145, 4, 4338);
-    			add_location(th4, file$2, 146, 16, 4379);
-    			add_location(th5, file$2, 147, 4, 4399);
-    			add_location(th6, file$2, 148, 4, 4414);
-    			add_location(tr0, file$2, 140, 3, 4259);
+    			add_location(th0, file$2, 142, 4, 4267);
+    			add_location(th1, file$2, 143, 4, 4286);
+    			add_location(th2, file$2, 144, 4, 4304);
+    			add_location(th3, file$2, 145, 4, 4330);
+    			add_location(th4, file$2, 146, 16, 4371);
+    			add_location(th5, file$2, 147, 4, 4391);
+    			add_location(th6, file$2, 148, 4, 4406);
+    			add_location(tr0, file$2, 140, 3, 4251);
     			attr_dev(thead, "id", "titulitos");
-    			add_location(thead, file$2, 139, 2, 4232);
-    			add_location(input0, file$2, 153, 8, 4476);
-    			add_location(td0, file$2, 153, 4, 4472);
-    			add_location(input1, file$2, 154, 8, 4530);
-    			add_location(td1, file$2, 154, 4, 4526);
-    			add_location(input2, file$2, 155, 8, 4581);
-    			add_location(td2, file$2, 155, 4, 4577);
-    			add_location(input3, file$2, 156, 20, 4651);
-    			add_location(td3, file$2, 156, 16, 4647);
-    			add_location(input4, file$2, 157, 20, 4721);
-    			add_location(td4, file$2, 157, 16, 4717);
-    			add_location(td5, file$2, 158, 4, 4769);
-    			add_location(tr1, file$2, 152, 3, 4462);
-    			add_location(td6, file$2, 182, 4, 5464);
-    			add_location(td7, file$2, 185, 4, 5568);
-    			add_location(tr2, file$2, 181, 3, 5454);
-    			add_location(tbody, file$2, 151, 2, 4450);
+    			add_location(thead, file$2, 139, 2, 4224);
+    			add_location(input0, file$2, 153, 8, 4468);
+    			add_location(td0, file$2, 153, 4, 4464);
+    			add_location(input1, file$2, 154, 8, 4522);
+    			add_location(td1, file$2, 154, 4, 4518);
+    			add_location(input2, file$2, 155, 8, 4573);
+    			add_location(td2, file$2, 155, 4, 4569);
+    			add_location(input3, file$2, 156, 20, 4643);
+    			add_location(td3, file$2, 156, 16, 4639);
+    			add_location(input4, file$2, 157, 20, 4713);
+    			add_location(td4, file$2, 157, 16, 4709);
+    			add_location(td5, file$2, 158, 4, 4761);
+    			add_location(tr1, file$2, 152, 3, 4454);
+    			add_location(td6, file$2, 182, 4, 5456);
+    			add_location(td7, file$2, 185, 4, 5560);
+    			add_location(tr2, file$2, 181, 3, 5446);
+    			add_location(tbody, file$2, 151, 2, 4442);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -7368,16 +7368,16 @@ var app = (function () {
     			img = element("img");
     			t4 = space();
     			info.block.c();
-    			add_location(h1, file$2, 125, 4, 3961);
+    			add_location(h1, file$2, 125, 4, 3953);
     			attr_dev(blockquote, "class", "blockquote");
-    			add_location(blockquote, file$2, 124, 2, 3924);
-    			add_location(p, file$2, 127, 2, 4009);
+    			add_location(blockquote, file$2, 124, 2, 3916);
+    			add_location(p, file$2, 127, 2, 4001);
     			if (!src_url_equal(img.src, img_src_value = "images/premier_league.jpg")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "background image");
-    			add_location(img, file$2, 130, 2, 4079);
+    			add_location(img, file$2, 130, 2, 4071);
     			attr_dev(figure, "class", "text-center");
-    			add_location(figure, file$2, 123, 1, 3892);
-    			add_location(main, file$2, 122, 0, 3883);
+    			add_location(figure, file$2, 123, 1, 3884);
+    			add_location(main, file$2, 122, 0, 3875);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7467,7 +7467,7 @@ var app = (function () {
     	async function insertEntry() {
     		console.log("Inserting entry...." + JSON.stringify(newEntry));
 
-    		if (newEntry.country == "" || newEntry.year == null || newEntry.appearences == null || newEntry.cleanSheets == null || newEntry.goals == null) {
+    		if (newEntry.country == "" || newEntry.year == "" || newEntry.appearences == "" || newEntry.cleanSheets == "" || newEntry.goals == "") {
     			alert("Los campos no pueden estar vacios");
     		} else {
     			await fetch("/api/v1/premier-league", {
