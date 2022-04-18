@@ -36,8 +36,17 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function (res){
-				getEntries();
-				window.alert("Entrada introducida con éxito");
+				if (res.status == 201 || res.status == 200){
+                     getEntries()
+                     console.log("Data introduced");
+					 window.alert("Entrada introducida correctamente");
+                }else if(res.status == 400){
+                     console.log("ERROR Data was not correctly introduced");
+					 window.alert("Entrada introducida incorrectamente");
+                }else if(res.status == 409){
+                     console.log("ERROR There is already a data with that country and year in the da tabase");
+					 window.alert("Ya existe dicha entrada");
+				}
 			}); 
     }
 
