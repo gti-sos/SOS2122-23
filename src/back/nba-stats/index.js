@@ -406,55 +406,44 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     });
 
     //PUT para un recurso específico
-    app.put(BASE_API_URL+"/:country/:year",(req, res)=>{
-    
-        //Comprobamos formato JSON
-        if(check_body(req)){
-            res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
+    app.put(BASE_API_URL + "/:country/:year", (req, res) => {
+
+        if (compBody(req)) {
+            res.sendStatus(400, "BAD REQUEST - INCORRECT PARAMETERS");
+            return;
         }
         var countryR = req.params.country;
         var yearR = req.params.year;
-        var body = req.body;  
-    
-        db.find({},function(err,filteredList){
-                if(err){
-                    res.sendStatus(500, "CLIENT ERROR");
-                    return;
+        var body = req.body;
+
+        db.find({}, function (err, filteredList) {
+            if (err) {
+                res.sendStatus(500, "INTERNAL SERVER ERROR");
+                return;
+            }
+
+            filteredList = filteredList.filter((reg) => {
+                return (reg.country == countryR && reg.year == yearR);
+            });
+            if (filteredList == 0) {
+                res.sendStatus(404, "NO EXIST");
+                return;
+            }
+
+            if (countryR != body.country || yearR != body.year) {
+                res.sendStatus(400, "BAD REQUEST");
+                return;
+            }
+
+            db.update({ $and: [{ country: String(countryR) }, { year: parseInt(yearR) }] }, { $set: body }, {}, function (err, numUpdated) {
+                if (err) {
+                    res.sendStatus(500, "INTERNAL SERVER ERROR");
+                } else {
+                    res.sendStatus(200, "UPDATED");
                 }
-    
-                //COMPROBAMOS SI EXISTE EL ELEMENTO
-    
-                filteredList = filteredList.filter((reg)=>
-                {
-                    return (reg.country == countryR && reg.year == yearR);
-                });
-                if (filteredList==0){
-                    res.sendStatus(404, "NOT FOUND");
-                    return;
-                }
-    
-                //COMPROBAMOS SI LOS CAMPOS ACTUALIZADOS SON IGUALES
-    
-                if(countryR != body.country || yearR != body.year){
-                    res.sendStatus(400,"BAD REQUEST");
-                    return;
-                }
-    
-                //ACTUALIZAMOS VALOR
-                    
-                db.update({$and:[{country: String(countryR)}, {year: parseInt(yearR)}]}, {$set: body}, {},function(err, numUpdated) {
-                    if (err) {
-                        res.sendStatus(500, "CLIENT ERROR");
-                        return;
-                    }else{
-                        res.sendStatus(200,"UPDATED");
-                        return;
-                    }
-                });
-        });   
-        
-    
-    });
+            });
+        })
+    })
     
     //PUT todos los recursos
     app.put(BASE_API_URL,(req,res)=>{
