@@ -12,6 +12,7 @@ const Datastore = require('nedb');
 db_premier_league = new Datastore();
 db_tennis = new Datastore();
 db_tennis2 = new Datastore();
+db_nba_stats = new Datastore();
 
 
 app.use(bodyParser.json());
@@ -54,5 +55,5 @@ tennis_APIv2.register(app,db_tennis2);
 
 //API Fernando Pardo Beltrán(nba-stats)
 
-const nbaStats_API = require("./src/back/nba-stats/index")
-nbaStats_API.register(app);
+const nbaStats_API = require("./src/back/nba-stats/index");
+nbaStats_API.register(app,db_nba_stats);
