@@ -4,6 +4,7 @@
 	import List from "./tennis/list.svelte";
 	import Edit from "./tennis/edit.svelte";
 
+	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
 	import Header from "./components/Header.svelte";
 
@@ -16,7 +17,8 @@
 		"/tennis" : List,
 		"/tennis/:country/:year" : Edit,
 		"/premier-league" : Premier,
-		"/premier-league/:country/:year": PremierEdit
+		"/premier-league/:country/:year": PremierEdit,
+		"/info" : Info
 
 	};
 

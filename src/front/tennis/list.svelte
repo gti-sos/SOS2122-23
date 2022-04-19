@@ -161,7 +161,7 @@
 		<p>
 		 Los últimos campeones de los grandes torneos del tenis internacional.
 		</p>
-		<img src="images/Nadal_banner.jpg" alt="background image" />
+		<!-- <img src="images/Nadal_banner.jpg" alt="background image" /> -->
 	</figure>
 
 	{#await entries}
