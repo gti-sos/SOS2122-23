@@ -184,6 +184,113 @@
 			"response": []
 		},
 		{
+			"name": "GET paginación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?offset=2&limit=3",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /nba-stats?year=2015",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?year=2015",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET from to",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}?from=2013&to=2015",
+					"host": [
+						"{{HOST}}"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2013"
+						},
+						{
+							"key": "to",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST /nba-stats",
 			"event": [
 				{
@@ -222,39 +329,6 @@
 						"api",
 						"v1",
 						"nba-stats"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /nba-stats?year=2015",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{HOST}}?year=2015",
-					"host": [
-						"{{HOST}}"
-					],
-					"query": [
-						{
-							"key": "year",
-							"value": "2015"
-						}
 					]
 				}
 			},
