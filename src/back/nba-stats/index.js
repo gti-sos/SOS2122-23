@@ -405,26 +405,25 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
         res.sendStatus(405,"Method Not Allowed");
     });
 
-    // PUT de un recurso especifico
-
+    //PUT para un recurso específico
     app.put(BASE_API_URL+"/:country/:year",(req, res)=>{
-        
+    
         //Comprobamos formato JSON
-        if(compBody(req)){
+        if(check_body(req)){
             res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
         }
         var countryR = req.params.country;
         var yearR = req.params.year;
         var body = req.body;  
-
+    
         db.find({},function(err,filteredList){
                 if(err){
                     res.sendStatus(500, "CLIENT ERROR");
                     return;
                 }
-
+    
                 //COMPROBAMOS SI EXISTE EL ELEMENTO
-
+    
                 filteredList = filteredList.filter((reg)=>
                 {
                     return (reg.country == countryR && reg.year == yearR);
@@ -433,14 +432,14 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
                     res.sendStatus(404, "NOT FOUND");
                     return;
                 }
-
+    
                 //COMPROBAMOS SI LOS CAMPOS ACTUALIZADOS SON IGUALES
-
+    
                 if(countryR != body.country || yearR != body.year){
                     res.sendStatus(400,"BAD REQUEST");
                     return;
                 }
-
+    
                 //ACTUALIZAMOS VALOR
                     
                 db.update({$and:[{country: String(countryR)}, {year: parseInt(yearR)}]}, {$set: body}, {},function(err, numUpdated) {
@@ -454,7 +453,7 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
                 });
         });   
         
-
+    
     });
     
     //PUT todos los recursos
