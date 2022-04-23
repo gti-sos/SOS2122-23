@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
 	import Table from 'sveltestrap/src/Table.svelte';
 	import Button from 'sveltestrap/src/Button.svelte';
+	import {Alert} from 'sveltestrap';
 
     let entries = [];
 
@@ -15,12 +16,14 @@
 	}
 
 	let visible = false;
+	let checkMSG="";
+	let color="danger";
 
     onMount(getEntries);
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/premier-league"); 
+        const res = await fetch("/api/v2/premier-league"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
@@ -35,7 +38,7 @@
              alert("Los campos no pueden estar vacios");
 		}
         else{
-			const res = await fetch("/api/v1/premier-league",
+			const res = await fetch("/api/v2/premier-league",
 			{
 				method: "POST",
 				body: JSON.stringify(newEntry),
@@ -48,19 +51,19 @@
                      getEntries()
                      totaldata++;
                      console.log("Data introduced");
-                     color = "success";
-                     checkMSG="Entrada introducida correctamente a la base de datos";
-					 window.alert("Entrada introducida correctamente");
+					 color="success";
+					 checkMSG="Entrada introducida correctamente";
                 }else if(res.status == 400){
                      console.log("ERROR Data was not correctly introduced");
-                     color = "danger";
-                     checkMSG= "Los datos de la entrada no fueron introducidos correctamente";
-					 window.alert("Entrada introducida incorrectamente");
+                     color="success";
+					 checkMSG="Entrada introducida incorrectamente";
+                    
+					 //window.alert("Entrada introducida incorrectamente");
                 }else if(res.status == 409){
                      console.log("ERROR There is already a data with that country and year in the da tabase");
-                     color = "danger";
-                     checkMSG= "Ya existe una entrada en la base de datos con el pais y el año introducido";
-					 window.alert("Ya existe dicha entrada");
+                     color="success";
+					 checkMSG="Entrada introducida incorrectamente";
+					 //window.alert("Ya existe dicha entrada");
 				}
 				
 			});
@@ -69,7 +72,7 @@
 
 	async function BorrarEntry(countryDelete, yearDelete){
         console.log("Deleting entry....");
-        const res = await fetch("/api/v1/premier-league/"+countryDelete+"/"+yearDelete,
+        const res = await fetch("/api/v2/premier-league/"+countryDelete+"/"+yearDelete,
 			{
 				method: "DELETE"
 			}).then(function (res){
@@ -80,7 +83,7 @@
 
 	async function BorrarEntries(){
         console.log("Deleting entries....");
-        const res = await fetch("/api/v1/premier-league/",
+        const res = await fetch("/api/v2/premier-league/",
 			{
 				method: "DELETE"
 			}).then(function (res){
@@ -105,7 +108,7 @@
 
 	async function LoadEntries(){
         console.log("Loading entries....");
-        const res = await fetch("/api/v1/premier-league/loadInitialData",
+        const res = await fetch("/api/v2/premier-league/loadInitialData",
 			{
 				method: "GET"
 			}).then(function (res){
@@ -130,6 +133,12 @@
 		</p>
 		<img src="images/premier_league.jpg" alt="background image"/>
 	  </figure>
+	  <Alert color={color} isOpen={visible} toggle={()=>(visible=false)}>
+		{#if checkMSG}
+			{checkMSG}
+		{/if}
+	  </Alert>
+	  
 
 {#await entries}
 loading
