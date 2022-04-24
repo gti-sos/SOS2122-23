@@ -11,7 +11,7 @@ module.exports.register = (app) => {
 
     app.get(BASE_API_PATH+"/docs",(req,res)=>
     {
-        res.redirect("https://documenter.getpostman.com/view/19586040/UVyn2yuS");
+        res.redirect("https://documenter.getpostman.com/view/19586040/UyrBiFce");
     });
 
     db.insert(premierStats);
@@ -34,7 +34,7 @@ module.exports.register = (app) => {
             {country:"Italy", year:2012, appearences:31, cleanSheets:3, goals:1},
             {country:"Italy", year:2019, appearences:31, cleanSheets:0, goals:4},
             {country:"Ireland", year:2004, appearences:38, cleanSheets:0, goals:11},
-            {country:"Irenland", year:2018, appearences:38, cleanSheets:1, goals:5},
+            {country:"Ireland", year:2018, appearences:38, cleanSheets:1, goals:5},
             {country:"Wales", year:2011, appearences:37, cleanSheets:3, goals:9},
             {country:"Wales", year:2015, appearences:36, cleanSheets:8, goals:5},
             {country:"Argentina", year:2007, appearences:34, cleanSheets:0, goals:14},
@@ -91,6 +91,68 @@ module.exports.register = (app) => {
             console.log("GET REQUEST have been sent.");
             }
         });
+    });
+
+    //GET A UN RECURSO POR COUNTRY
+    app.get(BASE_API_PATH+"/:country",(req, res)=>{
+
+        var country =req.params.country
+        var from = req.query.from;
+        var to = req.query.to;
+    
+        //Comprobaciones
+        //Comprobaciones query
+        
+        for(var i = 0; i<Object.keys(req.query).length;i++){
+            var element = Object.keys(req.query)[i];
+            if(element != "from" && element != "to"){
+                res.sendStatus(400, "BAD REQUEST");
+                return;
+            }
+        }
+    
+         //Comprobacion from menor que to
+    
+         if(from>to){
+            res.sendStatus(400, "BAD REQUEST");
+            
+        }
+    
+        db.find({}, function(err,filteredList){
+                
+            if(err){
+                res.sendStatus(500, "CLIENT ERROR");
+                return;
+            }
+    
+            filteredList = filteredList.filter((reg)=>
+            {
+                return (reg.country == country);
+            });
+    
+    
+            if(from != null && to != null && from<=to){
+                filteredList = filteredList.filter((reg)=>
+                {
+                   return (reg.year >= from && reg.year <=to);
+                }); 
+                
+            }
+            //COMPROBAMOS SI EXISTE
+            if (filteredList==0){
+                res.sendStatus(404, "NOT FOUND");
+                return;
+            }
+            //RESULTADO
+            if(req.query.limit != undefined || req.query.offset != undefined){
+                filteredList = pagination(req,filteredList);
+            }
+            filteredList.forEach((element)=>{
+                delete element._id;
+            });
+            res.send(JSON.stringify(filteredList,null,2));
+        });
+    
     });
 
 
@@ -167,12 +229,10 @@ module.exports.register = (app) => {
         var reqyear = parseInt(req.params.year);
         var data = req.body;
 
-        if (Object.keys(data).length != 7) {
+        if (Object.keys(data).length != 5) {
             console.log("Actualizacion de campos no valida");
             res.sendStatus(400, "BAD REQUEST - Parametros incorrectos");
-        }else if(check_body(req)){
-            res.sendStatus(400, "BAD REQUEST - Parametros incorrectos");
-        }
+        }        
         else {
             db.update({ country: reqcountry, year: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
                 if (err) {
