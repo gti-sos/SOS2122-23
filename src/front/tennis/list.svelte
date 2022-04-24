@@ -4,7 +4,7 @@
 	import Button from 'sveltestrap/src/Button.svelte';
 	import { Alert } from 'sveltestrap';
 
-	var BASE_API_PATH = "/api/v1/tennis";
+	var BASE_API_PATH = "/api/v2/tennis";
     let entries = [];
 	let newEntry = {
 		country: "",
@@ -20,9 +20,38 @@
     let page = 1;
     let totaldata=6;
  
-    
+    let from = null;
+	let to = null;
+	let offset = 0;
+	let limit = 10;
+
+    let maxPages = 0;
+	let numEntries;
+
     onMount(getEntries);
     //GET
+    async function getEntries(){
+        console.log("Fetching entries....");
+		let cadena = `/api/v2/tennis?limit=${limit}&&offset=${offset*10}&&`;
+		if (from != null) {
+			cadena = cadena + `from=${from}&&`
+		}
+		if (to != null) {
+			cadena = cadena + `to=${to}&&`
+		}
+        const res = await fetch(cadena); 
+        if(res.ok){
+			let cadenaPag = cadena.split(`limit=${limit}&&offset=${offset*10}`);
+			maxPagesFunction(cadenaPag[0]+cadenaPag[1]);
+            const data = await res.json();
+            entries = data;
+			numEntries = entries.length;
+            console.log("Received entries: "+entries.length);
+        }else{
+			Errores(res.status);
+		}
+    }
+    /*
     async function getEntries(){
         console.log("Fetching entries....");
         const res = await fetch("/api/v1/tennis"); 
@@ -35,7 +64,7 @@
                 checkMSG= res.status + ": Recursos no encontrados ";
                 console.log("ERROR! no encontrado");
             }
-    }
+    }*/
     //GET INITIALDATA
     async function LoadEntries() {
  
@@ -148,7 +177,21 @@
 			});
 		}
 	}
-	
+	//Función auxiliar para obtener el número máximo de páginas que se pueden ver
+	async function maxPagesFunction(cadena){
+		let num;
+        const res = await fetch(cadena,
+			{
+				method: "GET"
+			});
+			if(res.ok){
+				const data = await res.json();
+				maxPages = Math.floor(data.length/10);
+				if(maxPages === data.length/10){
+					maxPages = maxPages-1;
+				}
+        }
+	}
 </script>
 
 
@@ -173,7 +216,43 @@
 			{checkMSG}
 		{/if}
 	</Alert>
-
+    <Table bordered>
+		<thead>
+			<tr>
+				<th>Fecha inicio</th>
+				<th>Fecha fin</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="number" min="2000" bind:value="{from}"></td>
+				<td><input type="number" min="2000" bind:value="{to}"></td>
+				<td align="center"><Button outline color="dark" on:click="{()=>{
+					if (from == null || to == null) {
+						window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+					}else{
+                        checkMSG = "Datos cargados correctamente en ese periodo";
+						getEntries();
+					}
+				}}">
+					Buscar
+					</Button>
+				</td>
+				<td align="center"><Button outline color="info" on:click="{()=>{
+					from = null;
+					to = null;
+					getEntries();
+                    checkMSG = "Busqueda limpiada";
+					
+				}}">
+					Limpiar Búsqueda
+                    
+					</Button>
+                    
+				</td>
+			</tr>
+		</tbody>
+	</Table>
 	<Table bordered>
 		
 		
@@ -229,6 +308,16 @@
 			</tr>
 		</tbody>
 	</Table>
+    <div align="center">
+		{#each Array(maxPages+1) as _,page}
+		
+			<Button outline color="secondary" on:click={()=>{
+				offset = page;
+				getEntries();
+			}}>{page} </Button>&nbsp
+	
+		{/each}
+	</div>
 {/await}
 
 </main>
