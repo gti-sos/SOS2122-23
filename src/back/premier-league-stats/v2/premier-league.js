@@ -2,7 +2,7 @@ var Datastore = require("nedb");
 var db = new Datastore();
 var BASE_API_PATH = "/api/v2/premier-league"; 
 
-var defenseStats = [];
+var premierStats = [];
 
 
 module.exports.register = (app) => {
@@ -14,7 +14,7 @@ module.exports.register = (app) => {
         res.redirect("https://documenter.getpostman.com/view/19586040/UVyn2yuS");
     });
 
-    db.insert(defenseStats);
+    db.insert(premierStats);
 
     //Constructor
 
@@ -23,48 +23,26 @@ module.exports.register = (app) => {
      app.get(BASE_API_PATH+"/loadInitialData",(req,res)=>{
 
         var statsIni = [
-            {
-                country:"England",
-                year:2018,
-                appearences:38,
-                cleanSheets:21,
-                goals:22
-            },
-            {
-                country:"England",
-                year:2019,
-                appearences:38,
-                cleanSheets:16,
-                goals:21
-            },
-            {
-                country:"Belgium",
-                year:2015,
-                appearences:38,
-                cleanSheets:11,
-                goals:18
-            },
-            {
-                country:"Belgium",
-                year:2017,
-                appearences:38,
-                cleanSheets:16,
-                goals:16
-            },
-            {
-                country:"Spain",
-                year:2013,
-                appearences:37,
-                cleanSheets:12,
-                goals:9
-            },
-            {
-                country:"Spain",
-                year:2020,
-                appearences:37,
-                cleanSheets:10,
-                goals:7
-            }
+            {country:"England", year:2018, appearences:38, cleanSheets:21, goals:22},
+            {country:"England", year:2019, appearences:38, cleanSheets:16, goals:21},
+            {country:"Belgium", year:2015, appearences:38, cleanSheets:11, goals:18},
+            {country:"Belgium", year:2017, appearences:38, cleanSheets:16, goals:16},
+            {country:"Spain", year:2013, appearences:37, cleanSheets:12, goals:9},
+            {country:"Spain", year:2020, appearences:37, cleanSheets:10, goals:7},
+            {country:"France", year:2016, appearences:37, cleanSheets:15, goals:12},
+            {country:"France", year:2014, appearences:38, cleanSheets:8, goals:14},
+            {country:"Italy", year:2012, appearences:31, cleanSheets:3, goals:1},
+            {country:"Italy", year:2019, appearences:31, cleanSheets:0, goals:4},
+            {country:"Ireland", year:2004, appearences:38, cleanSheets:0, goals:11},
+            {country:"Irenland", year:2018, appearences:38, cleanSheets:1, goals:5},
+            {country:"Wales", year:2011, appearences:37, cleanSheets:3, goals:9},
+            {country:"Wales", year:2015, appearences:36, cleanSheets:8, goals:5},
+            {country:"Argentina", year:2007, appearences:34, cleanSheets:0, goals:14},
+            {country:"Argentina", year:2005, appearences:30, cleanSheets:0, goals:10},
+            {country:"Germany", year:2002, appearences:30, cleanSheets:0, goals:2},
+            {country:"Germany", year:2017, appearences:38, cleanSheets:10, goals:10},
+            {country:"Netherlands", year:2020, appearences:38, cleanSheets:0, goals:10},
+            {country:"Netherlands", year:2019, appearences:38, cleanSheets:5, goals:5},
         ];
 
         // Inicialización base de datos
@@ -191,8 +169,11 @@ module.exports.register = (app) => {
 
         if (Object.keys(data).length != 7) {
             console.log("Actualizacion de campos no valida");
-            res.sendStatus(400);
-        }else {
+            res.sendStatus(400, "BAD REQUEST - Parametros incorrectos");
+        }else if(check_body(req)){
+            res.sendStatus(400, "BAD REQUEST - Parametros incorrectos");
+        }
+        else {
             db.update({ country: reqcountry, year: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
                 if (err) {
                     console.error("ERROR accesing DB in GET");

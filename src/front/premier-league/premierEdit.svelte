@@ -1,26 +1,31 @@
 <script>
 
-    export let params = {};
     import {pop} from "svelte-spa-router";
     import { onMount } from 'svelte';
     import Button from 'sveltestrap/src/Button.svelte';
     import Table from 'sveltestrap/src/Table.svelte';
-import { getTransitionDuration } from "sveltestrap/src/utils";
+    import { getTransitionDuration } from "sveltestrap/src/utils";
+    import { Alert } from "sveltestrap";
 
-    let visile = false;
+    export let params = {};
+
+    var BASE_API_PATH = "/api/v2/premier-league";
+    let visible = false;
+    let color = "danger";
     let entry = {};
 
-    let updatedCountry;
-    let updatedYear;
-    let updatedappearences;
-    let updatedcleanSheets;
-    let updatedgoals;
+    let updatedCountry = {};
+    let updatedYear = "";
+    let updatedappearences = "";
+    let updatedcleanSheets = "";
+    let updatedgoals = "";
+    let errorMsg = "";
 
     onMount(getEntries);
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/premier-league/"+params.country+"/"+params.year); 
+        const res = await fetch(BASE_API_PATH+params.country+"/"+params.year); 
         if(res.ok){
             const data = await res.json();
             entry = data;
@@ -29,15 +34,19 @@ import { getTransitionDuration } from "sveltestrap/src/utils";
             updatedappearences = entry.appearences;
             updatedcleanSheets = entry.cleanSheets;
             updatedgoals = entry.goals;
+
+            console.log("Recived data");
         }else{
-            Errores(res.status);
-            pop();
+            visible = true;
+            color = "danger";
+            colorMsg = "Error " + res.status + " : " + " Ningun recurso con los parametros " + params.country + " " + params.year;
+            console.log("ERROR" + errorMsg);           
         }
     }
 
     async function EditEntry(){
         console.log("Updating entry...."+updatedCountry);
-        const res = await fetch("/api/v1/premier-league/"+params.country+"/"+params.year,
+        const res = await fetch(BASE_API_PATH+params.country+"/"+params.year,
 			{
 				method: "PUT",
 				body: JSON.stringify({
@@ -64,63 +73,40 @@ import { getTransitionDuration } from "sveltestrap/src/utils";
             }); 
     }
 
-    async function Errores(code){
-        
-        let msg;
-        if(code == 404){
-            msg = "La entrada seleccionada no existe"
-        }
-        if(code == 400){
-            msg = "La petición no está correctamente formulada"
-        }
-        if(code == 409){
-            msg = "El dato introducido ya existe"
-        }
-        if(code == 401){
-            msg = "No autorizado"
-        }
-        if(code == 405){
-            msg = "Método no permitido"
-        }
-        window.alert(msg)
-            return;
-    }
-
+    
 </script>
 
 <main>
-    <h1>Editar entrada "{params.country}"/"{params.year}"</h1>
-    {#await entry}
-    loading
-        {:then entry}
-        
-    
-        <Table bordered>
-            <thead>
-                <tr>
-                    <th>País</th>
-                    <th>Año</th>
-                    <th>Apariciones</th>
-                    <th>Porteria vacia</th>
-                    <th>Goles</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{updatedCountry}</td>
-                    <td>{updatedYear}</td>
-                    <td><input bind:value="{updatedappearences}"></td>
-                    <td><input bind:value="{updatedcleanSheets}"></td>
-                    <td><input bind:value="{updatedgoals}"></td>
-                    <td><Button outline color="primary" on:click="{EditEntry}">
-                        Editar
-                        </Button>
-                    </td>
-                </tr>
-            </tbody>
-        </Table>
-    {/await}
-    
-    <Button outline color="secondary" on:click="{pop}">Volver</Button>
 
-    </main>
+    <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
+        {#if errorMsg}
+		    {errorMsg}
+	    {/if}
+    </Alert>
+
+    <h1>Recurso '{params.country} , {params.year} ' listo para editar</h1>
+    <Table bordered>
+        <thead>
+            <tr>
+                <th>País</th>
+                <th>Año</th>
+                <th>Apariciones</th>
+                <th>Portería Vacía</th>
+                <th>goles</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{params.country}</td>
+                <td>{params.year}</td>
+                <td><input bind:value="{updatedappearences}"></td>
+                <td><input bind:value="{updatedcleanSheets}"></td>
+                <td><input bind:value="{updatedgoals}"></td>
+                <td><Button outline color="primary" on:click={EditEntry}>Actualizar</Button></td>
+            </tr>
+        </tbody>
+    </Table>
+
+    <Button outline color="secondary" on:click="{pop}">Atrás</Button>
+</main>

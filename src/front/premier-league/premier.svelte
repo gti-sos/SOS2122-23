@@ -5,6 +5,11 @@
 	import Button from 'sveltestrap/src/Button.svelte';
 	import {Alert} from 'sveltestrap';
 
+	let redStyle = "redTable";
+	let blueStyle = "blueTable";
+
+	var BASE_API_PATH = "api/v2/premier-league"
+
     let entries = [];
 
 	let newEntry = {
@@ -18,30 +23,77 @@
 	let visible = false;
 	let checkMSG="";
 	let color="danger";
+	let page = 1;
+	let totaldata = 20;
+
+	let sCountry = "";
+	let sYear = "";
+	let sAppearences = "";
+	let sCleanSheets = "";
+	let sGoals = "";
 
     onMount(getEntries);
+
+	//GET
 
     async function getEntries(){
         console.log("Fetching entries....");
         const res = await fetch("/api/v2/premier-league"); 
         if(res.ok){
+			console.log("Ok:");
             const data = await res.json();
             entries = data;
             console.log("Received entries: "+entries.length);
         }
+		else{
+			checkMSG = res.status + ": Recursos no encontrados";
+			console.log("ERROR! no encontrado");
+		}
     }
 
+	//GET INITIAL DATA
+
+	
+    async function loadStats() {
+ 
+ 		console.log("Fetching entry data...");
+ 		await fetch(BASE_API_PATH + "/loadInitialData");
+		const res = await fetch(BASE_API_PATH + "?limit=10&offset=0");
+ 		if (res.ok) {
+	 		console.log("Ok:");
+	 		const json = await res.json();
+	 		entries = json;
+	 		visible = true;
+	 		totaldata=20;
+	 		console.log("Received " + entries.length + " entry data.");
+	 		color = "success";
+	 		checkMSG = "Datos cargados correctamente";
+ 		} else {
+	 		color = "danger";
+			checkMSG= res.status + ": " + "No se pudo cargar los datos";
+	 		console.log("ERROR! ");
+ 		}
+	}
+
+	//INSERT DATA
+
 	async function insertEntry(){
-        console.log("Inserting entry...."+JSON.stringify(newEntry));
-		if (newEntry.country == "" || newEntry.year == "" ||
-            newEntry.appearences == "" || newEntry.cleanSheets == "" || newEntry.goals == "") {
+        console.log("Inserting entry....");
+		if (newEntry.country == "" || newEntry.year == null ||
+            newEntry.appearences == null || newEntry.cleanSheets == null || newEntry.goals == null) {
              alert("Los campos no pueden estar vacios");
 		}
         else{
 			const res = await fetch("/api/v2/premier-league",
 			{
 				method: "POST",
-				body: JSON.stringify(newEntry),
+				body: JSON.stringify({
+					country: newEntry.country,
+					year: parseInt(newEntry.year),
+					appearences: parseInt(newEntry.appearences),
+					cleanSheets: parseInt(newEntry.cleanSheets),
+					goals: parseInt(newEntry.goals)	
+				}),
 				headers: {
 					"Content-Type": "application/json"
 				}
@@ -70,24 +122,14 @@
 		} 
     }
 
-	async function BorrarEntry(countryDelete, yearDelete){
-        console.log("Deleting entry....");
-        const res = await fetch("/api/v2/premier-league/"+countryDelete+"/"+yearDelete,
-			{
-				method: "DELETE"
-			}).then(function (res){
-				getEntries();
-				window.alert("Entrada eliminada con éxito");
-			});
-    }
+	//DELETE STAT
 
-	async function BorrarEntries(){
-        console.log("Deleting entries....");
-        const res = await fetch("/api/v2/premier-league/",
-			{
-				method: "DELETE"
-			}).then(function (res){
-				visible = true;
+	async function deleteStat(countryD, yearD) {
+        
+        const res = await fetch(BASE_API_PATH+ "/" + countryD + "/" + yearD, {
+            method: "DELETE"
+        }).then(function (res) {
+            visible = true;
             getEntries();      
             if (res.status==200) {
                 totaldata--;
@@ -103,19 +145,134 @@
                 checkMSG= res.status + ": " + "No se pudo borrar el recurso";
                 console.log("ERROR!");
             }      
-			});
+        });
     }
 
-	async function LoadEntries(){
-        console.log("Loading entries....");
-        const res = await fetch("/api/v2/premier-league/loadInitialData",
-			{
-				method: "GET"
-			}).then(function (res){
-				getEntries();
-				window.alert("Entradas cargadas con éxito");
+	//DELETE ALL
+
+	async function deleteALL() {
+		console.log("Deleting entry data...");
+		if (confirm("¿Está seguro de que desea eliminar todas las entradas?")){
+			console.log("Deleting all entry data...");
+			const res = await fetch(BASE_API_PATH, {
+				method: "DELETE"
+			}).then(function (res) {
+                visible=true;
+				if (res.ok && totaldata>0){
+                    totaldata = 0;
+					getEntries();
+                    color = "success";
+					checkMSG="Datos eliminados correctamente";
+					console.log("OK All data erased");
+				} else if (totaldata == 0){
+                    console.log("ERROR Data was not erased");
+                    color = "danger";
+					checkMSG= "¡No hay datos para borrar!";
+                } else{
+					console.log("ERROR Data was not erased");
+                    color = "danger";
+					checkMSG= "No se han podido eliminar los datos";
+				}
 			});
+		}
+	}
+
+	//SEARCH
+	async function search (sCountry, sYear, sAppearences, sCleanSheets, sGoals){
+            
+            if(sCountry==null){
+                sCountry="";
+            }
+            if(sYear==null){
+                sYear="";
+            }
+            if(sAppearences==null){
+                sAppearences="";
+            }
+            if(sCleanSheets==null){
+                sCleanSheets="";
+            }
+            if(sGoals==null){
+                sGoals="";
+            }
+            visible = true;
+            const res = await fetch(BASE_API_PATH + "?country="+sCountry
+            +"&year="+sYear
+            +"&appearences="+sAppearences
+            +"&cleanSheets="+sCleanSheets
+            +"&goals="+sGoals
+            )
+            if (res.ok){
+                const json = await res.json();
+                entries = json;
+                console.log("Found "+ entries.length + " data");
+                if(entries.length==1){
+                    color = "success"
+                    checkMSG = "Se ha encontrado un dato para tu búsqueda";
+                }else{
+                    color = "success"
+                    checkMSG = "Se han encontrado " + entries.length + " datos para tu búsqueda";
+                }
+            }
     }
+    /*-------------------------PAGINACIÓN-------------------------*/
+        //getNextPage (B)
+        async function getNextPage() {
+    
+                console.log(totaldata);
+                if (page+10 > totaldata) {
+                    page = 1
+                } else {
+                    page+=10
+                }
+                
+                visible = true;
+                console.log("Charging page... Listing since: "+page);
+                const res = await fetch(BASE_API_PATH + "?limit=10&offset="+(-1+page));
+                //condicional imprime msg
+                color = "success";
+                checkMSG= (page+5 > totaldata) ? "Mostrando elementos "+(page)+"-"+totaldata : "Mostrando elementos "+(page)+"-"+(page+9);
+                if (totaldata == 0){
+                    console.log("ERROR Data was not erased");
+                    color = "danger";
+                    checkMSG= "¡No hay datos!";
+                }else if (res.ok) {
+                    console.log("Ok:");
+                    const json = await res.json();
+                    entries = json;
+                    console.log("Received " + entries.length + " resources.");
+                } else {
+                    checkMSG= res.status + ": " + res.statusText;
+                    console.log("ERROR!");
+                }
+            }
+    //getPreviewPage (B)
+        async function getPreviewPage() {
+            
+            console.log(totaldata);
+            if (page-10 > 1) {
+                page-=10; 
+            } else page = 1
+            visible = true;
+            console.log("Charging page... Listing since: "+page);
+            const res = await fetch(BASE_API_PATH + "?limit=10&offset="+(-1+page));
+            color = "success";
+            checkMSG = (page+5 > totaldata) ? "Mostrando elementos "+(page)+"-"+totaldata : "Mostrando elementos "+(page)+"-"+(page+9);
+            if (totaldata == 0){
+                console.log("ERROR Data was not erased");
+                color = "danger";
+                checkMSG = "¡No hay datos!";
+            }else if (res.ok) {
+                console.log("Ok:");
+                const json = await res.json();
+                entries = json;
+                console.log("Received "+entries.length+" resources.");
+            } else {
+                checkMSG = res.status+": "+res.statusText;
+                console.log("ERROR!");
+            }
+        }
+	
 
 	
 
@@ -124,80 +281,115 @@
 
 
 <main>
-	<figure class="text-center">
-		<blockquote class="blockquote">
-		  <h1>PREMIER LEAGUE API</h1>
-		</blockquote>
-		<p>
-		 Distintos datos de jugadores de la Premier League.
-		</p>
-		<img src="images/premier_league.jpg" alt="background image"/>
-	  </figure>
-	  <Alert color={color} isOpen={visible} toggle={()=>(visible=false)}>
-		{#if checkMSG}
-			{checkMSG}
-		{/if}
-	  </Alert>
-	  
 
-{#await entries}
-loading
-	{:then entries}
-	<Table bordered>
-		
-		
-		<thead id="titulitos">
-			<tr>
-				
-				<th>País</th>
-				<th>Año</th>
-				<th>Apariciones</th>
-				<th>Porteria vacia</th>
-                <th>Goles</th>
-				<th></th>
-				<th> </th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><input bind:value="{newEntry.country}"></td>
-				<td><input bind:value="{newEntry.year}"></td>
-				<td><input bind:value="{newEntry.appearences}"></td>
-                <td><input bind:value="{newEntry.cleanSheets}"></td>
-                <td><input bind:value="{newEntry.goals}"></td>
-				<td><Button outline color="primary" on:click="{insertEntry}">
-					Añadir
-					</Button>
-				</td>
-			</tr>
-			{#each entries as entry}
-				<tr>
-					<td>{entry.country}</td>
-					<td>{entry.year}</td>
-					<td>{entry.appearences}</td>
-                    <td>{entry.cleanSheets}</td>
-                    <td>{entry.goals}</td>
-					<td><Button outline color="warning" on:click={function (){
-						window.location.href = `/#/premier-league/${entry.country}/${entry.year}`
-					}}>
-						Editar
-					</Button>
-					<td><Button outline color="danger" on:click={BorrarEntry(entry.country,entry.year)}>
-						Borrar
-					</Button>
-					</td>
-				</tr>
-			{/each}
-			<tr>
-				<td><Button outline color="success" on:click={LoadEntries}>
-					Cargar datos
-				</Button></td>
-				<td><Button outline color="danger" on:click={BorrarEntries}>
-					Borrar todo
-				</Button></td>
-			</tr>
-		</tbody>
-	</Table>
-{/await}
+    <h1 style ="text-align: center;">Tabla de datos de estadísticas de los jugadores de la Premier League</h1>
 
+        {#await entries}
+            Loading entry stats data...
+        {:then entries}
+        
+        <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
+            {#if checkMSG}
+                {checkMSG}
+            {/if}
+        </Alert>
+
+        <br>
+        <h4 style="text-align:center"><strong>Búsqueda general de parámetros</strong></h4>
+        <br>
+        <Table bordered responsive>
+            <thead>
+                <tr>
+            <th>Búsqueda por país</th>
+            <th>Búsqueda por año</th>
+            <th>Búsqueda por apariciones</th>
+            <th>Búsqueda por portería vacía</th>
+            <th>Búsqueda por goles</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type = "text" placeholder="País" bind:value="{sCountry}"></td>
+                <td><input type = "number" placeholder="2020" bind:value="{sYear}"></td>
+                <td><input type = "number" placeholder="12" bind:value="{sAppearences}"></td>
+                <td><input type = "number" placeholder="18" bind:value="{sCleanSheets}"></td>
+                <td><input type = "number" placeholder="7" bind:value="{sGoals}"></td>
+            </tr>
+            </tbody>
+        </Table>
+        <div style="text-align:center">
+            <Button outline color="primary" on:click="{search (sCountry, sYear, sAppearences, sCleanSheets, sGoals)}">Buscar</Button>
+        </div>
+
+        <br>
+
+        <Table bordered responsive> 
+            <thead>
+                <tr>
+                    <th>Pais</th>
+                    <th>Año</th>
+                    <th>Apariciones</th>
+                    <th>Portería vacía</th>
+                    <th>Goles</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type = "text" placeholder="Spain" bind:value="{newEntry.country}" ></td> 
+                <td><input type = "text" placeholder="2017" bind:value="{newEntry.year}"></td> 
+                <td><input type = "number" placeholder="13" bind:value="{newEntry.appearences}"></td>    
+                <td><input type = "number" placeholder="18" bind:value="{newEntry.cleanSheets}"></td>  
+                <td><input type = "number" placeholder="20" bind:value="{newEntry.goals}"></td>
+
+                <td colspan="2" style="text-align: center;"><Button outline color="primary" on:click={insertEntry}>Insertar</Button></td>  
+            </tr>
+
+        {#each entries as entry}
+            <tr>
+                
+                <td><a href="api/v2/premier-league/{entry.country}/{entry.year}">{entry.country}</a></td>
+                <td>{entry.year}</td>
+                <td>{entry.appearences}</td>
+                <td>{entry.cleanSheets}</td>
+                <td>{entry.goals}</td>
+                <td><Button outline color="danger" on:click="{deleteStat(entry.country, entry.year)}">Borrar</Button></td>
+                <td><a href="#/premier-league/{entry.country}/{entry.year}"><Button outline color="primary">Editar</Button></a></td>
+            </tr>
+                
+        {/each}
+        </tbody>
+        <br>
+        </Table>
+        <Button color="success" on:click="{loadStats}">
+            Cargar datos inciales
+        </Button>
+        <Button color="danger" on:click="{deleteALL}">
+            Eliminar todo
+        </Button>
+		<br>
+		<div style="text-align:center">
+			<Button outline color="primary" on:click="{getPreviewPage}">
+				Página Anterior
+			</Button>
+			<Button outline color="primary" on:click="{getNextPage}">
+				Páguina Siguiente
+			</Button>
+		</div>
+
+        {/await} 
 </main>
+
+<style>
+	input{
+		width: 100%;
+	}
+
+	thead{
+		background-color: lightgreen;
+	}
+
+	tr:nth-child(even){
+		background-color: springgreen;
+	}
+</style>
