@@ -116,7 +116,7 @@ module.exports.register = (app) => {
     });
 
 
-     //GET A UN RECURSO CONCRETO DE SMOKER POR COUNTRY/YEAR    
+     //GET A UN RECURSO CONCRETO POR COUNTRY/YEAR    
      app.get(BASE_API_PATH+"/:country/:year", (req, res) => {
         var reqCountry = req.params.country;
         var reqYear = parseInt(req.params.year);
@@ -174,7 +174,7 @@ module.exports.register = (app) => {
         });
     });
 
-     //POST A UN RECURSO DE DEFENSE (No está permitido)
+     //POST A UN RECURSO(No está permitido)
      app.post(BASE_API_PATH+"/:country/:year",(req,res)=>{
         res.sendStatus(405);
         console.log("Se ha intentado hacer POST a un recurso concreto.");
@@ -182,7 +182,7 @@ module.exports.register = (app) => {
 
     /*------------------- PUTs -------------------*/
 
-     //PUT A UN RECURSO CONCRETO DE DEFENSE POR COUNTRY/YEAR
+     //PUT A UN RECURSO CONCRETO POR COUNTRY/YEAR
      app.put(BASE_API_PATH+"/:country/:year", (req,res) => {
         
         var reqcountry = req.params.country;
@@ -220,7 +220,7 @@ module.exports.register = (app) => {
     /*------------------- DELETEs -------------------*/
 
 
-     //DELETE A LISTA DE RECURSOS DE DEFENSE STATS
+     //DELETE A LISTA DE RECURSOS
      app.delete(BASE_API_PATH, (req,res) => {
         db.remove({}, {multi: true}, (err, numDataRemoved) => {
             if (err || numDataRemoved == 0){
@@ -233,7 +233,7 @@ module.exports.register = (app) => {
         });
     });
 
-    //DELETE A UN RECURSO DE DEFENSE POR COUNTRY/YEAR
+    //DELETE A UN RECURSO POR COUNTRY/YEAR
     app.delete(BASE_API_PATH + "/:country/:year", (req,res)=>{
         var reqcountry = req.params.country;
         var reqyear = parseInt(req.params.year);
