@@ -59,6 +59,14 @@ var nbaStats = [
         mostpoints: 1041,
         fieldgoals: 394,
         efficiency: 16.8
+    },
+    {
+        country: "spain",
+        year: 2017,
+        name: "Ricky Rubio",
+        mostpoints: 836,
+        fieldgoals: 261,
+        efficiency: 17.9
     }
 ];
     
