@@ -11,6 +11,8 @@
 	var BASE_API_PATH = "api/v2/premier-league"
 
     let entries = [];
+    let from = null;
+	let to = null;
 
 	let newEntry = {
 		country: "",
@@ -25,6 +27,10 @@
 	let color="danger";
 	let page = 1;
 	let totaldata = 20;
+    let offset = 0;
+	let limit = 10;
+    let maxPages =0;
+    let numEntries;
 
 	let sCountry = "";
 	let sYear = "";
@@ -36,7 +42,7 @@
 
 	//GET
 
-    async function getEntries(){
+    /*async function getEntries(){
         console.log("Fetching entries....");
         const res = await fetch("/api/v2/premier-league"); 
         if(res.ok){
@@ -48,6 +54,28 @@
 		else{
 			checkMSG = res.status + ": Recursos no encontrados";
 			console.log("ERROR! no encontrado");
+		}
+    }*/
+    //GET
+    async function getEntries(){
+        console.log("Fetching entries....");
+		let cadena = `/api/v2/premier-league?limit=${limit}&&offset=${offset*10}&&`;
+		if (from != null) {
+			cadena = cadena + `from=${from}&&`
+		}
+		if (to != null) {
+			cadena = cadena + `to=${to}`
+		}
+        const res = await fetch(cadena); 
+        if(res.ok){
+			let cadenaPag = cadena.split(`limit=${limit}&&offset=${offset*10}`);
+			maxPagesFunction(cadenaPag[0]+cadenaPag[1]);
+            const data = await res.json();
+            entries = data;
+			numEntries = entries.length;
+            console.log("Received entries: "+entries.length);
+        }else{
+			Errores(res.status);
 		}
     }
 
@@ -84,7 +112,7 @@
              alert("Los campos no pueden estar vacios");
 		}
         else{
-			const res = await fetch("/api/v2/premier-league",
+			const res = await fetch("/api/v2/premier-league/",
 			{
 				method: "POST",
 				body: JSON.stringify({
@@ -178,7 +206,7 @@
 	}
 
 	//SEARCH
-	async function search (sCountry, sYear, sAppearences, sCleanSheets, sGoals){
+	/*async function search (sCountry, sYear, sAppearences, sCleanSheets, sGoals){
             
             if(sCountry==null){
                 sCountry="";
@@ -214,7 +242,7 @@
                     checkMSG = "Se han encontrado " + entries.length + " datos para tu búsqueda";
                 }
             }
-    }
+    }*/
     /*-------------------------PAGINACIÓN-------------------------*/
         //getNextPage (B)
         async function getNextPage() {
@@ -274,6 +302,21 @@
         }
 	
 
+        //Función auxiliar para obtener el número máximo de páginas que se pueden ver
+	async function maxPagesFunction(cadena){
+		let num;
+        const res = await fetch(cadena,
+			{
+				method: "GET"
+			});
+			if(res.ok){
+				const data = await res.json();
+				maxPages = Math.floor(data.length/10);
+				if(maxPages === data.length/10){
+					maxPages = maxPages-1;
+				}
+        }
+	}
 	
 
 </script>
@@ -297,29 +340,84 @@
         <br>
         <h4 style="text-align:center"><strong>Búsqueda general de parámetros</strong></h4>
         <br>
-        <Table bordered responsive>
+        <!--<Table bordered responsive>
             <thead>
                 <tr>
-            <th>Búsqueda por país</th>
-            <th>Búsqueda por año</th>
-            <th>Búsqueda por apariciones</th>
+            <!--<th>Búsqueda por país</th>
+            <th>Búsqueda por año inicio</th>
+            <th>Búsqueda por año fin</th>
+            <th>Búsqueda</th>
+            <!--<th>Búsqueda por apariciones</th>
             <th>Búsqueda por portería vacía</th>
             <th>Búsqueda por goles</th>
                 </tr>
             </thead>
             <tbody>
             <tr>
-                <td><input type = "text" placeholder="País" bind:value="{sCountry}"></td>
-                <td><input type = "number" placeholder="2020" bind:value="{sYear}"></td>
-                <td><input type = "number" placeholder="12" bind:value="{sAppearences}"></td>
+                <!--<td><input type = "text" placeholder="País" bind:value="{sCountry}"></td>
+                <!--<td><input type = "number" placeholder="2020" bind:value="{sYear}"></td>
+                <td><input type="number" placeholder="fecha inicio" min="2000" bind:value="{from}"></td>
+				<td><input type="number" placeholder="fecha fin"    min="2000" bind:value="{to}"></td>
+				<td align="center"><Button outline color="dark" on:click="{()=>{
+					if (from == null || to == null) {
+						window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+					}else{
+						getEntries();
+                        checkMSG = "Datos cargados correctamente en ese periodo";
+					}
+				}}">
+					Buscar
+					</Button>
+				</td>
+                <!--<td><input type = "number" placeholder="12" bind:value="{sAppearences}"></td>
                 <td><input type = "number" placeholder="18" bind:value="{sCleanSheets}"></td>
                 <td><input type = "number" placeholder="7" bind:value="{sGoals}"></td>
+                
             </tr>
             </tbody>
-        </Table>
-        <div style="text-align:center">
+        </Table>-->
+        <!--<div style="text-align:center">
             <Button outline color="primary" on:click="{search (sCountry, sYear, sAppearences, sCleanSheets, sGoals)}">Buscar</Button>
-        </div>
+        </div>-->
+        <Table bordered>
+            <thead>
+                <tr>
+                    <th>Fecha inicio</th>
+                    <th>Fecha fin</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="number" min="2000" bind:value="{from}"></td>
+                    <td><input type="number" min="2000" bind:value="{to}"></td>
+                    <td align="center"><Button outline color="dark" on:click="{()=>{
+                        if (from == null || to == null) {
+                            window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')
+                        }else{
+                            checkMSG = "Datos cargados correctamente en ese periodo";
+                            getEntries();
+                        }
+                    }}">
+                        Buscar
+                        </Button>
+                    </td>
+                    <td align="center"><Button outline color="info" on:click="{()=>{
+                        from = null;
+                        to = null;
+                        getEntries();
+                        checkMSG = "Busqueda limpiada";
+                        
+                    }}">
+                        Limpiar Búsqueda
+                        
+                        </Button>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </Table>
 
         <br>
 

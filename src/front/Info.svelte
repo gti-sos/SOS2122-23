@@ -50,13 +50,28 @@
                     src="https://obamabcn.com/wp-content/uploads/2019/11/logo-premier-league.jpg"
                     alt="Avatar"
                     style="width:100%"
-                />
+                />>
                 <div class="container">
                     <h4><b>Premier League</b></h4>
-                    <p>Alberto Martin Martin</p>
+                    <p>Alberto Martín Martín</p>
                     <a href="/api/v1/premier-league">
                         <button class="btn btn-primary" type="submit"
-                            >Api</button
+                            >API V1</button
+                        >
+                    </a>
+                    <a href="/api/v1/premier-league/docs">
+                        <button class="btn btn-primary" type="submit"
+                            >API V1 Docs</button
+                        >
+                    </a>
+                    <a href="/api/v2/premier-league">
+                        <button class="btn btn-primary" type="submit"
+                            >API V2</button
+                        >
+                    </a>
+                    <a href="/api/v2/premier-league/docs">
+                        <button class="btn btn-primary" type="submit"
+                            >API V2 Docs</button
                         >
                     </a>
                     <a href="/#/premier-league">
@@ -127,7 +142,7 @@
                 <div class="container">
                     <h4><b>Alberto</b></h4>
                     <p>Fuente de datos:</p>
-                    <a href="/api/v1/tennis">
+                    <a href="/api/v2/premier-league">
                         <button class="btn btn-primary" type="submit"
                             > #</button
                         >

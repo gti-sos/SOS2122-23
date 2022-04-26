@@ -13,6 +13,7 @@
     let visible = false;
     let color = "danger";
     let entry = {};
+    let colorMsg = "danger";
 
     let updatedCountry = {};
     let updatedYear = "";
@@ -25,12 +26,9 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch(BASE_API_PATH+params.country+"/"+params.year); 
+        const res = await fetch(BASE_API_PATH+"/" +params.country+"/"+params.year); 
         if(res.ok){
             const data = await res.json();
-            entry = data;
-            updatedCountry = entry.country;
-            updatedYear = entry.year;
             updatedappearences = entry.appearences;
             updatedcleanSheets = entry.cleanSheets;
             updatedgoals = entry.goals;
@@ -46,12 +44,12 @@
 
     async function EditEntry(){
         console.log("Updating entry...."+updatedCountry);
-        const res = await fetch(BASE_API_PATH+params.country+"/"+params.year,
+        const res = await fetch("api/v2/premier-league/"+params.country+"/"+params.year,
 			{
 				method: "PUT",
 				body: JSON.stringify({
-                    country: updatedCountry,
-                    year: updatedYear,
+                    country: params.country,
+                    year: parseInt(params.year),
                     appearences: updatedappearences,
                     cleanSheets: updatedcleanSheets,
                     goals: updatedgoals
@@ -62,7 +60,7 @@
 			}).then(function(res){
                 visible=true;
                 if(res.status==200){
-                    getStat();
+                    getEntries();
                     console.log("Data introduced");
                     color="success";
                     errorMsg = "Recurso actualizado correctamente";

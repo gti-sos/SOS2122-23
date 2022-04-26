@@ -60,7 +60,7 @@ module.exports.register = (app) => {
 
     /*------------------- GETs -------------------*/
 
-
+    /*
      //GET A UNA LISTA DE RECURSOS DE PREMIER-LEAGUE-STATS
     app.get(BASE_API_PATH, (req,res)=>{
         var query = req.query;
@@ -71,9 +71,9 @@ module.exports.register = (app) => {
         //"Parseamos" los datos a su tipo original antes de buscar
         if (req.query.country) dbquery["country"] = req.query.country;
         if (req.query.year) dbquery["year"] = parseInt(req.query.year);
-        if (req.query.appearences) dbquery["appearences"] = parseFloat(req.query.appearences);
-        if (req.query.cleanSheets) dbquery["cleanSheets"] = parseFloat(req.query.cleanSheets);
-        if (req.query.goals) dbquery["goals"] = parseFloat(req.query.goals);
+        if (req.query.appearences) dbquery["appearences"] = parseInt(req.query.appearences);
+        if (req.query.cleanSheets) dbquery["cleanSheets"] = parseInt(req.query.cleanSheets);
+        if (req.query.goals) dbquery["goals"] = parseInt(req.query.goals);
 
         //Búsqueda de datos y ordenación por parametro country
         db.find(dbquery).sort({country:1, year:-1}).skip(offset).limit(limit).exec((error, dataPremier) => {
@@ -115,7 +115,7 @@ module.exports.register = (app) => {
     
          if(from>to){
             res.sendStatus(400, "BAD REQUEST");
-            
+            return;
         }
     
         db.find({}, function(err,filteredList){
@@ -178,6 +178,233 @@ module.exports.register = (app) => {
         });
     });
 
+    */
+
+    //GET ANTONIO
+    app.get(BASE_API_PATH,(req, res)=>{
+    
+        var year = req.query.year;
+        var from = req.query.from;
+        var to = req.query.to;
+
+        //Comprobamos query
+
+        for(var i = 0; i<Object.keys(req.query).length;i++){
+            var element = Object.keys(req.query)[i];
+            if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset" && element != "fields"){
+                res.sendStatus(400, "BAD REQUEST");
+                return;
+            }
+        }
+
+        //Comprobamos si from es mas pequeño o igual a to
+        if(from>to){
+            res.sendStatus(400, "BAD REQUEST");
+            return;
+        }
+
+        db.find({},function(err, filteredList){
+
+            if(err){
+                res.sendStatus(500, "ERROR EN CLIENTE");
+                return;
+            }
+
+            // Apartado para búsqueda por año
+            
+            if(year != null){
+                var filteredList = filteredList.filter((reg)=>
+                {
+                    return (reg.year == year);
+                });
+                if (filteredList==0){
+                    res.sendStatus(404, "NO EXISTE");
+                    return;
+                }
+            }
+    
+            // Apartado para from y to
+            
+            if(from != null && to != null){
+                filteredList = filteredList.filter((reg)=>
+                {
+                    return (reg.year >= from && reg.year <=to);
+                });
+    
+                if (filteredList==0){
+                    res.sendStatus(404, "NO EXISTE");
+                    return;
+                }    
+
+                
+            }
+            // RESULTADO
+    
+            if(req.query.limit != undefined || req.query.offset != undefined){
+                filteredList = paginacion(req,filteredList);
+            }
+            filteredList.forEach((element)=>{
+                delete element._id;
+            });
+
+            //Comprobamos fields
+            if(req.query.fields!=null){
+                //Comprobamos si los campos son correctos
+                var listaFields = req.query.fields.split(",");
+                for(var i = 0; i<listaFields.length;i++){
+                    var element = listaFields[i];
+                    if(element != "country" && element != "year" && element != "appearences" && element != "cleanSheets" && element != "goals"){
+                        res.sendStatus(400, "BAD REQUEST");
+                        return;
+                    }
+                }
+                //Escogemos los fields correspondientes
+                filteredList = comprobar_fields(req,filteredList);
+            }
+
+            res.send(JSON.stringify(filteredList,null,2));
+        })
+    })
+    
+    // GET por país
+    
+    app.get(BASE_API_PATH+"/:country",(req, res)=>{
+    
+        var country =req.params.country;
+        var from = req.query.from;
+        var to = req.query.to;
+
+        //Comprobamos query
+
+        for(var i = 0; i<Object.keys(req.query).length;i++){
+            var element = Object.keys(req.query)[i];
+            if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset" && element != "fields"){
+                res.sendStatus(400, "BAD REQUEST");
+                return;
+            }
+        }
+
+        //Comprobamos si from es mas pequeño o igual a to
+        if(from>to){
+            res.sendStatus(400, "BAD REQUEST");
+            return;
+        }
+
+        db.find({}, function(err,filteredList){
+            
+            if(err){
+                res.sendStatus(500, "ERROR EN CLIENTE");
+                return;
+            }
+
+            filteredList = filteredList.filter((reg)=>
+            {
+                return (reg.country == country);
+            });
+        
+            // Apartado para from y to
+            var from = req.query.from;
+            var to = req.query.to;
+    
+            //Comprobamos si from es mas pequeño o igual a to
+            if(from>to){
+                res.sendStatus(400, "BAD REQUEST");
+                return;
+            }
+        
+            if(from != null && to != null && from<=to){
+                filteredList = filteredList.filter((reg)=>
+                {
+                   return (reg.year >= from && reg.year <=to);
+                }); 
+                
+            }
+            //COMPROBAMOS SI EXISTE
+            if (filteredList==0){
+                res.sendStatus(404, "NO EXISTE");
+                return;
+            }
+            //RESULTADO
+            if(req.query.limit != undefined || req.query.offset != undefined){
+                filteredList = paginacion(req,filteredList);
+            }
+            filteredList.forEach((element)=>{
+                delete element._id;
+            });
+
+            //Comprobamos fields
+            if(req.query.fields!=null){
+                //Comprobamos si los campos son correctos
+                var listaFields = req.query.fields.split(",");
+                for(var i = 0; i<listaFields.length;i++){
+                    var element = listaFields[i];
+                    if(element != "country" && element != "year" && element != "appearences" && element != "cleanSheets" && element != "goals"){
+                        res.sendStatus(400, "BAD REQUEST");
+                        return;
+                    }
+                }
+                //Escogemos los fields correspondientes
+                filteredList = comprobar_fields(req,filteredList);
+            }
+
+            res.send(JSON.stringify(filteredList,null,2));
+        })
+
+    })
+    
+    // GET por país y año
+    
+    app.get(BASE_API_PATH+"/:country/:year",(req, res)=>{
+    
+        var country =req.params.country
+        var year = req.params.year
+
+        db.find({},function(err, filteredList){
+
+            if(err){
+                res.sendStatus(500, "ERROR EN CLIENTE");
+                return;
+            }
+
+            filteredList = filteredList.filter((reg)=>
+            {
+                return (reg.country == country && reg.year == year);
+            });
+            if (filteredList==0){
+                res.sendStatus(404, "NO EXISTE");
+                return;
+            }
+    
+            //RESULTADO
+    
+            //Paginación
+            if(req.query.limit != undefined || req.query.offset != undefined){
+                filteredList = paginacion(req,filteredList);
+                res.send(JSON.stringify(filteredList,null,2));
+            }
+            filteredList.forEach((element)=>{
+                delete element._id;
+            });
+
+            //Comprobamos fields
+            if(req.query.fields!=null){
+                //Comprobamos si los campos son correctos
+                var listaFields = req.query.fields.split(",");
+                for(var i = 0; i<listaFields.length;i++){
+                    var element = listaFields[i];
+                    if(element != "country" && element != "year" && element != "appearences" && element != "cleanSheets" && element != "goals"){
+                        res.sendStatus(400, "BAD REQUEST");
+                        return;
+                    }
+                }
+                //Escogemos los fields correspondientes
+                filteredList = comprobar_fields(req,filteredList);
+            }
+
+            res.send(JSON.stringify(filteredList[0],null,2));
+        });
+
+    })
     /*------------------- POSTs -------------------*/
 
 
@@ -293,5 +520,90 @@ module.exports.register = (app) => {
             }
         });
     });
+
+    function paginacion(req, lista){
+
+        var res = [];
+        const limit = req.query.limit;
+        const offset = req.query.offset;
+        
+        if(limit < 1 || offset < 0 || offset > lista.length){
+            res.push("ERROR EN PARAMETROS LIMIT Y/O OFFSET");
+            return res;
+        }
+
+        res = lista.slice(offset,parseInt(limit)+parseInt(offset));
+        return res;
+
+    }
+
+    function comprobar_fields(req, lista){
+        var fields = req.query.fields;
+
+        var contieneCountry = false;
+        var contieneYear = false;
+        var contieneAppearences = false;
+        var contieneCleanSheets = false;
+        var contieneGoals = false;
+        fields = fields.split(",");
+
+        for(var i = 0; i<fields.length;i++){
+            var element = fields[i];
+            if(element=='country'){
+                contieneCountry=true;
+            }
+            if(element=='year'){
+                contieneYear=true;
+            }
+            if(element=='appearences'){
+                contieneAppearences=true;
+            }
+            if(element=='cleanSheets'){
+                contieneCleanSheets=true;
+            }
+            if(element=='goals'){
+                contieneGoals=true;
+            }
+        }
+
+        //Country
+        if(!contieneCountry){
+            lista.forEach((element)=>{
+                delete element.country;
+            })
+        }
+
+        //Year
+        if(!contieneYear){
+            lista.forEach((element)=>{
+                delete element.year;
+            })
+        }
+
+        //appearences
+        if(!contieneAppearences){
+            lista.forEach((element)=>{
+                delete element.appearences;
+            })
+        }
+
+        //cleanSheets
+        if(!contieneCleanSheets){
+            lista.forEach((element)=>{
+                delete element.cleanSheets;
+            })
+        }
+
+        //goals
+        if(!contieneGoals){
+            lista.forEach((element)=>{
+                delete element.goals;
+            })
+        }
+
+        return lista;
+
+    }
+
 
 };
