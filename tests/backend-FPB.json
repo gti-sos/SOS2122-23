@@ -62,17 +62,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/nba-stats",
-					"protocol": "https",
+					"raw": "{{HOST}}",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"nba-stats"
+						"{{HOST}}"
 					]
 				}
 			},
@@ -105,17 +97,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/nba-stats/usa",
-					"protocol": "https",
+					"raw": "{{HOST}}/usa",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
+						"{{HOST}}"
 					],
 					"path": [
-						"api",
-						"v1",
-						"nba-stats",
 						"usa"
 					]
 				}
@@ -318,17 +304,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/nba-stats",
-					"protocol": "https",
+					"raw": "{{HOST}}",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"nba-stats"
+						"{{HOST}}"
 					]
 				}
 			},
@@ -401,17 +379,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/nba-stats",
-					"protocol": "https",
+					"raw": "{{HOST}}",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"nba-stats"
+						"{{HOST}}"
 					]
 				}
 			},
@@ -445,17 +415,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/nba-stats",
-					"protocol": "https",
+					"raw": "{{HOST}}",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"nba-stats"
+						"{{HOST}}"
 					]
 				}
 			},
