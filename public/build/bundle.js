@@ -2158,11 +2158,7 @@ var app = (function () {
     			t14 = space();
     			h22 = element("h2");
     			h22.textContent = "Project description:";
-<<<<<<< HEAD
-    			t16 = text(" Relación de deportes entre fútbol (Premier League), tenis y baloncesto (NBA)\r\n        ");
-=======
-    			t15 = text(" Relación de deportes entre fútbol (Premier League), tenis y baloncesto (NBA)\n        ");
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			t16 = text(" Relación de deportes entre fútbol (Premier League), tenis y baloncesto (NBA)\n        ");
     			h23 = element("h2");
     			h23.textContent = "Repository:";
     			a4 = element("a");
@@ -2182,82 +2178,46 @@ var app = (function () {
     			t26 = space();
     			li1 = element("li");
     			a7 = element("a");
-<<<<<<< HEAD
     			a7.textContent = "https://sos2122-23.herokuapp.com/api/v1/nba-stats (developed by Fernando Pardo Beltrán)";
     			t28 = space();
     			li2 = element("li");
     			a8 = element("a");
     			a8.textContent = "https://sos2122-23.herokuapp.com/api/v1/tennis/docs";
     			t30 = text(" (developed by Antonio Saborido Campos)");
-    			add_location(h1, file$f, 3, 12, 76);
-=======
-    			a7.textContent = "https://sos2122-23.herokuapp.com/api/v1/tennis/docs";
-    			t29 = text(" (developed by Antonio Saborido Campos)");
     			add_location(h1, file$h, 3, 12, 73);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     			attr_dev(div0, "id", "titulo");
     			attr_dev(div0, "class", "svelte-d1sqie");
     			add_location(div0, file$h, 2, 8, 43);
     			attr_dev(a0, "href", "/#/info");
-<<<<<<< HEAD
-    			add_location(a0, file$f, 5, 12, 125);
-    			add_location(h20, file$f, 5, 8, 121);
-    			add_location(h21, file$f, 7, 8, 180);
-    			attr_dev(a1, "href", "https://github.com/albmarmar6");
-    			add_location(a1, file$f, 8, 13, 208);
-    			add_location(p0, file$f, 8, 8, 203);
-    			attr_dev(a2, "href", "https://github.com/Nando13-hub");
-    			add_location(a2, file$f, 9, 13, 292);
-    			add_location(p1, file$f, 9, 8, 287);
-    			attr_dev(a3, "href", "https://github.com/Antoniiosc7");
-    			add_location(a3, file$f, 10, 13, 378);
-    			add_location(p2, file$f, 10, 8, 373);
-    			add_location(h22, file$f, 11, 8, 462);
-    			add_location(h23, file$f, 12, 8, 578);
-    			attr_dev(a4, "href", "https://github.com/gti-sos/SOS2122-23");
-    			add_location(a4, file$f, 12, 28, 598);
-    			add_location(h24, file$f, 13, 8, 678);
-    			attr_dev(a5, "href", "http://sos2122-23.herokuapp.com");
-    			add_location(a5, file$f, 13, 21, 691);
-    			add_location(h25, file$f, 14, 8, 779);
-    			attr_dev(a6, "href", "https://sos2122-23.herokuapp.com/api/v2/premier-league");
-    			add_location(a6, file$f, 15, 12, 807);
-    			add_location(li0, file$f, 15, 8, 803);
-    			attr_dev(a7, "href", "https://sos2122-23.herokuapp.com/api/v1/nba-stats");
-    			add_location(a7, file$f, 16, 12, 1023);
-    			add_location(li1, file$f, 16, 8, 1019);
-    			attr_dev(a8, "href", "https://sos2122-23.herokuapp.com/api/v1/tennis/docs");
-    			add_location(a8, file$f, 18, 12, 1203);
-    			add_location(li2, file$f, 18, 8, 1199);
-=======
     			add_location(a0, file$h, 5, 12, 120);
     			add_location(h20, file$h, 5, 8, 116);
     			add_location(h21, file$h, 7, 8, 173);
+    			attr_dev(a1, "href", "https://github.com/albmarmar6");
+    			add_location(a1, file$h, 8, 13, 200);
     			add_location(p0, file$h, 8, 8, 195);
-    			attr_dev(a1, "href", "https://github.com/Nando13-hub");
-    			add_location(a1, file$h, 9, 13, 272);
-    			add_location(p1, file$h, 9, 8, 267);
-    			attr_dev(a2, "href", "https://github.com/Antoniiosc7");
-    			add_location(a2, file$h, 10, 13, 357);
-    			add_location(p2, file$h, 10, 8, 352);
-    			add_location(h22, file$h, 11, 8, 440);
-    			add_location(h23, file$h, 12, 8, 555);
-    			attr_dev(a3, "href", "https://github.com/gti-sos/SOS2122-23");
-    			add_location(a3, file$h, 12, 28, 575);
-    			add_location(h24, file$h, 13, 8, 654);
-    			attr_dev(a4, "href", "http://sos2122-23.herokuapp.com");
-    			add_location(a4, file$h, 13, 21, 667);
-    			add_location(h25, file$h, 14, 8, 754);
-    			attr_dev(a5, "href", "https://sos2122-23.herokuapp.com/api/v1/premier-league");
-    			add_location(a5, file$h, 15, 12, 781);
-    			add_location(li0, file$h, 15, 8, 777);
-    			attr_dev(a6, "href", "https://sos2122-23.herokuapp.com/api/v1/nba-stats");
-    			add_location(a6, file$h, 16, 12, 996);
-    			add_location(li1, file$h, 16, 8, 992);
-    			attr_dev(a7, "href", "https://sos2122-23.herokuapp.com/api/v1/tennis/docs");
-    			add_location(a7, file$h, 18, 12, 1174);
-    			add_location(li2, file$h, 18, 8, 1170);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			attr_dev(a2, "href", "https://github.com/Nando13-hub");
+    			add_location(a2, file$h, 9, 13, 283);
+    			add_location(p1, file$h, 9, 8, 278);
+    			attr_dev(a3, "href", "https://github.com/Antoniiosc7");
+    			add_location(a3, file$h, 10, 13, 368);
+    			add_location(p2, file$h, 10, 8, 363);
+    			add_location(h22, file$h, 11, 8, 451);
+    			add_location(h23, file$h, 12, 8, 566);
+    			attr_dev(a4, "href", "https://github.com/gti-sos/SOS2122-23");
+    			add_location(a4, file$h, 12, 28, 586);
+    			add_location(h24, file$h, 13, 8, 665);
+    			attr_dev(a5, "href", "http://sos2122-23.herokuapp.com");
+    			add_location(a5, file$h, 13, 21, 678);
+    			add_location(h25, file$h, 14, 8, 765);
+    			attr_dev(a6, "href", "https://sos2122-23.herokuapp.com/api/v2/premier-league");
+    			add_location(a6, file$h, 15, 12, 792);
+    			add_location(li0, file$h, 15, 8, 788);
+    			attr_dev(a7, "href", "https://sos2122-23.herokuapp.com/api/v1/nba-stats");
+    			add_location(a7, file$h, 16, 12, 1007);
+    			add_location(li1, file$h, 16, 8, 1003);
+    			attr_dev(a8, "href", "https://sos2122-23.herokuapp.com/api/v1/tennis/docs");
+    			add_location(a8, file$h, 18, 12, 1185);
+    			add_location(li2, file$h, 18, 8, 1181);
     			attr_dev(div1, "class", "container svelte-d1sqie");
     			add_location(div1, file$h, 1, 4, 11);
     			add_location(main, file$h, 0, 0, 0);
@@ -8082,12 +8042,7 @@ var app = (function () {
     	let h42;
     	let b2;
     	let t23;
-<<<<<<< HEAD
-    	let a4;
-    	let button4;
-=======
     	let p1;
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t25;
     	let a5;
     	let button5;
@@ -8095,25 +8050,25 @@ var app = (function () {
     	let a6;
     	let button6;
     	let t29;
+    	let a7;
+    	let button7;
+    	let t31;
+    	let a8;
+    	let button8;
+    	let t33;
+    	let a9;
+    	let button9;
+    	let t35;
     	let div13;
     	let div12;
     	let img3;
     	let img3_src_value;
-    	let t30;
+    	let t36;
     	let div11;
     	let h43;
     	let b3;
-    	let t32;
-    	let p2;
-    	let t34;
-    	let a7;
-    	let button7;
-    	let t36;
-    	let a8;
-    	let button8;
     	let t38;
-    	let a9;
-    	let button9;
+    	let p2;
     	let t40;
     	let a10;
     	let button10;
@@ -8121,41 +8076,50 @@ var app = (function () {
     	let a11;
     	let button11;
     	let t44;
+    	let a12;
+    	let button12;
+    	let t46;
+    	let a13;
+    	let button13;
+    	let t48;
+    	let a14;
+    	let button14;
+    	let t50;
     	let br2;
-    	let t45;
+    	let t51;
     	let div24;
     	let div17;
     	let div16;
     	let div15;
     	let h44;
     	let b4;
-    	let t47;
+    	let t53;
     	let p3;
-    	let t49;
-    	let a12;
-    	let button12;
-    	let t51;
+    	let t55;
+    	let a15;
+    	let button15;
+    	let t57;
     	let div20;
     	let div19;
     	let div18;
     	let h45;
     	let b5;
-    	let t53;
+    	let t59;
     	let p4;
-    	let t55;
-    	let a13;
-    	let button13;
-    	let t57;
+    	let t61;
+    	let a16;
+    	let button16;
+    	let t63;
     	let div23;
     	let div22;
     	let div21;
     	let h46;
     	let b6;
-    	let t59;
+    	let t65;
     	let p5;
-    	let t61;
-    	let a14;
-    	let button14;
+    	let t67;
+    	let a17;
+    	let button17;
 
     	const block = {
     		c: function create() {
@@ -8212,132 +8176,112 @@ var app = (function () {
     			div10 = element("div");
     			div9 = element("div");
     			img2 = element("img");
-<<<<<<< HEAD
-    			t15 = text(">\r\n                ");
-=======
-    			t21 = space();
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			t21 = text(">\n                ");
     			div8 = element("div");
     			h42 = element("h4");
     			b2 = element("b");
     			b2.textContent = "Premier League";
     			t23 = space();
     			p1 = element("p");
-<<<<<<< HEAD
     			p1.textContent = "Alberto Martín Martín";
-    			t19 = space();
-    			a2 = element("a");
-    			button2 = element("button");
-    			button2.textContent = "API V1";
-    			t21 = space();
-    			a3 = element("a");
-    			button3 = element("button");
-    			button3.textContent = "API V1 Docs";
-    			t23 = space();
-    			a4 = element("a");
-    			button4 = element("button");
-    			button4.textContent = "API V2";
     			t25 = space();
     			a5 = element("a");
     			button5 = element("button");
-    			button5.textContent = "API V2 Docs";
-=======
-    			p1.textContent = "Alberto Martin Martin";
-    			t25 = space();
-    			a5 = element("a");
-    			button5 = element("button");
-    			button5.textContent = "Api";
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			button5.textContent = "API V1";
     			t27 = space();
     			a6 = element("a");
     			button6 = element("button");
-    			button6.textContent = "Interfaz";
+    			button6.textContent = "API V1 Docs";
     			t29 = space();
+    			a7 = element("a");
+    			button7 = element("button");
+    			button7.textContent = "API V2";
+    			t31 = space();
+    			a8 = element("a");
+    			button8 = element("button");
+    			button8.textContent = "API V2 Docs";
+    			t33 = space();
+    			a9 = element("a");
+    			button9 = element("button");
+    			button9.textContent = "Interfaz";
+    			t35 = space();
     			div13 = element("div");
     			div12 = element("div");
     			img3 = element("img");
-    			t30 = space();
+    			t36 = space();
     			div11 = element("div");
     			h43 = element("h4");
     			b3 = element("b");
     			b3.textContent = "Tennis";
-    			t32 = space();
+    			t38 = space();
     			p2 = element("p");
     			p2.textContent = "Antonio Saborido Campos";
-    			t34 = space();
-    			a7 = element("a");
-    			button7 = element("button");
-    			button7.textContent = "API V1";
-    			t36 = space();
-    			a8 = element("a");
-    			button8 = element("button");
-    			button8.textContent = "API V1 Docs";
-    			t38 = space();
-    			a9 = element("a");
-    			button9 = element("button");
-    			button9.textContent = "API V2";
     			t40 = space();
     			a10 = element("a");
     			button10 = element("button");
-    			button10.textContent = "API V2 Docs";
+    			button10.textContent = "API V1";
     			t42 = space();
     			a11 = element("a");
     			button11 = element("button");
-    			button11.textContent = "Interfaz";
+    			button11.textContent = "API V1 Docs";
     			t44 = space();
+    			a12 = element("a");
+    			button12 = element("button");
+    			button12.textContent = "API V2";
+    			t46 = space();
+    			a13 = element("a");
+    			button13 = element("button");
+    			button13.textContent = "API V2 Docs";
+    			t48 = space();
+    			a14 = element("a");
+    			button14 = element("button");
+    			button14.textContent = "Interfaz";
+    			t50 = space();
     			br2 = element("br");
-    			t45 = space();
+    			t51 = space();
     			div24 = element("div");
     			div17 = element("div");
     			div16 = element("div");
     			div15 = element("div");
     			h44 = element("h4");
     			b4 = element("b");
-<<<<<<< HEAD
-    			b4.textContent = "Fernando";
-=======
     			b4.textContent = "Fernando Pardo Beltrán";
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
-    			t47 = space();
+    			t53 = space();
     			p3 = element("p");
     			p3.textContent = "Fuente de datos:";
-    			t49 = space();
-    			a12 = element("a");
-    			button12 = element("button");
-    			button12.textContent = "#";
-    			t51 = space();
+    			t55 = space();
+    			a15 = element("a");
+    			button15 = element("button");
+    			button15.textContent = "#";
+    			t57 = space();
     			div20 = element("div");
     			div19 = element("div");
     			div18 = element("div");
     			h45 = element("h4");
     			b5 = element("b");
     			b5.textContent = "Alberto";
-    			t53 = space();
+    			t59 = space();
     			p4 = element("p");
     			p4.textContent = "Fuente de datos:";
-    			t55 = space();
-    			a13 = element("a");
-    			button13 = element("button");
-    			button13.textContent = "#";
-    			t57 = space();
+    			t61 = space();
+    			a16 = element("a");
+    			button16 = element("button");
+    			button16.textContent = "#";
+    			t63 = space();
     			div23 = element("div");
     			div22 = element("div");
     			div21 = element("div");
     			h46 = element("h4");
     			b6 = element("b");
     			b6.textContent = "Antonio Saborido Campos";
-    			t59 = space();
+    			t65 = space();
     			p5 = element("p");
     			p5.textContent = "Fuente de datos:";
-    			t61 = space();
-    			a14 = element("a");
-    			button14 = element("button");
-    			button14.textContent = "#";
-<<<<<<< HEAD
-    			add_location(br0, file$5, 1, 4, 12);
-=======
+    			t67 = space();
+    			a17 = element("a");
+    			button17 = element("button");
+    			button17.textContent = "#";
     			add_location(br0, file$7, 1, 4, 11);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     			attr_dev(div0, "class", "col-sm-4");
     			add_location(div0, file$7, 4, 8, 55);
     			if (!src_url_equal(img0.src, img0_src_value = "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png")) attr_dev(img0, "src", img0_src_value);
@@ -8396,56 +8340,37 @@ var app = (function () {
     			if (!src_url_equal(img2.src, img2_src_value = "https://obamabcn.com/wp-content/uploads/2019/11/logo-premier-league.jpg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "Avatar");
     			set_style(img2, "width", "100%");
-<<<<<<< HEAD
-    			add_location(img2, file$5, 48, 16, 1627);
-    			add_location(b2, file$5, 54, 24, 1892);
-    			add_location(h42, file$5, 54, 20, 1888);
-    			add_location(p1, file$5, 55, 20, 1940);
-    			attr_dev(button2, "class", "btn btn-primary");
-    			attr_dev(button2, "type", "submit");
-    			add_location(button2, file$5, 57, 24, 2049);
-    			attr_dev(a2, "href", "/api/v1/premier-league");
-    			add_location(a2, file$5, 56, 20, 1990);
-    			attr_dev(button3, "class", "btn btn-primary");
-    			attr_dev(button3, "type", "submit");
-    			add_location(button3, file$5, 62, 24, 2278);
-    			attr_dev(a3, "href", "/api/v1/premier-league/docs");
-    			add_location(a3, file$5, 61, 20, 2214);
-    			attr_dev(button4, "class", "btn btn-primary");
-    			attr_dev(button4, "type", "submit");
-    			add_location(button4, file$5, 67, 24, 2507);
-    			attr_dev(a4, "href", "/api/v2/premier-league");
-    			add_location(a4, file$5, 66, 20, 2448);
-    			attr_dev(button5, "class", "btn btn-primary");
-    			attr_dev(button5, "type", "submit");
-    			add_location(button5, file$5, 72, 24, 2736);
-    			attr_dev(a5, "href", "/api/v2/premier-league/docs");
-    			add_location(a5, file$5, 71, 20, 2672);
-    			attr_dev(button6, "class", "btn btn-primary");
-    			attr_dev(button6, "type", "submit");
-    			add_location(button6, file$5, 77, 24, 2960);
-    			attr_dev(a6, "href", "/#/premier-league");
-    			add_location(a6, file$5, 76, 20, 2906);
-    			attr_dev(div8, "class", "container svelte-110ltv7");
-    			add_location(div8, file$5, 53, 16, 1843);
-=======
     			add_location(img2, file$7, 59, 16, 2139);
-    			add_location(b2, file$7, 65, 24, 2397);
-    			add_location(h42, file$7, 65, 20, 2393);
-    			add_location(p1, file$7, 66, 20, 2444);
+    			add_location(b2, file$7, 65, 24, 2398);
+    			add_location(h42, file$7, 65, 20, 2394);
+    			add_location(p1, file$7, 66, 20, 2445);
     			attr_dev(button5, "class", "btn btn-primary");
     			attr_dev(button5, "type", "submit");
-    			add_location(button5, file$7, 68, 24, 2551);
+    			add_location(button5, file$7, 68, 24, 2552);
     			attr_dev(a5, "href", "/api/v1/premier-league");
-    			add_location(a5, file$7, 67, 20, 2493);
+    			add_location(a5, file$7, 67, 20, 2494);
     			attr_dev(button6, "class", "btn btn-primary");
     			attr_dev(button6, "type", "submit");
-    			add_location(button6, file$7, 73, 24, 2762);
-    			attr_dev(a6, "href", "/#/premier-league");
-    			add_location(a6, file$7, 72, 20, 2709);
+    			add_location(button6, file$7, 73, 24, 2776);
+    			attr_dev(a6, "href", "/api/v1/premier-league/docs");
+    			add_location(a6, file$7, 72, 20, 2713);
+    			attr_dev(button7, "class", "btn btn-primary");
+    			attr_dev(button7, "type", "submit");
+    			add_location(button7, file$7, 78, 24, 3000);
+    			attr_dev(a7, "href", "/api/v2/premier-league");
+    			add_location(a7, file$7, 77, 20, 2942);
+    			attr_dev(button8, "class", "btn btn-primary");
+    			attr_dev(button8, "type", "submit");
+    			add_location(button8, file$7, 83, 24, 3224);
+    			attr_dev(a8, "href", "/api/v2/premier-league/docs");
+    			add_location(a8, file$7, 82, 20, 3161);
+    			attr_dev(button9, "class", "btn btn-primary");
+    			attr_dev(button9, "type", "submit");
+    			add_location(button9, file$7, 88, 24, 3443);
+    			attr_dev(a9, "href", "/#/premier-league");
+    			add_location(a9, file$7, 87, 20, 3390);
     			attr_dev(div8, "class", "container svelte-110ltv7");
-    			add_location(div8, file$7, 64, 16, 2349);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(div8, file$7, 64, 16, 2350);
     			attr_dev(div9, "class", "card svelte-110ltv7");
     			add_location(div9, file$7, 58, 12, 2104);
     			attr_dev(div10, "class", "col-sm-4");
@@ -8453,175 +8378,89 @@ var app = (function () {
     			if (!src_url_equal(img3.src, img3_src_value = "https://photoresources.wtatennis.com/photo-resources/2019/08/15/dbb59626-9254-4426-915e-57397b6d6635/tennis-origins-e1444901660593.jpg?width=1200&height=630")) attr_dev(img3, "src", img3_src_value);
     			attr_dev(img3, "alt", "Avatar");
     			set_style(img3, "width", "100%");
-<<<<<<< HEAD
-    			add_location(img3, file$5, 86, 16, 3247);
-    			add_location(b3, file$5, 92, 24, 3596);
-    			add_location(h43, file$5, 92, 20, 3592);
-    			add_location(p2, file$5, 93, 20, 3636);
-    			attr_dev(button7, "class", "btn btn-primary");
-    			attr_dev(button7, "type", "submit");
-    			add_location(button7, file$5, 95, 24, 3739);
-    			attr_dev(a7, "href", "/api/v1/tennis");
-    			add_location(a7, file$5, 94, 20, 3688);
-    			attr_dev(button8, "class", "btn btn-primary");
-    			attr_dev(button8, "type", "submit");
-    			add_location(button8, file$5, 100, 24, 3960);
-    			attr_dev(a8, "href", "/api/v1/tennis/docs");
-    			add_location(a8, file$5, 99, 20, 3904);
-    			attr_dev(button9, "class", "btn btn-primary");
-    			attr_dev(button9, "type", "submit");
-    			add_location(button9, file$5, 105, 24, 4181);
-    			attr_dev(a9, "href", "/api/v2/tennis");
-    			add_location(a9, file$5, 104, 20, 4130);
+    			add_location(img3, file$7, 97, 16, 3721);
+    			add_location(b3, file$7, 103, 24, 4064);
+    			add_location(h43, file$7, 103, 20, 4060);
+    			add_location(p2, file$7, 104, 20, 4103);
     			attr_dev(button10, "class", "btn btn-primary");
     			attr_dev(button10, "type", "submit");
-    			add_location(button10, file$5, 110, 24, 4402);
-    			attr_dev(a10, "href", "/api/v2/tennis/docs");
-    			add_location(a10, file$5, 109, 20, 4346);
+    			add_location(button10, file$7, 106, 24, 4204);
+    			attr_dev(a10, "href", "/api/v1/tennis");
+    			add_location(a10, file$7, 105, 20, 4154);
     			attr_dev(button11, "class", "btn btn-primary");
     			attr_dev(button11, "type", "submit");
-    			add_location(button11, file$5, 115, 24, 4618);
-    			attr_dev(a11, "href", "/#/tennis");
-    			add_location(a11, file$5, 114, 20, 4572);
-    			attr_dev(div11, "class", "container svelte-110ltv7");
-    			add_location(div11, file$5, 91, 16, 3547);
-    			attr_dev(div12, "class", "card svelte-110ltv7");
-    			add_location(div12, file$5, 85, 12, 3211);
-    			attr_dev(div13, "class", "col-sm-4");
-    			add_location(div13, file$5, 84, 8, 3175);
-    			attr_dev(div14, "class", "row");
-    			add_location(div14, file$5, 27, 4, 820);
-    			add_location(br2, file$5, 123, 4, 4841);
-    			add_location(b4, file$5, 128, 24, 4999);
-    			add_location(h44, file$5, 128, 20, 4995);
-    			add_location(p3, file$5, 129, 20, 5041);
+    			add_location(button11, file$7, 111, 24, 4420);
+    			attr_dev(a11, "href", "/api/v1/tennis/docs");
+    			add_location(a11, file$7, 110, 20, 4365);
     			attr_dev(button12, "class", "btn btn-primary");
     			attr_dev(button12, "type", "submit");
-    			add_location(button12, file$5, 131, 24, 5137);
-    			attr_dev(a12, "href", "/api/v1/tennis");
-    			add_location(a12, file$5, 130, 20, 5086);
-    			attr_dev(div15, "class", "container svelte-110ltv7");
-    			add_location(div15, file$5, 127, 16, 4950);
-    			attr_dev(div16, "class", "card svelte-110ltv7");
-    			add_location(div16, file$5, 126, 12, 4914);
-    			attr_dev(div17, "class", "col-sm-4");
-    			add_location(div17, file$5, 125, 8, 4878);
-    			add_location(b5, file$5, 142, 24, 5488);
-    			add_location(h45, file$5, 142, 20, 5484);
-    			add_location(p4, file$5, 143, 20, 5529);
+    			add_location(button12, file$7, 116, 24, 4636);
+    			attr_dev(a12, "href", "/api/v2/tennis");
+    			add_location(a12, file$7, 115, 20, 4586);
     			attr_dev(button13, "class", "btn btn-primary");
     			attr_dev(button13, "type", "submit");
-    			add_location(button13, file$5, 145, 24, 5633);
-    			attr_dev(a13, "href", "/api/v2/premier-league");
-    			add_location(a13, file$5, 144, 20, 5574);
-    			attr_dev(div18, "class", "container svelte-110ltv7");
-    			add_location(div18, file$5, 141, 16, 5439);
-    			attr_dev(div19, "class", "card svelte-110ltv7");
-    			add_location(div19, file$5, 140, 12, 5403);
-    			attr_dev(div20, "class", "col-sm-4");
-    			add_location(div20, file$5, 139, 8, 5367);
-    			add_location(b6, file$5, 156, 24, 5985);
-    			add_location(h46, file$5, 156, 20, 5981);
-    			add_location(p5, file$5, 157, 20, 6042);
+    			add_location(button13, file$7, 121, 24, 4852);
+    			attr_dev(a13, "href", "/api/v2/tennis/docs");
+    			add_location(a13, file$7, 120, 20, 4797);
     			attr_dev(button14, "class", "btn btn-primary");
     			attr_dev(button14, "type", "submit");
-    			add_location(button14, file$5, 159, 24, 6138);
-    			attr_dev(a14, "href", "/api/v1/tennis");
-    			add_location(a14, file$5, 158, 20, 6087);
-    			attr_dev(div21, "class", "container svelte-110ltv7");
-    			add_location(div21, file$5, 155, 16, 5936);
-    			attr_dev(div22, "class", "card svelte-110ltv7");
-    			add_location(div22, file$5, 154, 12, 5900);
-    			attr_dev(div23, "class", "col-sm-4");
-    			add_location(div23, file$5, 153, 8, 5864);
-    			attr_dev(div24, "class", "row");
-    			add_location(div24, file$5, 124, 4, 4851);
-    			add_location(main, file$5, 0, 0, 0);
-=======
-    			add_location(img3, file$7, 82, 16, 3040);
-    			add_location(b3, file$7, 88, 24, 3383);
-    			add_location(h43, file$7, 88, 20, 3379);
-    			add_location(p2, file$7, 89, 20, 3422);
-    			attr_dev(button7, "class", "btn btn-primary");
-    			attr_dev(button7, "type", "submit");
-    			add_location(button7, file$7, 91, 24, 3523);
-    			attr_dev(a7, "href", "/api/v1/tennis");
-    			add_location(a7, file$7, 90, 20, 3473);
-    			attr_dev(button8, "class", "btn btn-primary");
-    			attr_dev(button8, "type", "submit");
-    			add_location(button8, file$7, 96, 24, 3739);
-    			attr_dev(a8, "href", "/api/v1/tennis/docs");
-    			add_location(a8, file$7, 95, 20, 3684);
-    			attr_dev(button9, "class", "btn btn-primary");
-    			attr_dev(button9, "type", "submit");
-    			add_location(button9, file$7, 101, 24, 3955);
-    			attr_dev(a9, "href", "/api/v2/tennis");
-    			add_location(a9, file$7, 100, 20, 3905);
-    			attr_dev(button10, "class", "btn btn-primary");
-    			attr_dev(button10, "type", "submit");
-    			add_location(button10, file$7, 106, 24, 4171);
-    			attr_dev(a10, "href", "/api/v2/tennis/docs");
-    			add_location(a10, file$7, 105, 20, 4116);
-    			attr_dev(button11, "class", "btn btn-primary");
-    			attr_dev(button11, "type", "submit");
-    			add_location(button11, file$7, 111, 24, 4382);
-    			attr_dev(a11, "href", "/#/tennis");
-    			add_location(a11, file$7, 110, 20, 4337);
+    			add_location(button14, file$7, 126, 24, 5063);
+    			attr_dev(a14, "href", "/#/tennis");
+    			add_location(a14, file$7, 125, 20, 5018);
     			attr_dev(div11, "class", "container svelte-110ltv7");
-    			add_location(div11, file$7, 87, 16, 3335);
+    			add_location(div11, file$7, 102, 16, 4016);
     			attr_dev(div12, "class", "card svelte-110ltv7");
-    			add_location(div12, file$7, 81, 12, 3005);
+    			add_location(div12, file$7, 96, 12, 3686);
     			attr_dev(div13, "class", "col-sm-4");
-    			add_location(div13, file$7, 80, 8, 2970);
+    			add_location(div13, file$7, 95, 8, 3651);
     			attr_dev(div14, "class", "row");
     			add_location(div14, file$7, 27, 4, 793);
-    			add_location(br2, file$7, 119, 4, 4597);
-    			add_location(b4, file$7, 124, 24, 4750);
-    			add_location(h44, file$7, 124, 20, 4746);
-    			add_location(p3, file$7, 125, 20, 4805);
-    			attr_dev(button12, "class", "btn btn-primary");
-    			attr_dev(button12, "type", "submit");
-    			add_location(button12, file$7, 127, 24, 4902);
-    			attr_dev(a12, "href", "/api/v1/nba-stats");
-    			add_location(a12, file$7, 126, 20, 4849);
+    			add_location(br2, file$7, 134, 4, 5278);
+    			add_location(b4, file$7, 139, 24, 5431);
+    			add_location(h44, file$7, 139, 20, 5427);
+    			add_location(p3, file$7, 140, 20, 5486);
+    			attr_dev(button15, "class", "btn btn-primary");
+    			attr_dev(button15, "type", "submit");
+    			add_location(button15, file$7, 142, 24, 5583);
+    			attr_dev(a15, "href", "/api/v1/nba-stats");
+    			add_location(a15, file$7, 141, 20, 5530);
     			attr_dev(div15, "class", "container svelte-110ltv7");
-    			add_location(div15, file$7, 123, 16, 4702);
+    			add_location(div15, file$7, 138, 16, 5383);
     			attr_dev(div16, "class", "card svelte-110ltv7");
-    			add_location(div16, file$7, 122, 12, 4667);
+    			add_location(div16, file$7, 137, 12, 5348);
     			attr_dev(div17, "class", "col-sm-4");
-    			add_location(div17, file$7, 121, 8, 4632);
-    			add_location(b5, file$7, 138, 24, 5242);
-    			add_location(h45, file$7, 138, 20, 5238);
-    			add_location(p4, file$7, 139, 20, 5282);
-    			attr_dev(button13, "class", "btn btn-primary");
-    			attr_dev(button13, "type", "submit");
-    			add_location(button13, file$7, 141, 24, 5376);
-    			attr_dev(a13, "href", "/api/v1/tennis");
-    			add_location(a13, file$7, 140, 20, 5326);
+    			add_location(div17, file$7, 136, 8, 5313);
+    			add_location(b5, file$7, 153, 24, 5923);
+    			add_location(h45, file$7, 153, 20, 5919);
+    			add_location(p4, file$7, 154, 20, 5963);
+    			attr_dev(button16, "class", "btn btn-primary");
+    			attr_dev(button16, "type", "submit");
+    			add_location(button16, file$7, 156, 24, 6065);
+    			attr_dev(a16, "href", "/api/v2/premier-league");
+    			add_location(a16, file$7, 155, 20, 6007);
     			attr_dev(div18, "class", "container svelte-110ltv7");
-    			add_location(div18, file$7, 137, 16, 5194);
+    			add_location(div18, file$7, 152, 16, 5875);
     			attr_dev(div19, "class", "card svelte-110ltv7");
-    			add_location(div19, file$7, 136, 12, 5159);
+    			add_location(div19, file$7, 151, 12, 5840);
     			attr_dev(div20, "class", "col-sm-4");
-    			add_location(div20, file$7, 135, 8, 5124);
-    			add_location(b6, file$7, 152, 24, 5717);
-    			add_location(h46, file$7, 152, 20, 5713);
-    			add_location(p5, file$7, 153, 20, 5773);
-    			attr_dev(button14, "class", "btn btn-primary");
-    			attr_dev(button14, "type", "submit");
-    			add_location(button14, file$7, 155, 24, 5867);
-    			attr_dev(a14, "href", "/api/v1/tennis");
-    			add_location(a14, file$7, 154, 20, 5817);
+    			add_location(div20, file$7, 150, 8, 5805);
+    			add_location(b6, file$7, 167, 24, 6406);
+    			add_location(h46, file$7, 167, 20, 6402);
+    			add_location(p5, file$7, 168, 20, 6462);
+    			attr_dev(button17, "class", "btn btn-primary");
+    			attr_dev(button17, "type", "submit");
+    			add_location(button17, file$7, 170, 24, 6556);
+    			attr_dev(a17, "href", "/api/v1/tennis");
+    			add_location(a17, file$7, 169, 20, 6506);
     			attr_dev(div21, "class", "container svelte-110ltv7");
-    			add_location(div21, file$7, 151, 16, 5669);
+    			add_location(div21, file$7, 166, 16, 6358);
     			attr_dev(div22, "class", "card svelte-110ltv7");
-    			add_location(div22, file$7, 150, 12, 5634);
+    			add_location(div22, file$7, 165, 12, 6323);
     			attr_dev(div23, "class", "col-sm-4");
-    			add_location(div23, file$7, 149, 8, 5599);
+    			add_location(div23, file$7, 164, 8, 6288);
     			attr_dev(div24, "class", "row");
-    			add_location(div24, file$7, 120, 4, 4606);
+    			add_location(div24, file$7, 135, 4, 5287);
     			add_location(main, file$7, 0, 0, 0);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8678,85 +8517,82 @@ var app = (function () {
     			append_dev(h42, b2);
     			append_dev(div8, t23);
     			append_dev(div8, p1);
-<<<<<<< HEAD
-    			append_dev(div8, t19);
-    			append_dev(div8, a2);
-    			append_dev(a2, button2);
-    			append_dev(div8, t21);
-    			append_dev(div8, a3);
-    			append_dev(a3, button3);
-    			append_dev(div8, t23);
-    			append_dev(div8, a4);
-    			append_dev(a4, button4);
-=======
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     			append_dev(div8, t25);
     			append_dev(div8, a5);
     			append_dev(a5, button5);
     			append_dev(div8, t27);
     			append_dev(div8, a6);
     			append_dev(a6, button6);
-    			append_dev(div14, t29);
+    			append_dev(div8, t29);
+    			append_dev(div8, a7);
+    			append_dev(a7, button7);
+    			append_dev(div8, t31);
+    			append_dev(div8, a8);
+    			append_dev(a8, button8);
+    			append_dev(div8, t33);
+    			append_dev(div8, a9);
+    			append_dev(a9, button9);
+    			append_dev(div14, t35);
     			append_dev(div14, div13);
     			append_dev(div13, div12);
     			append_dev(div12, img3);
-    			append_dev(div12, t30);
+    			append_dev(div12, t36);
     			append_dev(div12, div11);
     			append_dev(div11, h43);
     			append_dev(h43, b3);
-    			append_dev(div11, t32);
-    			append_dev(div11, p2);
-    			append_dev(div11, t34);
-    			append_dev(div11, a7);
-    			append_dev(a7, button7);
-    			append_dev(div11, t36);
-    			append_dev(div11, a8);
-    			append_dev(a8, button8);
     			append_dev(div11, t38);
-    			append_dev(div11, a9);
-    			append_dev(a9, button9);
+    			append_dev(div11, p2);
     			append_dev(div11, t40);
     			append_dev(div11, a10);
     			append_dev(a10, button10);
     			append_dev(div11, t42);
     			append_dev(div11, a11);
     			append_dev(a11, button11);
-    			append_dev(main, t44);
+    			append_dev(div11, t44);
+    			append_dev(div11, a12);
+    			append_dev(a12, button12);
+    			append_dev(div11, t46);
+    			append_dev(div11, a13);
+    			append_dev(a13, button13);
+    			append_dev(div11, t48);
+    			append_dev(div11, a14);
+    			append_dev(a14, button14);
+    			append_dev(main, t50);
     			append_dev(main, br2);
-    			append_dev(main, t45);
+    			append_dev(main, t51);
     			append_dev(main, div24);
     			append_dev(div24, div17);
     			append_dev(div17, div16);
     			append_dev(div16, div15);
     			append_dev(div15, h44);
     			append_dev(h44, b4);
-    			append_dev(div15, t47);
+    			append_dev(div15, t53);
     			append_dev(div15, p3);
-    			append_dev(div15, t49);
-    			append_dev(div15, a12);
-    			append_dev(a12, button12);
-    			append_dev(div24, t51);
+    			append_dev(div15, t55);
+    			append_dev(div15, a15);
+    			append_dev(a15, button15);
+    			append_dev(div24, t57);
     			append_dev(div24, div20);
     			append_dev(div20, div19);
     			append_dev(div19, div18);
     			append_dev(div18, h45);
     			append_dev(h45, b5);
-    			append_dev(div18, t53);
+    			append_dev(div18, t59);
     			append_dev(div18, p4);
-    			append_dev(div18, t55);
-    			append_dev(div18, a13);
-    			append_dev(a13, button13);
-    			append_dev(div24, t57);
+    			append_dev(div18, t61);
+    			append_dev(div18, a16);
+    			append_dev(a16, button16);
+    			append_dev(div24, t63);
     			append_dev(div24, div23);
     			append_dev(div23, div22);
     			append_dev(div22, div21);
     			append_dev(div21, h46);
     			append_dev(h46, b6);
-    			append_dev(div21, t59);
+    			append_dev(div21, t65);
     			append_dev(div21, p5);
-    			append_dev(div21, t61);
-    			append_dev(div21, a14);
-    			append_dev(a14, button14);
+    			append_dev(div21, t67);
+    			append_dev(div21, a17);
+    			append_dev(a17, button17);
     		},
     		p: noop,
     		i: noop,
@@ -8981,13 +8817,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (332:8) {:then entries}
-    function create_then_block(ctx) {
-=======
-    // (289:8) {:then entries}
     function create_then_block$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let alert_1;
     	let t0;
     	let br0;
@@ -9017,17 +8848,10 @@ var app = (function () {
 
     	alert_1 = new Alert({
     			props: {
-<<<<<<< HEAD
     				color: /*color*/ ctx[5],
     				isOpen: /*visible*/ ctx[3],
     				toggle: /*func*/ ctx[14],
     				$$slots: { default: [create_default_slot_11] },
-=======
-    				color: /*color*/ ctx[3],
-    				isOpen: /*visible*/ ctx[1],
-    				toggle: /*func*/ ctx[17],
-    				$$slots: { default: [create_default_slot_10$1] },
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -9036,22 +8860,7 @@ var app = (function () {
     	table0 = new Table({
     			props: {
     				bordered: true,
-<<<<<<< HEAD
-    				$$slots: { default: [create_default_slot_8] },
-=======
-    				responsive: true,
-    				$$slots: { default: [create_default_slot_9$1] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	button0 = new Button({
-    			props: {
-    				outline: true,
-    				color: "primary",
     				$$slots: { default: [create_default_slot_8$1] },
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -9141,31 +8950,15 @@ var app = (function () {
     			create_component(button2.$$.fragment);
     			t11 = space();
     			create_component(button3.$$.fragment);
-<<<<<<< HEAD
-    			add_location(br0, file$2, 339, 8, 10798);
-    			add_location(strong, file$2, 340, 38, 10842);
+    			add_location(br0, file$4, 339, 8, 10459);
+    			add_location(strong, file$4, 340, 38, 10502);
     			set_style(h4, "text-align", "center");
-    			add_location(h4, file$2, 340, 8, 10812);
-    			add_location(br1, file$2, 341, 8, 10904);
-    			add_location(br2, file$2, 421, 8, 14260);
-    			add_location(br3, file$2, 467, 2, 16265);
+    			add_location(h4, file$4, 340, 8, 10472);
+    			add_location(br1, file$4, 341, 8, 10563);
+    			add_location(br2, file$4, 421, 8, 13839);
+    			add_location(br3, file$4, 467, 2, 15798);
     			set_style(div, "text-align", "center");
-    			add_location(div, file$2, 468, 2, 16273);
-=======
-    			t12 = space();
-    			create_component(button4.$$.fragment);
-    			add_location(br0, file$4, 296, 8, 9266);
-    			add_location(strong, file$4, 297, 38, 9309);
-    			set_style(h4, "text-align", "center");
-    			add_location(h4, file$4, 297, 8, 9279);
-    			add_location(br1, file$4, 298, 8, 9370);
-    			set_style(div0, "text-align", "center");
-    			add_location(div0, file$4, 319, 8, 10262);
-    			add_location(br2, file$4, 323, 8, 10452);
-    			add_location(br3, file$4, 369, 2, 12411);
-    			set_style(div1, "text-align", "center");
-    			add_location(div1, file$4, 370, 2, 12418);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(div, file$4, 468, 2, 15805);
     		},
     		m: function mount(target, anchor) {
     			mount_component(alert_1, target, anchor);
@@ -9308,13 +9101,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (335:12) {#if checkMSG}
-    function create_if_block$1(ctx) {
-=======
-    // (292:12) {#if checkMSG}
     function create_if_block$3(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -9343,17 +9131,10 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (334:8) <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
     function create_default_slot_11(ctx) {
     	let if_block_anchor;
-    	let if_block = /*checkMSG*/ ctx[4] && create_if_block$1(ctx);
-=======
-    // (291:8) <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
-    function create_default_slot_10$1(ctx) {
-    	let if_block_anchor;
-    	let if_block = /*checkMSG*/ ctx[2] && create_if_block$3(ctx);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    	let if_block = /*checkMSG*/ ctx[4] && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -9386,11 +9167,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-<<<<<<< HEAD
     		id: create_default_slot_11.name,
-=======
-    		id: create_default_slot_10$1.name,
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     		type: "slot",
     		source: "(334:8) <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>",
     		ctx
@@ -9399,207 +9176,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
-    // (395:39) <Button outline color="dark" on:click="{()=>{                          if (from == null || to == null) {                              window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')                          }else{                              checkMSG = "Datos cargados correctamente en ese periodo";                              getEntries();                          }                      }}">
-    function create_default_slot_10(ctx) {
-=======
-    // (300:8) <Table bordered responsive>
-    function create_default_slot_9$1(ctx) {
-    	let thead;
-    	let tr0;
-    	let th0;
-    	let t1;
-    	let th1;
-    	let t3;
-    	let th2;
-    	let t5;
-    	let th3;
-    	let t7;
-    	let th4;
-    	let t9;
-    	let tbody;
-    	let tr1;
-    	let td0;
-    	let input0;
-    	let t10;
-    	let td1;
-    	let input1;
-    	let t11;
-    	let td2;
-    	let input2;
-    	let t12;
-    	let td3;
-    	let input3;
-    	let t13;
-    	let td4;
-    	let input4;
-    	let mounted;
-    	let dispose;
-
-    	const block = {
-    		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			th0 = element("th");
-    			th0.textContent = "Búsqueda por país";
-    			t1 = space();
-    			th1 = element("th");
-    			th1.textContent = "Búsqueda por año";
-    			t3 = space();
-    			th2 = element("th");
-    			th2.textContent = "Búsqueda por apariciones";
-    			t5 = space();
-    			th3 = element("th");
-    			th3.textContent = "Búsqueda por portería vacía";
-    			t7 = space();
-    			th4 = element("th");
-    			th4.textContent = "Búsqueda por goles";
-    			t9 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td0 = element("td");
-    			input0 = element("input");
-    			t10 = space();
-    			td1 = element("td");
-    			input1 = element("input");
-    			t11 = space();
-    			td2 = element("td");
-    			input2 = element("input");
-    			t12 = space();
-    			td3 = element("td");
-    			input3 = element("input");
-    			t13 = space();
-    			td4 = element("td");
-    			input4 = element("input");
-    			add_location(th0, file$4, 302, 12, 9464);
-    			add_location(th1, file$4, 303, 12, 9503);
-    			add_location(th2, file$4, 304, 12, 9541);
-    			add_location(th3, file$4, 305, 12, 9587);
-    			add_location(th4, file$4, 306, 12, 9636);
-    			attr_dev(tr0, "class", "svelte-1en0vgr");
-    			add_location(tr0, file$4, 301, 16, 9447);
-    			attr_dev(thead, "class", "svelte-1en0vgr");
-    			add_location(thead, file$4, 300, 12, 9423);
-    			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "placeholder", "País");
-    			attr_dev(input0, "class", "svelte-1en0vgr");
-    			add_location(input0, file$4, 311, 20, 9764);
-    			add_location(td0, file$4, 311, 16, 9760);
-    			attr_dev(input1, "type", "number");
-    			attr_dev(input1, "placeholder", "2020");
-    			attr_dev(input1, "class", "svelte-1en0vgr");
-    			add_location(input1, file$4, 312, 20, 9854);
-    			add_location(td1, file$4, 312, 16, 9850);
-    			attr_dev(input2, "type", "number");
-    			attr_dev(input2, "placeholder", "12");
-    			attr_dev(input2, "class", "svelte-1en0vgr");
-    			add_location(input2, file$4, 313, 20, 9943);
-    			add_location(td2, file$4, 313, 16, 9939);
-    			attr_dev(input3, "type", "number");
-    			attr_dev(input3, "placeholder", "18");
-    			attr_dev(input3, "class", "svelte-1en0vgr");
-    			add_location(input3, file$4, 314, 20, 10037);
-    			add_location(td3, file$4, 314, 16, 10033);
-    			attr_dev(input4, "type", "number");
-    			attr_dev(input4, "placeholder", "7");
-    			attr_dev(input4, "class", "svelte-1en0vgr");
-    			add_location(input4, file$4, 315, 20, 10131);
-    			add_location(td4, file$4, 315, 16, 10127);
-    			attr_dev(tr1, "class", "svelte-1en0vgr");
-    			add_location(tr1, file$4, 310, 12, 9739);
-    			add_location(tbody, file$4, 309, 12, 9719);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, thead, anchor);
-    			append_dev(thead, tr0);
-    			append_dev(tr0, th0);
-    			append_dev(tr0, t1);
-    			append_dev(tr0, th1);
-    			append_dev(tr0, t3);
-    			append_dev(tr0, th2);
-    			append_dev(tr0, t5);
-    			append_dev(tr0, th3);
-    			append_dev(tr0, t7);
-    			append_dev(tr0, th4);
-    			insert_dev(target, t9, anchor);
-    			insert_dev(target, tbody, anchor);
-    			append_dev(tbody, tr1);
-    			append_dev(tr1, td0);
-    			append_dev(td0, input0);
-    			set_input_value(input0, /*sCountry*/ ctx[4]);
-    			append_dev(tr1, t10);
-    			append_dev(tr1, td1);
-    			append_dev(td1, input1);
-    			set_input_value(input1, /*sYear*/ ctx[5]);
-    			append_dev(tr1, t11);
-    			append_dev(tr1, td2);
-    			append_dev(td2, input2);
-    			set_input_value(input2, /*sAppearences*/ ctx[6]);
-    			append_dev(tr1, t12);
-    			append_dev(tr1, td3);
-    			append_dev(td3, input3);
-    			set_input_value(input3, /*sCleanSheets*/ ctx[7]);
-    			append_dev(tr1, t13);
-    			append_dev(tr1, td4);
-    			append_dev(td4, input4);
-    			set_input_value(input4, /*sGoals*/ ctx[8]);
-
-    			if (!mounted) {
-    				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[18]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[19]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[20]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[21]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[22])
-    				];
-
-    				mounted = true;
-    			}
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*sCountry*/ 16 && input0.value !== /*sCountry*/ ctx[4]) {
-    				set_input_value(input0, /*sCountry*/ ctx[4]);
-    			}
-
-    			if (dirty[0] & /*sYear*/ 32 && to_number(input1.value) !== /*sYear*/ ctx[5]) {
-    				set_input_value(input1, /*sYear*/ ctx[5]);
-    			}
-
-    			if (dirty[0] & /*sAppearences*/ 64 && to_number(input2.value) !== /*sAppearences*/ ctx[6]) {
-    				set_input_value(input2, /*sAppearences*/ ctx[6]);
-    			}
-
-    			if (dirty[0] & /*sCleanSheets*/ 128 && to_number(input3.value) !== /*sCleanSheets*/ ctx[7]) {
-    				set_input_value(input3, /*sCleanSheets*/ ctx[7]);
-    			}
-
-    			if (dirty[0] & /*sGoals*/ 256 && to_number(input4.value) !== /*sGoals*/ ctx[8]) {
-    				set_input_value(input4, /*sGoals*/ ctx[8]);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t9);
-    			if (detaching) detach_dev(tbody);
-    			mounted = false;
-    			run_all(dispose);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_9$1.name,
-    		type: "slot",
-    		source: "(300:8) <Table bordered responsive>",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (321:12) <Button outline color="primary" on:click="{search (sCountry, sYear, sAppearences, sCleanSheets, sGoals)}">
-    function create_default_slot_8$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    // (395:39) <Button outline color="dark" on:click="{()=>{                         if (from == null || to == null) {                             window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')                         }else{                             checkMSG = "Datos cargados correctamente en ese periodo";                             getEntries();                         }                     }}">
+    function create_default_slot_10$1(ctx) {
     	let t;
 
     	const block = {
@@ -9616,22 +9194,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-<<<<<<< HEAD
-    		id: create_default_slot_10.name,
-=======
-    		id: create_default_slot_8$1.name,
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    		id: create_default_slot_10$1.name,
     		type: "slot",
-    		source: "(395:39) <Button outline color=\\\"dark\\\" on:click=\\\"{()=>{                          if (from == null || to == null) {                              window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')                          }else{                              checkMSG = \\\"Datos cargados correctamente en ese periodo\\\";                              getEntries();                          }                      }}\\\">",
+    		source: "(395:39) <Button outline color=\\\"dark\\\" on:click=\\\"{()=>{                         if (from == null || to == null) {                             window.alert('Los campos fecha inicio y fecha fin no pueden estar vacíos')                         }else{                             checkMSG = \\\"Datos cargados correctamente en ese periodo\\\";                             getEntries();                         }                     }}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-<<<<<<< HEAD
-    // (406:39) <Button outline color="info" on:click="{()=>{                          from = null;                          to = null;                          getEntries();                          checkMSG = "Busqueda limpiada";                                                }}">
-    function create_default_slot_9(ctx) {
+    // (406:39) <Button outline color="info" on:click="{()=>{                         from = null;                         to = null;                         getEntries();                         checkMSG = "Busqueda limpiada";                                              }}">
+    function create_default_slot_9$1(ctx) {
     	let t;
 
     	const block = {
@@ -9648,9 +9221,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_9.name,
+    		id: create_default_slot_9$1.name,
     		type: "slot",
-    		source: "(406:39) <Button outline color=\\\"info\\\" on:click=\\\"{()=>{                          from = null;                          to = null;                          getEntries();                          checkMSG = \\\"Busqueda limpiada\\\";                                                }}\\\">",
+    		source: "(406:39) <Button outline color=\\\"info\\\" on:click=\\\"{()=>{                         from = null;                         to = null;                         getEntries();                         checkMSG = \\\"Busqueda limpiada\\\";                                              }}\\\">",
     		ctx
     	});
 
@@ -9658,7 +9231,7 @@ var app = (function () {
     }
 
     // (382:8) <Table bordered>
-    function create_default_slot_8(ctx) {
+    function create_default_slot_8$1(ctx) {
     	let thead;
     	let tr0;
     	let th0;
@@ -9690,7 +9263,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "dark",
-    				$$slots: { default: [create_default_slot_10] },
+    				$$slots: { default: [create_default_slot_10$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -9702,7 +9275,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "info",
-    				$$slots: { default: [create_default_slot_9] },
+    				$$slots: { default: [create_default_slot_9$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -9737,31 +9310,31 @@ var app = (function () {
     			t8 = space();
     			td3 = element("td");
     			create_component(button1.$$.fragment);
-    			add_location(th0, file$2, 384, 20, 12788);
-    			add_location(th1, file$2, 385, 20, 12831);
-    			add_location(th2, file$2, 386, 20, 12871);
-    			add_location(th3, file$2, 387, 20, 12902);
+    			add_location(th0, file$4, 384, 20, 12404);
+    			add_location(th1, file$4, 385, 20, 12446);
+    			add_location(th2, file$4, 386, 20, 12485);
+    			add_location(th3, file$4, 387, 20, 12515);
     			attr_dev(tr0, "class", "svelte-1en0vgr");
-    			add_location(tr0, file$2, 383, 16, 12762);
+    			add_location(tr0, file$4, 383, 16, 12379);
     			attr_dev(thead, "class", "svelte-1en0vgr");
-    			add_location(thead, file$2, 382, 12, 12737);
+    			add_location(thead, file$4, 382, 12, 12355);
     			attr_dev(input0, "type", "number");
     			attr_dev(input0, "min", "2000");
     			attr_dev(input0, "class", "svelte-1en0vgr");
-    			add_location(input0, file$2, 392, 24, 13025);
-    			add_location(td0, file$2, 392, 20, 13021);
+    			add_location(input0, file$4, 392, 24, 12633);
+    			add_location(td0, file$4, 392, 20, 12629);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "min", "2000");
     			attr_dev(input1, "class", "svelte-1en0vgr");
-    			add_location(input1, file$2, 393, 24, 13108);
-    			add_location(td1, file$2, 393, 20, 13104);
+    			add_location(input1, file$4, 393, 24, 12715);
+    			add_location(td1, file$4, 393, 20, 12711);
     			attr_dev(td2, "align", "center");
-    			add_location(td2, file$2, 394, 20, 13185);
+    			add_location(td2, file$4, 394, 20, 12791);
     			attr_dev(td3, "align", "center");
-    			add_location(td3, file$2, 405, 20, 13743);
+    			add_location(td3, file$4, 405, 20, 13338);
     			attr_dev(tr1, "class", "svelte-1en0vgr");
-    			add_location(tr1, file$2, 391, 16, 12995);
-    			add_location(tbody, file$2, 390, 12, 12970);
+    			add_location(tr1, file$4, 391, 16, 12604);
+    			add_location(tbody, file$4, 390, 12, 12580);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -9848,7 +9421,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_8.name,
+    		id: create_default_slot_8$1.name,
     		type: "slot",
     		source: "(382:8) <Table bordered>",
     		ctx
@@ -9858,11 +9431,7 @@ var app = (function () {
     }
 
     // (443:60) <Button outline color="primary" on:click={insertEntry}>
-    function create_default_slot_7(ctx) {
-=======
-    // (345:60) <Button outline color="primary" on:click={insertEntry}>
     function create_default_slot_7$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -9888,13 +9457,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (454:20) <Button outline color="danger" on:click="{deleteStat(entry.country, entry.year)}">
-    function create_default_slot_6(ctx) {
-=======
-    // (356:20) <Button outline color="danger" on:click="{deleteStat(entry.country, entry.year)}">
     function create_default_slot_6$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -9920,13 +9484,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (455:76) <Button outline color="primary">
-    function create_default_slot_5(ctx) {
-=======
-    // (357:76) <Button outline color="primary">
     function create_default_slot_5$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -9952,13 +9511,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (446:8) {#each entries as entry}
-    function create_each_block(ctx) {
-=======
-    // (348:8) {#each entries as entry}
     function create_each_block$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let tr;
     	let td0;
     	let a0;
@@ -10042,35 +9596,19 @@ var app = (function () {
     			a1 = element("a");
     			create_component(button1.$$.fragment);
     			t11 = space();
-<<<<<<< HEAD
     			attr_dev(a0, "href", a0_href_value = "api/v2/premier-league/" + /*entry*/ ctx[39].country + "/" + /*entry*/ ctx[39].year);
-    			add_location(a0, file$2, 448, 20, 15430);
-    			add_location(td0, file$2, 448, 16, 15426);
-    			add_location(td1, file$2, 449, 16, 15533);
-    			add_location(td2, file$2, 450, 16, 15572);
-    			add_location(td3, file$2, 451, 16, 15618);
-    			add_location(td4, file$2, 452, 16, 15664);
-    			add_location(td5, file$2, 453, 16, 15704);
+    			add_location(a0, file$4, 448, 20, 14982);
+    			add_location(td0, file$4, 448, 16, 14978);
+    			add_location(td1, file$4, 449, 16, 15084);
+    			add_location(td2, file$4, 450, 16, 15122);
+    			add_location(td3, file$4, 451, 16, 15167);
+    			add_location(td4, file$4, 452, 16, 15212);
+    			add_location(td5, file$4, 453, 16, 15251);
     			attr_dev(a1, "href", a1_href_value = "#/premier-league/" + /*entry*/ ctx[39].country + "/" + /*entry*/ ctx[39].year);
-    			add_location(a1, file$2, 454, 20, 15832);
-    			add_location(td6, file$2, 454, 16, 15828);
+    			add_location(a1, file$4, 454, 20, 15378);
+    			add_location(td6, file$4, 454, 16, 15374);
     			attr_dev(tr, "class", "svelte-1en0vgr");
-    			add_location(tr, file$2, 446, 12, 15386);
-=======
-    			attr_dev(a0, "href", a0_href_value = "api/v2/premier-league/" + /*entry*/ ctx[34].country + "/" + /*entry*/ ctx[34].year);
-    			add_location(a0, file$4, 350, 20, 11595);
-    			add_location(td0, file$4, 350, 16, 11591);
-    			add_location(td1, file$4, 351, 16, 11697);
-    			add_location(td2, file$4, 352, 16, 11735);
-    			add_location(td3, file$4, 353, 16, 11780);
-    			add_location(td4, file$4, 354, 16, 11825);
-    			add_location(td5, file$4, 355, 16, 11864);
-    			attr_dev(a1, "href", a1_href_value = "#/premier-league/" + /*entry*/ ctx[34].country + "/" + /*entry*/ ctx[34].year);
-    			add_location(a1, file$4, 356, 20, 11991);
-    			add_location(td6, file$4, 356, 16, 11987);
-    			attr_dev(tr, "class", "svelte-1en0vgr");
-    			add_location(tr, file$4, 348, 12, 11553);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(tr, file$4, 446, 12, 14940);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -10159,13 +9697,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (424:8) <Table bordered responsive>
-    function create_default_slot_4(ctx) {
-=======
-    // (326:8) <Table bordered responsive>
     function create_default_slot_4$1(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let thead;
     	let tr0;
     	let th0;
@@ -10278,95 +9811,49 @@ var app = (function () {
 
     			t18 = space();
     			br = element("br");
-<<<<<<< HEAD
-    			add_location(th0, file$2, 426, 20, 14369);
-    			add_location(th1, file$2, 427, 20, 14404);
-    			add_location(th2, file$2, 428, 20, 14438);
-    			add_location(th3, file$2, 429, 20, 14480);
-    			add_location(th4, file$2, 430, 20, 14525);
+    			add_location(th0, file$4, 426, 20, 13943);
+    			add_location(th1, file$4, 427, 20, 13977);
+    			add_location(th2, file$4, 428, 20, 14010);
+    			add_location(th3, file$4, 429, 20, 14051);
+    			add_location(th4, file$4, 430, 20, 14095);
     			attr_dev(th5, "colspan", "2");
-    			add_location(th5, file$2, 431, 20, 14561);
+    			add_location(th5, file$4, 431, 20, 14130);
     			attr_dev(tr0, "class", "svelte-1en0vgr");
-    			add_location(tr0, file$2, 425, 16, 14343);
+    			add_location(tr0, file$4, 425, 16, 13918);
     			attr_dev(thead, "class", "svelte-1en0vgr");
-    			add_location(thead, file$2, 424, 12, 14318);
+    			add_location(thead, file$4, 424, 12, 13894);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "Spain");
     			attr_dev(input0, "class", "svelte-1en0vgr");
-    			add_location(input0, file$2, 436, 20, 14688);
-    			add_location(td0, file$2, 436, 16, 14684);
+    			add_location(input0, file$4, 436, 20, 14252);
+    			add_location(td0, file$4, 436, 16, 14248);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "placeholder", "2017");
     			attr_dev(input1, "class", "svelte-1en0vgr");
-    			add_location(input1, file$2, 437, 20, 14790);
-    			add_location(td1, file$2, 437, 16, 14786);
+    			add_location(input1, file$4, 437, 20, 14353);
+    			add_location(td1, file$4, 437, 16, 14349);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "placeholder", "13");
     			attr_dev(input2, "class", "svelte-1en0vgr");
-    			add_location(input2, file$2, 438, 20, 14887);
-    			add_location(td2, file$2, 438, 16, 14883);
+    			add_location(input2, file$4, 438, 20, 14449);
+    			add_location(td2, file$4, 438, 16, 14445);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "placeholder", "18");
     			attr_dev(input3, "class", "svelte-1en0vgr");
-    			add_location(input3, file$2, 439, 20, 14994);
-    			add_location(td3, file$2, 439, 16, 14990);
+    			add_location(input3, file$4, 439, 20, 14555);
+    			add_location(td3, file$4, 439, 16, 14551);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "placeholder", "20");
     			attr_dev(input4, "class", "svelte-1en0vgr");
-    			add_location(input4, file$2, 440, 20, 15099);
-    			add_location(td4, file$2, 440, 16, 15095);
+    			add_location(input4, file$4, 440, 20, 14659);
+    			add_location(td4, file$4, 440, 16, 14655);
     			attr_dev(td5, "colspan", "2");
     			set_style(td5, "text-align", "center");
-    			add_location(td5, file$2, 442, 16, 15194);
+    			add_location(td5, file$4, 442, 16, 14752);
     			attr_dev(tr1, "class", "svelte-1en0vgr");
-    			add_location(tr1, file$2, 435, 12, 14662);
-    			add_location(tbody, file$2, 434, 8, 14641);
-    			add_location(br, file$2, 459, 8, 16026);
-=======
-    			add_location(th0, file$4, 328, 20, 10556);
-    			add_location(th1, file$4, 329, 20, 10590);
-    			add_location(th2, file$4, 330, 20, 10623);
-    			add_location(th3, file$4, 331, 20, 10664);
-    			add_location(th4, file$4, 332, 20, 10708);
-    			attr_dev(th5, "colspan", "2");
-    			add_location(th5, file$4, 333, 20, 10743);
-    			attr_dev(tr0, "class", "svelte-1en0vgr");
-    			add_location(tr0, file$4, 327, 16, 10531);
-    			attr_dev(thead, "class", "svelte-1en0vgr");
-    			add_location(thead, file$4, 326, 12, 10507);
-    			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "placeholder", "Spain");
-    			attr_dev(input0, "class", "svelte-1en0vgr");
-    			add_location(input0, file$4, 338, 20, 10865);
-    			add_location(td0, file$4, 338, 16, 10861);
-    			attr_dev(input1, "type", "text");
-    			attr_dev(input1, "placeholder", "2017");
-    			attr_dev(input1, "class", "svelte-1en0vgr");
-    			add_location(input1, file$4, 339, 20, 10966);
-    			add_location(td1, file$4, 339, 16, 10962);
-    			attr_dev(input2, "type", "number");
-    			attr_dev(input2, "placeholder", "13");
-    			attr_dev(input2, "class", "svelte-1en0vgr");
-    			add_location(input2, file$4, 340, 20, 11062);
-    			add_location(td2, file$4, 340, 16, 11058);
-    			attr_dev(input3, "type", "number");
-    			attr_dev(input3, "placeholder", "18");
-    			attr_dev(input3, "class", "svelte-1en0vgr");
-    			add_location(input3, file$4, 341, 20, 11168);
-    			add_location(td3, file$4, 341, 16, 11164);
-    			attr_dev(input4, "type", "number");
-    			attr_dev(input4, "placeholder", "20");
-    			attr_dev(input4, "class", "svelte-1en0vgr");
-    			add_location(input4, file$4, 342, 20, 11272);
-    			add_location(td4, file$4, 342, 16, 11268);
-    			attr_dev(td5, "colspan", "2");
-    			set_style(td5, "text-align", "center");
-    			add_location(td5, file$4, 344, 16, 11365);
-    			attr_dev(tr1, "class", "svelte-1en0vgr");
-    			add_location(tr1, file$4, 337, 12, 10840);
-    			add_location(tbody, file$4, 336, 8, 10820);
-    			add_location(br, file$4, 361, 8, 12180);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(tr1, file$4, 435, 12, 14227);
+    			add_location(tbody, file$4, 434, 8, 14207);
+    			add_location(br, file$4, 459, 8, 15567);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -10530,13 +10017,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (462:8) <Button color="success" on:click="{loadStats}">
-    function create_default_slot_3$1(ctx) {
-=======
-    // (364:8) <Button color="success" on:click="{loadStats}">
     function create_default_slot_3$3(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -10562,13 +10044,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (465:8) <Button color="danger" on:click="{deleteALL}">
-    function create_default_slot_2$1(ctx) {
-=======
-    // (367:8) <Button color="danger" on:click="{deleteALL}">
     function create_default_slot_2$3(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -10594,13 +10071,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (470:3) <Button outline color="primary" on:click="{getPreviewPage}">
-    function create_default_slot_1$1(ctx) {
-=======
-    // (372:3) <Button outline color="primary" on:click="{getPreviewPage}">
     function create_default_slot_1$3(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -10626,13 +10098,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (473:3) <Button outline color="primary" on:click="{getNextPage}">
-    function create_default_slot$1(ctx) {
-=======
-    // (375:3) <Button outline color="primary" on:click="{getNextPage}">
     function create_default_slot$3(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -10658,13 +10125,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
-    // (330:24)               Loading entry stats data...          {:then entries}
-    function create_pending_block(ctx) {
-=======
-    // (287:24)              Loading entry stats data...         {:then entries}
+    // (330:24)              Loading entry stats data...         {:then entries}
     function create_pending_block$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -10686,11 +10148,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-<<<<<<< HEAD
-    		source: "(330:24)               Loading entry stats data...          {:then entries}",
-=======
-    		source: "(287:24)              Loading entry stats data...         {:then entries}",
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    		source: "(330:24)              Loading entry stats data...         {:then entries}",
     		ctx
     	});
 
@@ -10709,17 +10167,10 @@ var app = (function () {
     		current: null,
     		token: null,
     		hasCatch: false,
-<<<<<<< HEAD
-    		pending: create_pending_block,
-    		then: create_then_block,
-    		catch: create_catch_block,
-    		value: 6,
-=======
     		pending: create_pending_block$2,
     		then: create_then_block$2,
     		catch: create_catch_block$2,
-    		value: 9,
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    		value: 6,
     		blocks: [,,,]
     	};
 
@@ -10733,13 +10184,8 @@ var app = (function () {
     			t1 = space();
     			info.block.c();
     			set_style(h1, "text-align", "center");
-<<<<<<< HEAD
-    			add_location(h1, file$2, 327, 4, 10402);
-    			add_location(main, file$2, 325, 0, 10388);
-=======
-    			add_location(h1, file$4, 284, 4, 8882);
-    			add_location(main, file$4, 282, 0, 8870);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(h1, file$4, 327, 4, 10075);
+    			add_location(main, file$4, 325, 0, 10063);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -11273,13 +10719,8 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$3 = "src/front/premier-league/premierEdit.svelte";
 
-<<<<<<< HEAD
     // (80:8) {#if errorMsg}
-    function create_if_block(ctx) {
-=======
-    // (82:8) {#if errorMsg}
     function create_if_block$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -11308,13 +10749,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (79:4) <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
-    function create_default_slot_3(ctx) {
-=======
-    // (81:4) <Alert color={color} isOpen={visible} toggle={() => (visible = false)}>
     function create_default_slot_3$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let if_block_anchor;
     	let if_block = /*errorMsg*/ ctx[6] && create_if_block$2(ctx);
 
@@ -11358,13 +10794,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (104:20) <Button outline color="primary" on:click={EditEntry}>
-    function create_default_slot_2(ctx) {
-=======
-    // (106:20) <Button outline color="primary" on:click={EditEntry}>
     function create_default_slot_2$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -11390,13 +10821,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (86:4) <Table bordered>
-    function create_default_slot_1(ctx) {
-=======
-    // (88:4) <Table bordered>
     function create_default_slot_1$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let thead;
     	let tr0;
     	let th0;
@@ -11489,47 +10915,25 @@ var app = (function () {
     			t18 = space();
     			td5 = element("td");
     			create_component(button.$$.fragment);
-<<<<<<< HEAD
-    			add_location(th0, file$1, 88, 16, 2784);
-    			add_location(th1, file$1, 89, 16, 2815);
-    			add_location(th2, file$1, 90, 16, 2845);
-    			add_location(th3, file$1, 91, 16, 2883);
-    			add_location(th4, file$1, 92, 16, 2924);
-    			add_location(th5, file$1, 93, 16, 2956);
-    			add_location(tr0, file$1, 87, 12, 2762);
-    			add_location(thead, file$1, 86, 8, 2741);
-    			add_location(td0, file$1, 98, 16, 3063);
-    			add_location(td1, file$1, 99, 16, 3106);
-    			add_location(input0, file$1, 100, 20, 3150);
-    			add_location(td2, file$1, 100, 16, 3146);
-    			add_location(input1, file$1, 101, 20, 3218);
-    			add_location(td3, file$1, 101, 16, 3214);
-    			add_location(input2, file$1, 102, 20, 3286);
-    			add_location(td4, file$1, 102, 16, 3282);
-    			add_location(td5, file$1, 103, 16, 3344);
-    			add_location(tr1, file$1, 97, 12, 3041);
-    			add_location(tbody, file$1, 96, 8, 3020);
-=======
-    			add_location(th0, file$3, 90, 16, 2746);
-    			add_location(th1, file$3, 91, 16, 2776);
-    			add_location(th2, file$3, 92, 16, 2805);
-    			add_location(th3, file$3, 93, 16, 2842);
-    			add_location(th4, file$3, 94, 16, 2882);
-    			add_location(th5, file$3, 95, 16, 2913);
-    			add_location(tr0, file$3, 89, 12, 2725);
-    			add_location(thead, file$3, 88, 8, 2705);
-    			add_location(td0, file$3, 100, 16, 3015);
-    			add_location(td1, file$3, 101, 16, 3057);
-    			add_location(input0, file$3, 102, 20, 3100);
-    			add_location(td2, file$3, 102, 16, 3096);
-    			add_location(input1, file$3, 103, 20, 3167);
-    			add_location(td3, file$3, 103, 16, 3163);
-    			add_location(input2, file$3, 104, 20, 3234);
-    			add_location(td4, file$3, 104, 16, 3230);
-    			add_location(td5, file$3, 105, 16, 3291);
-    			add_location(tr1, file$3, 99, 12, 2994);
-    			add_location(tbody, file$3, 98, 8, 2974);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(th0, file$3, 88, 16, 2696);
+    			add_location(th1, file$3, 89, 16, 2726);
+    			add_location(th2, file$3, 90, 16, 2755);
+    			add_location(th3, file$3, 91, 16, 2792);
+    			add_location(th4, file$3, 92, 16, 2832);
+    			add_location(th5, file$3, 93, 16, 2863);
+    			add_location(tr0, file$3, 87, 12, 2675);
+    			add_location(thead, file$3, 86, 8, 2655);
+    			add_location(td0, file$3, 98, 16, 2965);
+    			add_location(td1, file$3, 99, 16, 3007);
+    			add_location(input0, file$3, 100, 20, 3050);
+    			add_location(td2, file$3, 100, 16, 3046);
+    			add_location(input1, file$3, 101, 20, 3117);
+    			add_location(td3, file$3, 101, 16, 3113);
+    			add_location(input2, file$3, 102, 20, 3184);
+    			add_location(td4, file$3, 102, 16, 3180);
+    			add_location(td5, file$3, 103, 16, 3241);
+    			add_location(tr1, file$3, 97, 12, 2944);
+    			add_location(tbody, file$3, 96, 8, 2924);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -11634,13 +11038,8 @@ var app = (function () {
     	return block;
     }
 
-<<<<<<< HEAD
     // (109:4) <Button outline color="secondary" on:click="{pop}">
-    function create_default_slot(ctx) {
-=======
-    // (111:4) <Button outline color="secondary" on:click="{pop}">
     function create_default_slot$2(ctx) {
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
     	let t;
 
     	const block = {
@@ -11731,13 +11130,8 @@ var app = (function () {
     			create_component(table.$$.fragment);
     			t7 = space();
     			create_component(button.$$.fragment);
-<<<<<<< HEAD
-    			add_location(h1, file$1, 84, 4, 2639);
-    			add_location(main, file$1, 76, 0, 2478);
-=======
-    			add_location(h1, file$3, 86, 4, 2605);
-    			add_location(main, file$3, 78, 0, 2452);
->>>>>>> da5a39cb756e11229861aeb84b2684d7543c4aa2
+    			add_location(h1, file$3, 84, 4, 2555);
+    			add_location(main, file$3, 76, 0, 2402);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

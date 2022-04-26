@@ -71,7 +71,7 @@ var nbaStats = [
 ];
     
 module.exports.register = (app,db) => {
-    //Redirect /docs
+    //docs
     app.get(BASE_API_URL+"/docs",(req,res)=>{
         res.redirect(API_DOC_PORTAL);
     });
@@ -82,14 +82,16 @@ module.exports.register = (app,db) => {
 
             if(err){
                 res.sendStatus(500, "CLIENT ERROR");
-            
+                return;
             }
             if(filteredList==0){
                 for(var i = 0; i<nbaStats.length;i++){
                     db.insert(nbaStats[i]);
                 }
                 res.sendStatus(200,"OK");
-                
+                return;
+            }else{
+                res.sendStatus(200, "Ya inicializados");
             }
         });
     });
@@ -161,10 +163,24 @@ app.get(BASE_API_URL,(req,res)=>{
         filteredList.forEach((element)=>{
             delete element._id;
         });
+
+        //Comprobamos fields
+        if(req.query.fields!=null){
+            //Comprobamos si los campos son correctos
+            var listaFields = req.query.fields.split(",");
+            for(var i = 0; i<listaFields.length;i++){
+                var element = listaFields[i];
+                if(element != "country" && element != "year" && element != "name" && element != "mostpoints" && element != "fieldgoals" && element != "efficiency"){
+                    res.sendStatus(400, "Bad Request");
+                    return;
+                }
+            }
+            //Escogemos los fields correspondientes
+            filteredList = comprobar_fields(req,filteredList);
+        }
+
         res.send(JSON.stringify(filteredList,null,2));
     });
-    
-  
 
 });
 
@@ -181,8 +197,8 @@ app.get(BASE_API_URL+"/:country",(req, res)=>{
     
     for(var i = 0; i<Object.keys(req.query).length;i++){
         var element = Object.keys(req.query)[i];
-        if(element != "from" && element != "to"){
-            res.sendStatus(400, "Bad Request");
+        if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset" && element != "fields"){
+            res.sendStatus(400, "BAD REQUEST");
             return;
         }
     }
@@ -197,7 +213,7 @@ app.get(BASE_API_URL+"/:country",(req, res)=>{
     db.find({}, function(err,filteredList){
             
         if(err){
-            res.sendStatus(500, "CLIENT ERROR");
+            res.sendStatus(500, "Client Error");
             return;
         }
 
@@ -216,7 +232,7 @@ app.get(BASE_API_URL+"/:country",(req, res)=>{
         }
         //COMPROBAMOS SI EXISTE
         if (filteredList==0){
-            res.sendStatus(404, "NOT FOUND");
+            res.sendStatus(404, "Not Found");
             return;
         }
         //RESULTADO
@@ -226,6 +242,22 @@ app.get(BASE_API_URL+"/:country",(req, res)=>{
         filteredList.forEach((element)=>{
             delete element._id;
         });
+
+        //Comprobamos fields
+        if(req.query.fields!=null){
+            //Comprobamos si los campos son correctos
+            var listaFields = req.query.fields.split(",");
+            for(var i = 0; i<listaFields.length;i++){
+                var element = listaFields[i];
+                if(element != "country" && element != "year" && element != "name" && element != "mostpoints" && element != "fieldgoals" && element != "efficiency"){
+                    res.sendStatus(400, "Bad Request");
+                    return;
+                }
+            }
+            //Escogemos los fields correspondientes
+            filteredList = comprobar_fields(req,filteredList);
+        }
+
         res.send(JSON.stringify(filteredList,null,2));
     });
 
@@ -242,7 +274,7 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     db.find({},function(err, filteredList){
 
         if(err){
-            res.sendStatus(500, "ERROR EN CLIENTE");
+            res.sendStatus(500, "Client Error");
             
         }
 
@@ -251,7 +283,7 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
             return (reg.country == country && reg.year == year);
         });
         if (filteredList==0){
-            res.sendStatus(404, "NO EXISTE");
+            res.sendStatus(404, "Not Found");
             
         }
 
@@ -265,6 +297,22 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
         filteredList.forEach((element)=>{
             delete element._id;
         });
+
+        //Comprobamos fields
+        if(req.query.fields!=null){
+            //Comprobamos si los campos son correctos
+            var listaFields = req.query.fields.split(",");
+            for(var i = 0; i<listaFields.length;i++){
+                var element = listaFields[i];
+                if(element != "country" && element != "year" && element != "name" && element != "mostpoints" && element != "fieldgoals" && element != "efficiency"){
+                    res.sendStatus(400, "Bad Request");
+                    return;
+                }
+            }
+            //Escogemos los fields correspondientes
+            filteredList = comprobar_fields(req,filteredList);
+        }
+
         res.send(JSON.stringify(filteredList[0],null,2));
     });
 
@@ -361,12 +409,12 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
         
         //Comprobamos formato JSON
         if(compBody(req)){
-            res.sendStatus(400,"BAD REQUEST - Parametros incorrectos");
+            res.sendStatus(400,"Bad Request - Parametros incorrectos");
         }else{
             db.find({},function(err,filteredList){
 
                 if(err){
-                    res.sendStatus(500, "CLIENT ERROR");
+                    res.sendStatus(500, "Client Error");
                 
                 }
 
@@ -376,10 +424,10 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
                 })
             
                 if(filteredList.length != 0){
-                    res.sendStatus(409,"CONFLICT");
+                    res.sendStatus(409,"Conflict");
                 }else{
                     db.insert(req.body);
-                    res.sendStatus(201,"CREATED");
+                    res.sendStatus(201,"Created");
                 }
             });
         }
@@ -417,7 +465,7 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     app.put(BASE_API_URL + "/:country/:year", (req, res) => {
 
         if (compBody(req)) {
-            res.sendStatus(400, "BAD REQUEST - INCORRECT PARAMETERS");
+            res.sendStatus(400, "Bad Request - Parametros incorrectos");
             return;
         }
         var countryR = req.params.country;
@@ -426,7 +474,7 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
 
         db.find({}, function (err, filteredList) {
             if (err) {
-                res.sendStatus(500, "INTERNAL SERVER ERROR");
+                res.sendStatus(500, "Client Error");
                 return;
             }
 
@@ -434,20 +482,20 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
                 return (reg.country == countryR && reg.year == yearR);
             });
             if (filteredList == 0) {
-                res.sendStatus(404, "NO EXIST");
+                res.sendStatus(404, "Not Found");
                 return;
             }
 
             if (countryR != body.country || yearR != body.year) {
-                res.sendStatus(400, "BAD REQUEST");
+                res.sendStatus(400, "Bad Request");
                 return;
             }
 
             db.update({ $and: [{ country: String(countryR) }, { year: parseInt(yearR) }] }, { $set: body }, {}, function (err, numUpdated) {
                 if (err) {
-                    res.sendStatus(500, "INTERNAL SERVER ERROR");
+                    res.sendStatus(500, "Client Error");
                 } else {
-                    res.sendStatus(200, "UPDATED");
+                    res.sendStatus(200, "Updated");
                 }
             });
         })
@@ -463,13 +511,14 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     app.delete(BASE_API_URL,(req, res)=>{
         db.remove({}, { multi: true }, (err, numRemoved)=>{
             if (err){
-                res.sendStatus(500,"CLIENT ERROR");
-                
+                res.sendStatus(500,"Client Error");
+                return;
             }
-            res.sendStatus(200,"DELETED");
-            
+            res.sendStatus(200,"Deleted");
+            return;
         });
     });
+
     /*
     // DELETE de un recurso especifico
 
@@ -499,21 +548,33 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
     });
     */
 
-    /*//DELETE todos los recursos
-    app.delete(BASE_API_URL,(req,res)=>{
-        nbaStats = [];
-        res.sendStatus(200, "Ok");
-    });
-    */
-
     //DELETE de un recurso
-    app.delete(BASE_API_URL+"/:country",(req,res)=>{
-        var country = req.params.country;
-        nbaStats = nbaStats.filter((i)=>{
-            return (i.country != country);
+    app.delete(BASE_API_URL+"/:country/:year",(req, res)=>{
+        var countryR = req.params.country;
+        var yearR = req.params.year;
+
+        db.find({country: countryR, year: parseInt(yearR)}, {}, (err, filteredList)=>{
+            if (err){
+                res.sendStatus(500,"Client Error");
+                return;
+            }
+            if(filteredList==0){
+                res.sendStatus(404,"Not Found");
+                return;
+            }
+            db.remove({country: countryR, year: parseInt(yearR)}, {}, (err, numRemoved)=>{
+                if (err){
+                    res.sendStatus(500,"Client Error");
+                    return;
+                }
+            
+                res.sendStatus(200,"Deleted");
+                return;
+                
+            });
         });
-        res.sendStatus(200, "Ok");
-    });
+
+    })
     
     function compBody(req){
         return (req.body.country == null |
@@ -539,4 +600,84 @@ app.get(BASE_API_URL+"/:country/:year",(req, res)=>{
         return res;
     
     };
+
+    function comprobar_fields(req, lista){
+        var fields = req.query.fields;
+
+        var contieneCountry = false;
+        var contieneYear = false;
+        var contieneName = false;
+        var contieneMostpoints = false;
+        var contieneFieldgoals = false;
+        var contieneEfficiency = false;
+        fields = fields.split(",");
+
+        for(var i = 0; i<fields.length;i++){
+            var element = fields[i];
+            if(element=='country'){
+                contieneCountry=true;
+            }
+            if(element=='year'){
+                contieneYear=true;
+            }
+            if(element=='name'){
+                contieneName=true;
+            }
+            if(element=='mostpoints'){
+                contieneMostpoints=true;
+            }
+            if(element=='fieldgoals'){
+                contieneFieldgoals=true;
+            }
+            if(element=='efficiency'){
+                contieneEfficiency=true;
+            }
+        }
+
+        //Country
+        if(!contieneCountry){
+            lista.forEach((element)=>{
+                delete element.country;
+            })
+        }
+
+        //Year
+        if(!contieneYear){
+            lista.forEach((element)=>{
+                delete element.year;
+            })
+        }
+
+        //Name
+        if(!contieneName){
+            lista.forEach((element)=>{
+                delete element.name;
+            })
+        }
+
+        //mostpints
+        if(!contieneMostpoints){
+            lista.forEach((element)=>{
+                delete element.mostpoints;
+            })
+        }
+
+        //fieldgoals
+        if(!contieneFieldgoals){
+            lista.forEach((element)=>{
+                delete element.fieldgoals;
+            })
+        }
+
+        //efficiency
+        if(!contieneEfficiency){
+            lista.forEach((element)=>{
+                delete element.efficiency;
+            })
+        }
+
+        return lista;
+
+    }
+
 };
