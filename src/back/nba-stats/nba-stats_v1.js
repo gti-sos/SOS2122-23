@@ -64,7 +64,7 @@ var nbaStats = [
     
 module.exports.register = (app,db) => {
     //Redirect /docs
-    app.get(BASE_API_URL+"/docs",(req,res)=>{
+    app.get("/api/v2/nba-stats"+"/docs",(req,res)=>{
         res.redirect(API_DOC_PORTAL);
     });
 

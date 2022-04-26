@@ -34,12 +34,23 @@
                     style="width:100%"
                 />
                 <div class="container">
-                    <h4><b>NBA Stats</b></h4>
-                    <p>Fernando Pardo</p>
-                    <a href="">
+                    <h4><b>NBA</b></h4>
+                    <p>Fernando Pardo Beltrán</p>
+                    <a href="api/v1/nba-stats">
                         <button class="btn btn-primary" type="submit"
-                            >Link</button
-                        >
+                            >API v1</button>
+                    </a>
+                    <a href="api/v2/nba-stats">
+                        <button class="btn btn-primary" type="submit"
+                            >API v2</button>
+                    </a>
+                    <a href="api/v2/nba-stats/docs">
+                        <button class="btn btn-primary" type="submit"
+                            >Docs</button>
+                    </a>
+                    <a href="/#/nba-stats">
+                        <button class="btn btn-primary" type="submit"
+                            >Interfaz</button>
                     </a>
                 </div>
             </div>
@@ -111,9 +122,9 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="container">
-                    <h4><b>Fernando</b></h4>
+                    <h4><b>Fernando Pardo Beltrán</b></h4>
                     <p>Fuente de datos:</p>
-                    <a href="/api/v1/tennis">
+                    <a href="/api/v1/nba-stats">
                         <button class="btn btn-primary" type="submit"
                             >#</button
                         >

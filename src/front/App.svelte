@@ -10,6 +10,9 @@
 
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
+	
+	import NbaList from "./nba-stats/nbaList.svelte";
+	import NbaEdit from "./nba-stats/nbaEdit.svelte";
 
 	const routes = {
 
@@ -18,6 +21,8 @@
 		"/tennis/:country/:year" : Edit,
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
+		"/nba-stats" : NbaList,
+		"/nba-stats/:country/:year": NbaEdit,
 		"/info" : Info
 
 	};
