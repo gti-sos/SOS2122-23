@@ -12,10 +12,10 @@ const BASI_API_TENNIS2 = "/api/v2/tennis";
 
 var tennis = [
     {
-        country: "serbia",
-        year: 2019,
+        country: "spain",
+        year: 2017,
         most_grand_slam: 2,
-        masters_finals: 3,
+        masters_finals: 2,
         olympic_gold_medals: 0
     },
     {

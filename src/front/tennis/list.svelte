@@ -221,6 +221,7 @@
 			<tr>
 				<th>Fecha inicio</th>
 				<th>Fecha fin</th>
+				
 			</tr>
 		</thead>
 		<tbody>
@@ -250,7 +251,16 @@
 					</Button>
                     
 				</td>
+				
+				<td align="center">
+					<Button color="success" on:click={function (){
+						window.location.href = `/#/tennis/chart`
+					}}>
+						Gráfica
+					</Button>
+				</td>
 			</tr>
+			
 		</tbody>
 	</Table>
 	<Table bordered>
@@ -308,16 +318,19 @@
 			</tr>
 		</tbody>
 	</Table>
-    <div align="center">
-		{#each Array(maxPages+1) as _,page}
-		
-			<Button outline color="secondary" on:click={()=>{
-				offset = page;
-				getEntries();
-			}}>{page} </Button>&nbsp
-	
-		{/each}
-	</div>
+ 
 {/await}
-
+<div align="center">
+    {#each Array(maxPages+1) as _,page}
+    
+        <Button outline color="secondary" on:click={()=>{
+            offset = page;
+            getEntries();
+        }}>{page} </Button>&nbsp
+        
+    {/each}
+    <Button outline color="secondary" on:click={()=>{
+        getEntries();
+    }}>Actualizar nº de página</Button>
+</div>
 </main>
