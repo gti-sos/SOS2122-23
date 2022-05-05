@@ -2,7 +2,7 @@
     <br>
     <div class="row">
         
-        <div class="col-sm-4">
+        <div class="col-sm-2">
 
         </div>
         <div class="col-sm-4">
@@ -18,6 +18,24 @@
                         <button class="btn btn-primary" type="submit"
                             >Enlace</button
                         >
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7LjsiVGVT5pTCSj0ANMAoaJ0ELqh5hmygZv2q3YeM2VQLkm8FGeA8Cr_DeZQI_4o1Ps&usqp=CAU"
+                    alt="Avatar"
+                    style="width:100%"
+                />
+                <div class="container">
+                    <h4><b>Gráfica Grupal</b></h4>
+                    <a href="/#/groupgraph">
+                        <button class="btn btn-primary" type="submit"
+                            >Enlace</button
+                        >   
                     </a>
                 
                 </div>

@@ -9,6 +9,7 @@
 	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
 	import Header from "./components/Header.svelte";
+	import GroupGraph from "./GroupGraph.svelte";
 
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
@@ -30,7 +31,9 @@
 		"/premier-league/charts" : PremierChart,
 		"/nba-stats" : NbaList,
 		"/nba-stats/:country/:year": NbaEdit,
+		"/groupgraph" : GroupGraph,
 		"/info" : Info
+		
 
 	};
 
