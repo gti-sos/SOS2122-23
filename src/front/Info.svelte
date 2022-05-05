@@ -61,7 +61,7 @@
                     src="https://obamabcn.com/wp-content/uploads/2019/11/logo-premier-league.jpg"
                     alt="Avatar"
                     style="width:100%"
-                />>
+                />
                 <div class="container">
                     <h4><b>Premier League</b></h4>
                     <p>Alberto Martín Martín</p>

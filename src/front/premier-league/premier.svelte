@@ -465,6 +465,11 @@
         <Button color="danger" on:click="{deleteALL}">
             Eliminar todo
         </Button>
+        <Button color="info" on:click={function (){
+            window.location.href = `/#/premier-league/charts`
+        }}>
+            Gráfica
+        </Button>
 		<br>
 		<div style="text-align:center">
 			<Button outline color="primary" on:click="{getPreviewPage}">

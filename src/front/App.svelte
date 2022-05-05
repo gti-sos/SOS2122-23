@@ -12,6 +12,7 @@
 
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
+	import PremierChart from "./premier-league/premierCharts.svelte";
 	
 	import NbaList from "./nba-stats/nbaList.svelte";
 	import NbaEdit from "./nba-stats/nbaEdit.svelte";
@@ -26,6 +27,7 @@
 		"/tennis/chart" : Chart,
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
+		"/premier-league/charts" : PremierChart,
 		"/nba-stats" : NbaList,
 		"/nba-stats/:country/:year": NbaEdit,
 		"/info" : Info
