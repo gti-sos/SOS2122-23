@@ -1,123 +1,177 @@
 <script>
-    import { onMount } from "svelte";
-    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-    let data = [];
-    let stats_country_date = [];
-    let stats_most_grand_slam = [];
-    let stats_masters_finals = [];
-    let stats_olympic_gold_medals = [];
-    let appearences = [];
-    let cleanSheets = [];
-    let goals = []; 
-    async function getStats() {
+    import {onMount} from 'svelte';    
+    import {Button} from 'sveltestrap';
+  
+    const delay = ms => new Promise(res => setTimeout(res,ms));
+    //Tennis
+    let tennisData = [];
+    let tennisChartCountryYear = [];
+    let tennisChartmost_grand_slam = [];
+    let tennisChartmasters_finals = [];
+    let tennisChartolympic_gold_medals = []; 
+    //Premier
+    let premierStats = [];
+    let premier_country_year = [];
+    let premier_appearences = [];
+    let premier_cleanSheets = [];
+    let premier_goals = []; 
+    async function gettennisData(){
         console.log("Fetching stats....");
         const res = await fetch("/api/v2/tennis");
-        const res2 = await fetch("/api/v2/premier-league");
-        if (res.ok) {
+        if(res.ok){
             const data = await res.json();
-            console.log("Estadísticas recibidas: " + data.length);
-            data.forEach((stat) => {
-                stats_country_date.push(stat.country + "-" + stat.year);
-                stats_most_grand_slam.push(stat["most_grand_slam"]);
-                stats_masters_finals.push(stat["masters_finals"]);
-                stats_olympic_gold_medals.push(stat["olympic_gold_medals"]);             
-            });
-            loadGraph();
-        } else {
-            console.log("Error cargando los datos");
-        }
-        if(res2.ok){
-            const data2 = await res2.json();
-            console.log("Estadísticas recibidas 2: "+data2.length);
+            tennisData = data;
+            console.log("Estadísticas recibidas: "+tennisData.length);
             //inicializamos los arrays para mostrar los datos
-            data2.forEach(stat => {
-                stats_country_date.push(stat.country+"-"+stat.year);
-                appearences.push(stat["appearences"]);
-                cleanSheets.push(stat["cleanSheets"]);
-                goals.push(stat["goals"]);            
+            tennisData.forEach(stat => {
+                tennisChartCountryYear.push(stat.country+"-"+stat.year);
+                tennisChartmost_grand_slam.push(parseFloat(stat.most_grand_slam));
+                tennisChartolympic_gold_medals.push(parseFloat(stat.olympic_gold_medals));
+                tennisChartmasters_finals.push(parseFloat(stat.masters_finals));            
             });
-            //esperamos a que se carguen 
             await delay(500);
-            loadGraph();
         }else{
             console.log("Error cargando los datos");
-		}
     }
-    async function loadGraph() {
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var trace_olympic_gold_medals = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: stats_country_date,
-                datasets: [
-                    {
-                        label: "Grandslams ganados",
-                        backgroundColor: "rgb(0, 128, 128)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: stats_most_grand_slam,
-                    },
-                    {
-                        label: "Masters ganados",
-                        backgroundColor: "rgb(255, 0 ,0)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: stats_masters_finals,
-                    },
-                    {
-                        label: "Medallas olimpicas",
-                        backgroundColor: "rgb(255, 255, 0)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: stats_olympic_gold_medals,
-                    },                  
-                    {
-                        label: "Porterias a cero",
-                        backgroundColor: "rgb(51, 88, 255)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: cleanSheets,
-                    },
-                    {
-                        label: "Goles",
-                        backgroundColor: "rgb(51, 255, 91)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: goals,
-                    },
-                    {
-                        label: "Apariciones",
-                        backgroundColor: "rgb(255, 87, 51)",
-                        borderColor: "rgb(255, 255, 255)",
-                        data: appearences,
-                    },
-                ],
+    }
+    async function getpremierStats(){
+        console.log("Fetching stats....");
+        const res = await fetch("/api/v2/premier-league");
+        if(res.ok){
+            const data = await res.json();
+            premierStats = data;
+            console.log("Estadísticas recibidas: "+premierStats.length);
+            //inicializamos los arrays para mostrar los datos
+            premierStats.forEach(stat => {
+                premier_country_year.push(stat.country+"-"+stat.year);
+                premier_appearences.push(parseFloat(stat.appearences));
+                premier_cleanSheets.push(parseFloat(stat.cleanSheets));
+                premier_goals.push(parseFloat(stat.goals));            
+            });
+            await delay(500);
+        }else{
+            console.log("Error cargando los datos");
+        }
+    }
+    
+    async function loadGraph(){
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
             },
-            options: {},
+            title: {
+                text: 'Grafica conjunta grupo 23'
+            },
+            yAxis: {
+                title: {
+                    text: 'Valor'
+                }
+            },
+            xAxis: {
+                title: {
+                    text: "Country-Year",
+                },
+                categories: tennisChartCountryYear,
+            },
+            xAxis: {
+                title: {
+                    text: "Country-Year",
+                },
+                categories: premier_country_year,
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle'
+            },            
+            series: [
+                {
+                name: 'most_grand_slamic',
+                data: tennisChartmost_grand_slam
+                },
+                {
+                name: 'olympic_gold_medals',
+                data: tennisChartolympic_gold_medals
+                },
+                {
+                name: 'masters_finals',
+                data: tennisChartmasters_finals
+                },
+                //premier STATS
+                {
+                name: '...',
+                data: premier_appearences
+                },
+                {
+                name: '...',
+                data: premier_cleanSheets,
+                },
+                {
+                name: '...',
+                data: premier_goals
+                },
+            ],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
         });
-       
-       
     }
-    onMount(getStats);
-</script>
-
-<svelte:head>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"
-        on:load={loadGraph}></script>
-</svelte:head>
-
-<main>
-    <h2>Gráfica Conjunta</h2>
-    <h4>Biblioteca: Chart.js</h4>
-    <!--<button class="btn btn-primary hBack" type="button">Volver</button>
-    <a href="/#/tennis" class="btn btn-primary hBack" role="button" >Volver</a> -->
-    <a href="/#/info" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
-
-    <canvas id="myChart" />
-
-</main>
-
-<style>
-    h2 {
+    onMount(gettennisData);
+    onMount(getpremierStats);
+    
+  </script>
+  
+  <svelte:head>
+    <script src="https://code.highcharts.com/highcharts.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>    
+  </svelte:head>
+  
+  <main>
+  
+  
+    
+  
+    <div>
+        <h2>
+            Merged Analytics SOS2122-we
+        </h2>
+    </div>
+  
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            
+        </p>
+    </figure>
+  
+    <Button outline color="secondary" href="/">Volver</Button>
+  </main>
+  
+  <style>
+    main {
         text-align: center;
+        padding: 30px;       
     }
-    h4 {
-        text-align: center;
+    p.error{
+      color: red; 
+      text-align:center;
+      font-size: 20px;
+      margin-top:80px;
     }
-</style>
+    
+   
+  </style>
