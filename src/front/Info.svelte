@@ -157,7 +157,7 @@
                 <div class="container">
                     <h4><b>Fernando Pardo Beltrán</b></h4>
                     <p>Fuente de datos:</p>
-                    <a href="/api/v1/nba-stats">
+                    <a href="/api/v2/nba-stats">
                         <button class="btn btn-primary" type="submit"
                             >#</button
                         >

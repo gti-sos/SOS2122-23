@@ -14,7 +14,14 @@
     let premier_country_year = [];
     let premier_appearences = [];
     let premier_cleanSheets = [];
-    let premier_goals = []; 
+    let premier_goals = [];
+    //Nba
+    let nbaStats = [];
+    let nba_country_year = [];
+    let nba_mostpoints = [];
+    let nba_fieldgoals = [];
+    let nba_efficiency = [];
+
     async function gettennisData(){
         console.log("Fetching stats....");
         const res = await fetch("/api/v2/tennis");
@@ -47,6 +54,25 @@
                 premier_appearences.push(parseFloat(stat.appearences));
                 premier_cleanSheets.push(parseFloat(stat.cleanSheets));
                 premier_goals.push(parseFloat(stat.goals));            
+            });
+            await delay(500);
+        }else{
+            console.log("Error cargando los datos");
+        }
+    }
+    async function getnbaStats(){
+        console.log("Fetching stats....");
+        const res = await fetch("/api/v2/nba-stats");
+        if(res.ok){
+            const data = await res.json();
+            nbaStats = data;
+            console.log("Estadísticas recibidas: "+nbaStats.length);
+            //inicializamos los arrays para mostrar los datos
+            nbaStats.forEach(stat => {
+                nba_country_year.push(stat.country+"-"+stat.year);
+                nba_mostpoints.push(parseFloat(stat.mostpoints));
+                nba_fieldgoals.push(parseFloat(stat.fieldgoals));
+                nba_efficiency.push(parseFloat(stat.efficiency));            
             });
             await delay(500);
         }else{
@@ -110,6 +136,19 @@
                 name: '...',
                 data: premier_goals
                 },
+                //nba-stats
+                {
+                    name: 'mostpoints',
+                    data: nba_mostpoints
+                },
+                {
+                    name: 'fieldgoals',
+                    data: nba_fieldgoals
+                },
+                {
+                    name: 'efficiency',
+                    data: nba_efficiency
+                }
             ],
             responsive: {
                 rules: [{
@@ -129,6 +168,7 @@
     }
     onMount(gettennisData);
     onMount(getpremierStats);
+    onMount(getnbaStats);
     
   </script>
   
