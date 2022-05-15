@@ -99,12 +99,14 @@
                 },
                 categories: tennisChartCountryYear,
             },
+            /*
             xAxis: {
                 title: {
                     text: "Country-Year",
                 },
                 categories: premier_country_year,
             },
+            */
             legend: {
                 layout: 'vertical',
                 align: 'right',
@@ -112,7 +114,7 @@
             },            
             series: [
                 {
-                name: 'most_grand_slamic',
+                name: 'most_grandslams',
                 data: tennisChartmost_grand_slam
                 },
                 {
@@ -125,15 +127,15 @@
                 },
                 //premier STATS
                 {
-                name: '...',
+                name: 'partidos jugados',
                 data: premier_appearences
                 },
                 {
-                name: '...',
+                name: 'portería vacía',
                 data: premier_cleanSheets,
                 },
                 {
-                name: '...',
+                name: 'goles',
                 data: premier_goals
                 },
                 //nba-stats
@@ -187,7 +189,7 @@
   
     <div>
         <h2>
-            Merged Analytics SOS2122-we
+            Gráfica conjunta SOS2122-23
         </h2>
     </div>
   

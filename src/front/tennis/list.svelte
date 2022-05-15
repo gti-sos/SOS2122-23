@@ -259,6 +259,13 @@
 						Gráfica
 					</Button>
 				</td>
+				<td align="center">
+					<Button color="success" on:click={function (){
+						window.location.href = `/#/tennis/twitch`
+					}}>
+						Clips
+					</Button>
+				</td>
 			</tr>
 			
 		</tbody>

@@ -5,6 +5,8 @@
 	import List from "./tennis/list.svelte";
 	import Edit from "./tennis/edit.svelte";
 	import Chart from "./tennis/chart.svelte";
+	import Twitch from "./tennis/twitch.svelte";
+	import TwitchChart from "./tennis/twitchchart.svelte";
 
 	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
@@ -26,6 +28,8 @@
 		"/tennis" : List,
 		"/tennis/:country/:year" : Edit,
 		"/tennis/chart" : Chart,
+		"/tennis/twitch" : Twitch,
+		"/tennis/twitchchart" : TwitchChart,
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
 		"/premier-league/charts" : PremierChart,

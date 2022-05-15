@@ -20,6 +20,8 @@ db_nba_stats2 = new Datastore();
 app.use(bodyParser.json());
 app.use("/",express.static('public'));
 
+const twitch = require("./src/back/tennis/tennistwitch");
+twitch.register(app);
 
 app.get("/cool", (req,res) => {
     console.log("Requested / route");
