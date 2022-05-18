@@ -20,11 +20,7 @@ db_nba_stats2 = new Datastore();
 app.use(bodyParser.json());
 app.use("/",express.static('public'));
 
-const twitch = require("./src/back/tennis/tennistwitch");
-twitch.register(app);
 
-const tennislivedata = require("./src/back/tennis/tennislivedata");
-tennislivedata.register(app);
 
 app.get("/cool", (req,res) => {
     console.log("Requested / route");
@@ -52,12 +48,19 @@ const backend_premier_leaguev2 = require("./src/back/premier-league-stats/v2/pre
 backend_premier_leaguev2.register(app);
 
 //API Antonio Saborido
-const tennis_API = require("./src/back/tennis/tennis.js");
+const apiext4 = require("./src/back/tennis/apiext4");
+apiext4.register(app);
 
+const twitch = require("./src/back/tennis/tennistwitch");
+twitch.register(app);
+
+const tennislivedata = require("./src/back/tennis/tennislivedata");
+tennislivedata.register(app);
+
+const tennis_API = require("./src/back/tennis/tennis.js");
 tennis_API.register(app,db_tennis);
 
 const tennis_APIv2 = require("./src/back/tennis/tennisv2.js");
-
 tennis_APIv2.register(app,db_tennis2);
 
 //API Fernando Pardo Beltrán(nba-stats)

@@ -88,33 +88,7 @@ module.exports.register = (app) => {
             }
         })
        
-        //console.log(th3antonioclips);
-        // console.log(JSON.stringify(th3antonioclips.null.broadcaster_id, null,2));
-        /*
-        app.get(BASE_API + "/th3antonio" + "/:data", (req, res) => {
-            var data = req.param.country;
-            filteredData = th3antonioclips.filter((cont) => {
-                return (cont.data == data);
-            });
-            if (filteredData == 0) {
-                res.sendStarus(404, "NOT FOUND");
-            } else {
-                res.send(JSON.stringify(filteredData, null, 2));
-            }
-            console.log("pene");
-        })
-        const th3antonioclips2 = (await axios({
-            method: 'get',
-            url: 'http://localhost:8080/api/v1/th3antonio',
-            headers: {
-                'Authorization': access_token,
-                'Client-Id': config.client_id
-            },
-        })).data._.client_id;
-        app.get(BASE_API + "/th3antonio2", (req, res) => {
-            res.send(JSON.stringify(th3antonioclips2));
-        });
-        */
+       
     })();
 
 

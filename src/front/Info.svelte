@@ -184,12 +184,8 @@
             <div class="card">
                 <div class="container">
                     <h4><b>Antonio Saborido Campos</b></h4>
-                    <p>Fuente de datos:</p>
-                    <a href="/api/v1/tennis">
-                        <button class="btn btn-primary" type="submit"
-                            >#</button
-                        >
-                    </a>
+                    <p>Fuente de datos: Tennis</p>
+                    
                     
                 </div>
             </div>

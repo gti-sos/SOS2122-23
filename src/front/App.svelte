@@ -7,6 +7,8 @@
 	import Chart from "./tennis/chart.svelte";
 	import Twitch from "./tennis/twitch.svelte";
 	import TwitchChart from "./tennis/twitchchart.svelte";
+	import ApitennisList from "./tennis/apitennislist.svelte";
+	import ApitennisChart from "./tennis/apitennislistchart.svelte";
 
 	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
@@ -23,6 +25,7 @@
 	import Analytics from "./Analytics.svelte";
 	import About from "./About.svelte";
 	import Integrations from "./Integrations.svelte";
+
 	
 
 	const routes = {
@@ -40,6 +43,8 @@
 		"/tennis/chart" : Chart,
 		"/tennis/twitch" : Twitch,
 		"/tennis/twitchchart" : TwitchChart,
+		"/tennis/apitennislist": ApitennisList,
+		"/tennis/apitennischart": ApitennisChart,
 		
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
