@@ -58,7 +58,7 @@ loading
 					<td>{entry.n}</td>
                     <td>
 						<iframe
-   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=localhost"
+   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=herokuapp"
    height="360"
    width="640"
    allowfullscreen>
