@@ -8499,7 +8499,7 @@ var app = (function () {
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*entry*/ ctx[3].view_count + "";
+    	let t2_value = /*entry*/ ctx[3].n + "";
     	let t2;
     	let t3;
     	let td2;
@@ -8525,8 +8525,8 @@ var app = (function () {
     			attr_dev(iframe, "height", "360");
     			attr_dev(iframe, "width", "640");
     			iframe.allowFullscreen = true;
-    			add_location(iframe, file$b, 59, 6, 1229);
-    			add_location(td2, file$b, 58, 20, 1217);
+    			add_location(iframe, file$b, 59, 6, 1220);
+    			add_location(td2, file$b, 58, 20, 1208);
     			add_location(tr, file$b, 55, 4, 1128);
     		},
     		m: function mount(target, anchor) {
@@ -8543,7 +8543,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*entries*/ 1 && t0_value !== (t0_value = /*entry*/ ctx[3].title + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*entries*/ 1 && t2_value !== (t2_value = /*entry*/ ctx[3].view_count + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*entries*/ 1 && t2_value !== (t2_value = /*entry*/ ctx[3].n + "")) set_data_dev(t2, t2_value);
 
     			if (dirty & /*entries*/ 1 && !src_url_equal(iframe.src, iframe_src_value = "https://clips.twitch.tv/embed?clip=" + /*entry*/ ctx[3].id + "&parent=localhost")) {
     				attr_dev(iframe, "src", iframe_src_value);

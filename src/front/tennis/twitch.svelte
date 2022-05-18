@@ -55,7 +55,7 @@ loading
 			{#each entries as entry}
 				<tr>
 					<td>{entry.title}</td>
-					<td>{entry.view_count}</td>
+					<td>{entry.n}</td>
                     <td>
 						<iframe
    src="https://clips.twitch.tv/embed?clip={entry.id}&parent=localhost"

@@ -20,23 +20,34 @@
 	import NbaList from "./nba-stats/nbaList.svelte";
 	import NbaEdit from "./nba-stats/nbaEdit.svelte";
 
+	import Analytics from "./Analytics.svelte";
+	import About from "./About.svelte";
+	import Integrations from "./Integrations.svelte";
 	
 
 	const routes = {
 
 		"/": Home,
+
+		"/groupgraph" : GroupGraph,
+		"/info" : Info,
+		"/about" : About,
+		"/analytics" : Analytics,
+		"/integrations" : Integrations,
+
 		"/tennis" : List,
 		"/tennis/:country/:year" : Edit,
 		"/tennis/chart" : Chart,
 		"/tennis/twitch" : Twitch,
 		"/tennis/twitchchart" : TwitchChart,
+		
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
 		"/premier-league/charts" : PremierChart,
+		
 		"/nba-stats" : NbaList,
-		"/nba-stats/:country/:year": NbaEdit,
-		"/groupgraph" : GroupGraph,
-		"/info" : Info
+		"/nba-stats/:country/:year": NbaEdit
+		
 		
 
 	};

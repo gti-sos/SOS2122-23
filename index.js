@@ -23,6 +23,9 @@ app.use("/",express.static('public'));
 const twitch = require("./src/back/tennis/tennistwitch");
 twitch.register(app);
 
+const tennislivedata = require("./src/back/tennis/tennislivedata");
+tennislivedata.register(app);
+
 app.get("/cool", (req,res) => {
     console.log("Requested / route");
     res.send(`<html>
