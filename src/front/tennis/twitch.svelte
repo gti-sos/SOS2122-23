@@ -58,7 +58,7 @@ loading
 					<td>{entry.view_count}</td>
                     <td>
 						<iframe
-   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=sos2122-23.herokuapp.com"
+   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=herokuapp.com"
    height="360"
    width="640"
    allowfullscreen>
