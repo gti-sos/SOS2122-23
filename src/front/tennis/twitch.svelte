@@ -58,7 +58,7 @@ loading
 					<td>{entry.n}</td>
                     <td>
 						<iframe
-   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=herokuapp"
+   src="https://clips.twitch.tv/embed?clip={entry.id}&parent=http://sos2122-23.herokuapp.com"
    height="360"
    width="640"
    allowfullscreen>
