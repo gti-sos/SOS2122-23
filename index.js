@@ -51,6 +51,9 @@ backend_premier_leaguev2.register(app);
 const apiext4 = require("./src/back/tennis/apiext4");
 apiext4.register(app);
 
+const apiext3 = require("./src/back/tennis/apiext3");
+apiext3.register(app);
+
 const twitch = require("./src/back/tennis/tennistwitch");
 twitch.register(app);
 

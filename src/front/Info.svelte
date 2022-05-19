@@ -146,6 +146,16 @@
                             >Interfaz</button
                         >
                     </a>
+                    <a href="/#/tennis/chart">
+                        <button class="btn btn-primary" type="submit"
+                            >Gráfica 1</button
+                        >
+                    </a>
+                    <a href="/#/tennis/chart2">
+                        <button class="btn btn-primary" type="submit"
+                            >Gráfica 2</button
+                        >
+                    </a>
                 </div>
             </div>
         </div>

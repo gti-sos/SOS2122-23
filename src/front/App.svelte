@@ -5,10 +5,15 @@
 	import List from "./tennis/list.svelte";
 	import Edit from "./tennis/edit.svelte";
 	import Chart from "./tennis/chart.svelte";
+	import Chart2 from "./tennis/chart2.svelte";
 	import Twitch from "./tennis/twitch.svelte";
 	import TwitchChart from "./tennis/twitchchart.svelte";
 	import ApitennisList from "./tennis/apitennislist.svelte";
 	import ApitennisChart from "./tennis/apitennislistchart.svelte";
+	import apiext3list from "./tennis/apiext3list.svelte";
+	import apiext3chart from "./tennis/apiext3chart.svelte";
+	import apiext4list from "./tennis/apiext4list.svelte";
+	import apiext4chart from "./tennis/apiext4chart.svelte";
 
 	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
@@ -41,10 +46,15 @@
 		"/tennis" : List,
 		"/tennis/:country/:year" : Edit,
 		"/tennis/chart" : Chart,
+		"/tennis/chart2" : Chart2,
 		"/tennis/twitch" : Twitch,
 		"/tennis/twitchchart" : TwitchChart,
 		"/tennis/apitennislist": ApitennisList,
 		"/tennis/apitennischart": ApitennisChart,
+		"/tennis/apiext3list": apiext3list,
+		"/tennis/apiext3chart": apiext3chart,
+		"/tennis/apiext4list": apiext4list,
+		"/tennis/apiext4chart": apiext4chart,
 		
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,

@@ -14,7 +14,6 @@
             data.forEach((stat) => {
                 stats_title.push(stat.title);
                 stats_views.push(stat["view_count"]);
-            
             });
             loadGraph();
         } else {
@@ -30,23 +29,27 @@
                 datasets: [
                     {
                         label: "Visitas",
-                        backgroundColor: "rgb(0, 128, 128)",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
                         borderColor: "rgb(255, 255, 255)",
                         data: stats_views,
                     },
                 ],
             },
-            options: {},
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
         });
-       
-       
     }
     onMount(getStats);
 </script>
 
 <svelte:head>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
         on:load={loadGraph}></script>
 </svelte:head>
 
@@ -55,10 +58,14 @@
     <h4>Biblioteca: Chart.js</h4>
     <!--<button class="btn btn-primary hBack" type="button">Volver</button>
     <a href="/#/tennis" class="btn btn-primary hBack" role="button" >Volver</a> -->
-    <a href="/#/tennis" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
+    <a
+        href="/#/integrations"
+        class="btn btn-primary btn-lg active"
+        role="button"
+        aria-pressed="true">Volver</a
+    >
 
     <canvas id="myChart" />
-
 </main>
 
 <style>

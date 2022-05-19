@@ -31,7 +31,8 @@
             console.log("Estadísticas recibidas: "+tennisData.length);
             //inicializamos los arrays para mostrar los datos
             tennisData.forEach(stat => {
-                tennisChartCountryYear.push(stat.country+"-"+stat.year);
+                //tennisChartCountryYear.push(stat.country+"-"+stat.year);
+                tennisChartCountryYear.push(stat.year);
                 tennisChartmost_grand_slam.push(parseFloat(stat.most_grand_slam));
                 tennisChartolympic_gold_medals.push(parseFloat(stat.olympic_gold_medals));
                 tennisChartmasters_finals.push(parseFloat(stat.masters_finals));            
@@ -95,7 +96,7 @@
             },
             xAxis: {
                 title: {
-                    text: "Country-Year",
+                    text: "Year",
                 },
                 categories: tennisChartCountryYear,
             },

@@ -15,7 +15,7 @@
                     </ul>
                 <h6>Integración Externa 2 (Ultimate Tennis)</h6>
                     <ul>
-                        <a href="/api/v1/tennis-stats"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/api/v1/tennis-apiext"><li type="circle"> Archivo JSON</li></a>
                         <a href="/#/tennis/apitennislist"><li type="circle"> Vista en tabla</li></a>
                         <a href="/#/tennis/apitennischart"><li type="circle"> Grafica visitas</li></a>
                     </ul>
@@ -23,15 +23,15 @@
                     Integración Externa 3 (SOS2122-27: public-expenditure-stats)
                 </h6>
                     <ul>
-                        <a href=""><li type="circle"> Archivo JSON</li></a>
-                        <a href=""><li type="circle"> Vista en tabla</li></a>
-                        <a href=""><li type="circle"> </li></a>
+                        <a href="/api/v1/apiext3"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/tennis/apiext3list"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/tennis/apiext3chart"><li type="circle"> Gráfica </li></a>
                     </ul>
                 <h6>Integración Externa 4 (SOS2122-22: coal-stats)</h6>
                     <ul>
-                        <a href=""><li type="circle"> Archivo JSON</li></a>
-                        <a href=""><li type="circle"> Vista en tabla</li></a>
-                        <a href=""><li type="circle"> </li></a>
+                        <a href="/api/v1/apiext4"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/tennis/apiext4list"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/tennis/apiext4chart"><li type="circle"> Gráfica </li></a>
                     </ul>
             
             </div>

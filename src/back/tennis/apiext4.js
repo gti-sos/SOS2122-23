@@ -1,20 +1,35 @@
 const bodyParser = require("body-parser");
 
+const BASE_API = "/api/v1";
 
 //API Antonio Saborido
-var express = require('express');  
-var request = require('request');
+
+const _ = require('lodash');
+const axios = require('axios').default;
+/*
+*/
 
 
 module.exports.register = (app) => {
-    var paths='api/v2/coal-stats/';
-    var apiServerHost = 'https://sos2122-22.herokuapp.com/';
-    
-    var app = express();  
-    app.use(paths, function(req, res) {
-      var url = apiServerHost + req.baseUrl + req.url;
-      console.log('piped: '+req.baseUrl + req.url);
-      req.pipe(request(url)).pipe(res);
-    });
 
+    const init ={
+      method: 'GET',
+      url: 'https://sos2122-22.herokuapp.com/api/v2/coal-stats/loadinitialdata',
+    }
+    const options = {
+      method: 'GET',
+      url: 'https://sos2122-22.herokuapp.com/api/v2/coal-stats/',
+    };
+    
+
+    
+    axios.request(options).then(function (response) {
+        ext4=response.data;
+    }).catch(function (error) {
+        console.error(error);
+    });   
+
+    app.get(BASE_API + "/apiext4", (req, res) => {
+        res.send(JSON.stringify(ext4));
+    });
 }

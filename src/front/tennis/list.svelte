@@ -256,14 +256,14 @@
 					<Button color="success" on:click={function (){
 						window.location.href = `/#/tennis/chart`
 					}}>
-						Gráfica
+						Gráfica 1
 					</Button>
 				</td>
 				<td align="center">
 					<Button color="success" on:click={function (){
-						window.location.href = `/#/tennis/twitch`
+						window.location.href = `/#/tennis/chart2`
 					}}>
-						Clips
+						Gráfica 2
 					</Button>
 				</td>
 			</tr>

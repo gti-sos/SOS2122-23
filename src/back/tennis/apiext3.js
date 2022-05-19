@@ -11,24 +11,25 @@ const axios = require('axios').default;
 
 
 module.exports.register = (app) => {
+    
+    const init = {
+        method: 'GET',
+        url: 'https://sos2122-27.herokuapp.com/api/v2/public-expenditure-stats/loadinitialdata',
+    }
     const options = {
       method: 'GET',
-      url: 'https://ultimate-tennis1.p.rapidapi.com/live_leaderboard/50',
-      headers: {
-        'X-RapidAPI-Host': 'ultimate-tennis1.p.rapidapi.com',
-        'X-RapidAPI-Key': 'e950eb3f63msh045c2ecb2e5934ep10bdf6jsne4c2ebde5819'
-      }
+      url: 'https://sos2122-27.herokuapp.com/api/v2/public-expenditure-stats',
     };
     
 
     
     axios.request(options).then(function (response) {
-        tennisplayers=response.data.data;
+        ext3=response.data;
     }).catch(function (error) {
         console.error(error);
     });   
 
-    app.get(BASE_API + "/tennis-apiext", (req, res) => {
-        res.send(JSON.stringify(tennisplayers));
+    app.get(BASE_API + "/apiext3", (req, res) => {
+        res.send(JSON.stringify(ext3));
     });
 }
