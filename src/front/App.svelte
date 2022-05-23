@@ -27,6 +27,8 @@
 	import apiext1chart from "./premier-league/apiext1chart.svelte";
 	import apiext2list from "./premier-league/apiext2list.svelte";
 	import apiext2chart from "./premier-league/apiext2chart.svelte";
+	import apipredictionlist from "./premier-league/apipredictionlist.svelte";
+	import apipredictionchart from "./premier-league/apipredictionchart.svelte";
 	
 	import NbaList from "./nba-stats/nbaList.svelte";
 	import NbaEdit from "./nba-stats/nbaEdit.svelte";
@@ -67,6 +69,8 @@
 		"/premier-league/apiext1chart": apiext1chart,
 		"/premier-league/apiext2list": apiext2list,
 		"/premier-league/apiext2chart": apiext2chart,
+		"/premier-league/apipredictionlist" : apipredictionlist,
+		"/premier-league/apipredictionchart" : apipredictionchart,
 		
 		"/nba-stats" : NbaList,
 		"/nba-stats/:country/:year": NbaEdit

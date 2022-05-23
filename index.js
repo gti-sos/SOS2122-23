@@ -47,6 +47,13 @@ backend_premier_leaguev1.register(app,db_premier_league);
 const backend_premier_leaguev2 = require("./src/back/premier-league-stats/v2/premier-league.js");
 backend_premier_leaguev2.register(app);
 
+const api_prediction = require("./src/back/premier-league-stats/footballprediction");
+api_prediction.register(app);
+
+const api_food = require("./src/back/premier-league-stats/foodnutrition");
+api_food.register(app);
+
+
 //API Antonio Saborido
 const apiext4 = require("./src/back/tennis/apiext4");
 apiext4.register(app);
