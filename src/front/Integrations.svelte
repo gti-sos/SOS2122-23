@@ -17,7 +17,7 @@
                     <ul>
                         <a href="/api/v1/tennis-apiext"><li type="circle"> Archivo JSON</li></a>
                         <a href="/#/tennis/apitennislist"><li type="circle"> Vista en tabla</li></a>
-                        <a href="/#/tennis/apitennischart"><li type="circle"> Grafica visitas</li></a>
+                        <a href="/#/tennis/apitennischart"><li type="circle"> Grafica</li></a>
                     </ul>
                 <h6>
                     Integración Externa 3 (SOS2122-27: public-expenditure-stats)
