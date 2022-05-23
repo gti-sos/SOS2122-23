@@ -38,6 +38,18 @@
             <div class="col-4">
                 <h5 id="titulo">Alberto Martin Martin</h5>
                 <hr />
+                <h6>Integración Externa 1 (SOS2122-21: productions-vehicles)</h6>
+                    <ul>
+                        <a href="/api/v1/apiext1"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/premier-league/apiext1list"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/premier-league/apiext1chart"><li type="circle"> Grafica</li></a>
+                    </ul>
+                <h6>Integración Externa 2 (SOS2122-26: defense-spent-stats)</h6>
+                    <ul>
+                        <a href="/api/v1/apiext2"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/premier-league/apiext2list"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/premier-league/apiext2chart"><li type="circle"> Grafica</li></a>
+                    </ul>
             </div>
             <div class="col-4">
                 <h5 id="titulo">Fernando</h5>

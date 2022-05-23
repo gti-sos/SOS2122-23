@@ -23,6 +23,10 @@
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
 	import PremierChart from "./premier-league/premierCharts.svelte";
+	import apiext1list from "./premier-league/apiext1list.svelte";
+	import apiext1chart from "./premier-league/apiext1chart.svelte";
+	import apiext2list from "./premier-league/apiext2list.svelte";
+	import apiext2chart from "./premier-league/apiext2chart.svelte";
 	
 	import NbaList from "./nba-stats/nbaList.svelte";
 	import NbaEdit from "./nba-stats/nbaEdit.svelte";
@@ -59,6 +63,10 @@
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
 		"/premier-league/charts" : PremierChart,
+		"/premier-league/apiext1list": apiext1list,
+		"/premier-league/apiext1chart": apiext1chart,
+		"/premier-league/apiext2list": apiext2list,
+		"/premier-league/apiext2chart": apiext2chart,
 		
 		"/nba-stats" : NbaList,
 		"/nba-stats/:country/:year": NbaEdit
