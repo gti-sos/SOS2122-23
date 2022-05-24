@@ -2,6 +2,9 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const BASI_API_TENNIS2 = "/api/v2/tennis";
+
+const cors = require('cors'); //opciones de cors por defecto para simplificar.
+app.use(cors());    //Debe de estar antes de registrar alguna ruta.
 //API Antonio Saborido
 //Proxy
 
