@@ -9,7 +9,7 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/tennis-apiext"); 
+        const res = await fetch("/api/v1/apiext5"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
@@ -24,13 +24,13 @@
 
 	<figure class="text-center">
 		<blockquote class="blockquote">
-		  <h1>Clasificación tennis masculina</h1>
+		  <h1>Clasifición Femenina</h1>
 		</blockquote>
 		
 	  </figure>
 	  <td align="center">
 		<Button color="success" on:click={function (){
-			window.location.href = `https://sos2122-23.herokuapp.com/#/tennis/apitennischart`
+			window.location.href = `https://sos2122-23.herokuapp.com/#/tennis/apiext5chart`
 		}}>
 			Gráfica
 		</Button>
@@ -46,8 +46,10 @@ loading
 				
 				<th>Ranking</th>
 				<th>Nombre</th>
-				<th>Edad</th>
-                <th>Puntos</th>
+				<th>Foto</th>
+				<th>País</th>
+                
+				<th>Puntos</th>
                		
 		</tr>
 		</thead>
@@ -56,11 +58,11 @@ loading
 			</tr>
 			{#each entries as entry}
 				<tr>
-					<td>{entry.Rank}</td>
-					<td>{entry.Name}</td>
-                    <td>{entry.Age}</td>
-					<td>{entry.Points}</td>
-                   
+					<td>{entry.ranking}</td>
+					<td>{entry.team.name}</td>
+                    <td><img src="{entry.team.logo}" alt="WTA" width="100" height="100"></td>
+					<td>{entry.team.country}</td>
+					<td>{entry.points}</td>
 
                   				
 				</tr>

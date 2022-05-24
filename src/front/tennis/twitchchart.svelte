@@ -49,7 +49,7 @@
 
 <svelte:head>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"
         on:load={loadGraph}></script>
 </svelte:head>
 

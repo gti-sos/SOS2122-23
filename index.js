@@ -55,6 +55,9 @@ api_food.register(app);
 
 
 //API Antonio Saborido
+const apiext5 = require("./src/back/tennis/apiext5");
+apiext5.register(app);
+
 const apiext4 = require("./src/back/tennis/apiext4");
 apiext4.register(app);
 

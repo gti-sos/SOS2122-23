@@ -14,7 +14,11 @@
 	import apiext3chart from "./tennis/apiext3chart.svelte";
 	import apiext4list from "./tennis/apiext4list.svelte";
 	import apiext4chart from "./tennis/apiext4chart.svelte";
-
+	import apiext5list from "./tennis/apiext5list.svelte";
+	import apiext5chart from "./tennis/apiext5chart.svelte";
+	import apiext6chart from "./tennis/apiext6chart.svelte";
+	import apiext7chart from "./tennis/apiext7chart.svelte";
+	
 	import Info from "./Info.svelte";
 	import Footer from "./components/Footer.svelte";
 	import Header from "./components/Header.svelte";
@@ -61,6 +65,10 @@
 		"/tennis/apiext3chart": apiext3chart,
 		"/tennis/apiext4list": apiext4list,
 		"/tennis/apiext4chart": apiext4chart,
+		"/tennis/apiext5list": apiext5list,
+		"/tennis/apiext5chart": apiext5chart,
+		"/tennis/apiext6chart": apiext6chart,
+		"/tennis/apiext7chart": apiext7chart,
 		
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,

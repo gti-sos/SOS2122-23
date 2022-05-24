@@ -33,7 +33,20 @@
                         <a href="/#/tennis/apiext4list"><li type="circle"> Vista en tabla</li></a>
                         <a href="/#/tennis/apiext4chart"><li type="circle"> Gráfica </li></a>
                     </ul>
-            
+                <h6>Integración Externa 5 (SportScore: Clasifición tennis feminino)</h6>
+                    <ul>
+                        <a href="/api/v1/apiext5"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/tennis/apiext5list"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/tennis/apiext5chart"><li type="circle"> Gráfica </li></a>
+                    </ul>        
+                <h6>Grafica Integrada MI API + Externa 3</h6> 
+                    <ul>
+                        <a href="/#/tennis/apiext6chart"><li type="circle"> Gráfica </li></a>
+                    </ul> 
+                <h6>Grafica Integrada MI API + Externa 4</h6> 
+                    <ul>
+                        <a href="/#/tennis/apiext7chart"><li type="circle"> Gráfica </li></a>
+                    </ul> 
             </div>
             <div class="col-4">
                 <h5 id="titulo">Alberto Martin Martin</h5>
