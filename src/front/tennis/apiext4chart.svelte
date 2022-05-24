@@ -74,16 +74,16 @@
 
             series: [
                 {
-                    name: "Gasto público",
+                    name: "Producion",
                     data: stats_productions,
                     sliced: true,
                 },
                 {
-                    name: "% de gasto público respecto a PIB",
+                    name: "Exportaciones",
                     data: stats_exports,
                 },
                 {
-                    name: "% destinado a defensa en GP",
+                    name: "Consumo",
                     data: stats_consumption,
                 },
             ],

@@ -11634,20 +11634,20 @@ var app = (function () {
     			figure = element("figure");
     			div = element("div");
     			if (!src_url_equal(script0.src, script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$n, 111, 4, 3587);
+    			add_location(script0, file$n, 111, 4, 3543);
     			if (!src_url_equal(script1.src, script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$n, 112, 4, 3658);
+    			add_location(script1, file$n, 112, 4, 3614);
     			if (!src_url_equal(script2.src, script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$n, 113, 4, 3739);
+    			add_location(script2, file$n, 113, 4, 3695);
     			if (!src_url_equal(script3.src, script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$n, 114, 4, 3817);
+    			add_location(script3, file$n, 114, 4, 3773);
     			if (!src_url_equal(script4.src, script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$n, 115, 4, 3897);
+    			add_location(script4, file$n, 115, 4, 3853);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$n, 120, 8, 4049);
+    			add_location(div, file$n, 120, 8, 4005);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$n, 119, 4, 4005);
-    			add_location(main, file$n, 118, 0, 3993);
+    			add_location(figure, file$n, 119, 4, 3961);
+    			add_location(main, file$n, 118, 0, 3949);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -11755,18 +11755,15 @@ var app = (function () {
     			},
     			series: [
     				{
-    					name: "Gasto público",
+    					name: "Producion",
     					data: stats_productions,
     					sliced: true
     				},
     				{
-    					name: "% de gasto público respecto a PIB",
+    					name: "Exportaciones",
     					data: stats_exports
     				},
-    				{
-    					name: "% destinado a defensa en GP",
-    					data: stats_consumption
-    				}
+    				{ name: "Consumo", data: stats_consumption }
     			],
     			responsive: {
     				rules: [
