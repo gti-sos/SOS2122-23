@@ -41,7 +41,7 @@
     async function loadGraph() {
         Highcharts.chart("container", {
             chart: {
-                type: "column",
+                type: "scatter",
             },
             title: {
                 text: "Estadísticas de defensa",

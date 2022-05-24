@@ -37,7 +37,7 @@
     async function loadGraph() {
         Highcharts.chart("container", {
             chart: {
-                type: "column",
+                type: "bar",
             },
             title: {
                 text: "Estadísticas de producción de vehículos",
