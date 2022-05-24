@@ -8,33 +8,24 @@
     let stats_mostgrandslams = [];
     let stats_mastersfinals = [];
     let stats_olympicgoldmedals = []; 
-    //PREMIER
-    let PremierStats = [];
-    let appearences_stats = [];
-    let goals_stats = [];
-    let cleansheets_stats = []; 
-    //NBA STATS
-    let NBAStats=[];
-    let mostpoints_stats = [];
-    let fieldgoals_stats = [];
-    let efficiency_stats = [];
+    //PublicExpenditure
+    let PublicExpenditure = [];
+    let public_expenditure_stats = [];
+    let pe_to_gdp_stats = [];
+    let pe_on_defence_stats = []; 
+
 
     async function getData(){
-        const nba2 = await fetch("/api/v2/nba-stats");
-        const premier2 = await fetch("/api/v2/premier-league");
+        await fetch("https://sos2122-27.herokuapp.com/api/v2/public-expenditure-stats/loadinitialdata");
+        await fetch("/api/v2/tennis/loadinitialdata");
+        
+        const PublicExpenditure2 = await fetch("https://sos2122-27.herokuapp.com/api/v2/public-expenditure-stats/");
         const tennis2 = await fetch("/api/v2/tennis");
-        if (nba2.ok && premier2.ok && tennis2.ok){
-            NBAStats = await nba2.json();
+        if (PublicExpenditure2.ok && tennis2.ok){
+            
             TennisStats = await tennis2.json();
-            PremierStats = await premier2.json();
-            //Nba
-            NBAStats.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
-            NBAStats.sort((a,b) => (a.country > b.country) ? 1 : ((b.country > a.country) ? -1 : 0));
-            NBAStats.forEach(element=>{
-                mostpoints_stats.push(parseFloat(element.mostpoints));
-                fieldgoals_stats.push(parseFloat(element.fieldgoals));
-                efficiency_stats.push(parseFloat(element.efficiency));
-            });
+            PublicExpenditure = await PublicExpenditure2.json();
+            
             //Tennis
             TennisStats.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
             TennisStats.sort((a,b) => (a.country > b.country) ? 1 : ((b.country > a.country) ? -1 : 0));
@@ -44,20 +35,18 @@
                 stats_olympicgoldmedals.push(parseFloat(element.olympic_gold_medals));
             });
             //Premier
-            PremierStats.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
-            PremierStats.sort((a,b) => (a.country > b.country) ? 1 : ((b.country > a.country) ? -1 : 0));
-            PremierStats.forEach(element=>{
-                appearences_stats.push(parseFloat(element.appearences));
-                cleansheets_stats.push(parseFloat(element.cleanSheets));
-                goals_stats.push(parseFloat(element.goals));
+            PublicExpenditure.sort((a,b) => (a.year > b.year) ? 1 : ((b.year > a.year) ? -1 : 0));
+            PublicExpenditure.sort((a,b) => (a.country > b.country) ? 1 : ((b.country > a.country) ? -1 : 0));
+            PublicExpenditure.forEach(element=>{
+                public_expenditure_stats.push(parseFloat(element.public_expenditure));
+                pe_on_defence_stats.push(parseFloat(element.pe_on_defence));
+                pe_to_gdp_stats.push(parseFloat(element.pe_to_gdp));
             });
-            NBAStats.forEach(element =>{
-                xLabel.push(element.country+","+parseInt(element.year));
-            });
+            
             TennisStats.forEach(element =>{
                 xLabel.push(element.country+","+parseInt(element.year));
             });
-            PremierStats.forEach(element =>{
+            PublicExpenditure.forEach(element =>{
                 xLabel.push(element.country+","+parseInt(element.year));
             });
             xLabel=new Set(xLabel);
@@ -70,13 +59,13 @@
     async function loadGraph(){
         Highcharts.chart('container', {
             chart: {
-                type: 'area'
+                type: 'scatter'
             },
             title: {
                 text: 'Gráficas conjuntas'
             },
             subtitle: {
-                text: 'APIs: NBA, Premier-League & Tennis | Tipo: Line'
+                text: 'Integracion Tennis + PublicExpenditure | Tipo: Scatter'
             },
             yAxis: {
                 title: {
@@ -111,28 +100,18 @@
                 },
                 //PremierLeauge
                 {
-                name: 'Partidos jugados',
-                data: appearences_stats
+                name: 'Gasto Publico',
+                data: public_expenditure_stats
                 },
                 {
-                name: 'Goles',
-                data: goals_stats,
+                name: 'PE en Defensa',
+                data: pe_on_defence_stats,
                 },
                 {
-                name: 'Porterias a cero',
-                data: cleansheets_stats
+                name: 'PE to GDP',
+                data: pe_to_gdp_stats
                 },
                 //NBA
-                {
-                name: 'Más puntos',
-                data: mostpoints_stats
-                }, {
-                name: 'Tiros de campo',
-                data: fieldgoals_stats
-                }, {
-                name: 'Eficiencia',
-                data: efficiency_stats
-                }
             ],
             responsive: {
                 rules: [{

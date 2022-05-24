@@ -2,18 +2,15 @@
     import { onMount } from "svelte";
     const delay = (ms) => new Promise((res) => setTimeout(res, ms));
     let stats = [];
-    let stats_country_date = [];
-    let stats_productions = [];
-    let stats_consumption = [];
-    let stats_exports = [];
-    async function getCoalStats() {
+    let stats_teamname = [];
+    let stats_points = [];
+
+    async function getTennisWomen() {
         console.log("Fetching stats....");
-        const res1 = await fetch(
-            "https://sos2122-22.herokuapp.com/api/v2/coal-stats/loadinitialdata"
-        );
-        if (res1.ok) {  
+      
+        
             const res = await fetch(
-                "https://sos2122-22.herokuapp.com/api/v2/coal-stats/"
+                "/api/v1/apiext5/"
             );
             if (res.ok) {
                 const data = await res.json();
@@ -21,10 +18,9 @@
                 console.log("Estadísticas recibidas: " + stats.length);
                 //inicializamos los arrays para mostrar los datos
                 stats.forEach((stat) => {
-                    stats_country_date.push(stat.country + "-" + stat.year);
-                    stats_productions.push(stat["productions"]);
-                    stats_exports.push(stat["exports"]);
-                    stats_consumption.push(stat["consumption"]);
+                    stats_teamname.push(stat.team["name"]);
+                    stats_points.push(stat["points"]);
+                
                 });
                 //esperamos para que se carrguen los datos
                 await delay(500);
@@ -32,18 +28,18 @@
             } else {
                 console.log("Error cargando los datos");
             }
-        }
+        
     }
     async function loadGraph() {
         Highcharts.chart("container", {
             chart: {
-                type: "pie",
+                type: "spline",
             },
             title: {
-                text: "Estadísticas de coal stats",
+                text: "Ranking Tennis Femenino",
             },
             subtitle: {
-                text: "API Integrada 4",
+                text: "API Integrada 5 | Tipo: Spline",
             },
             yAxis: {
                 title: {
@@ -52,18 +48,15 @@
             },
             xAxis: {
                 title: {
-                    text: "País-Año",
+                    text: "Tenista",
                 },
-                categories: stats_country_date,
+                categories: stats_teamname.slice(0, 10),
             },
             plotOptions: {
         pie: {
             allowPointSelect: true,
             cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: ' {point.percentage:.1f} %'
-            }
+           
         }
     },
             legend: {
@@ -74,17 +67,8 @@
 
             series: [
                 {
-                    name: "Producion",
-                    data: stats_productions,
-                    sliced: true,
-                },
-                {
-                    name: "Exportaciones",
-                    data: stats_exports,
-                },
-                {
-                    name: "Consumo",
-                    data: stats_consumption,
+                    name: "Puntos",
+                    data: stats_points.slice(0, 10),
                 },
             ],
             responsive: {
@@ -105,7 +89,7 @@
             },
         });
     }
-    onMount(getCoalStats);
+    onMount(getTennisWomen);
 </script>
 
 <svelte:head>

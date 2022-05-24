@@ -30,7 +30,7 @@
                 datasets: [
                     {
                         label: "Ranking",
-                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        backgroundColor: "rgba(255, 51, 79)",
                         borderColor: "rgb(255, 255, 255)",
                         data: stats_points.slice(0, 10),
                     },
@@ -50,7 +50,7 @@
 
 <svelte:head>
     <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"
         on:load={loadGraph}></script>
 </svelte:head>
 
