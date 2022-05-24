@@ -1,63 +1,79 @@
-<script>    
-    import {onMount} from 'svelte';
-    import Plotly from 'plotly.js-dist-min';
-
-    const delay = ms => new Promise(res => setTimeout(res,ms));
+<script>
+    import { onMount } from "svelte";
+    const delay = (ms) => new Promise((res) => setTimeout(res, ms));
     let data = [];
-    let stats_home_team = [];
-    let stats_odds = [];
+    let stats_name = [];
+    let stats_points = [];
 
-    async function getPEStats(){
+    async function getStats() {
         console.log("Fetching stats....");
-        const res = await fetch("/api/v1/pred");
-        if(res.ok){
+        const res = await fetch("api/v1/prediction");
+        if (res.ok) {
             const data = await res.json();
-            console.log("Estadísticas recibidas: "+data.length);
-           
-            data.forEach(stat => {
-                stats_home_team.push(stat["home_team"]);
-                stats_odds.push(stat.odds["1"]);
+            console.log("Estadísticas recibidas: " + data.length);
+            data.forEach((stat) => {
+                stats_equipo.push(stat.equipo);
+                stats_apuesta.push(stat["apuesta"]);
             });
-            
             loadGraph();
-        }else{
+        } else {
             console.log("Error cargando los datos");
-		}
+        }
     }
-
     async function loadGraph() {
-        var trace_appearences = {
-            x: stats_home_team.slice(0,10),
-            y: stats_odds.slice(0,10),
-            type: 'bar',
-            name: 'Apariciones'
-        };
-       
-       
-        var dataPlot = [trace_appearences];
-        Plotly.newPlot('myDiv', dataPlot);
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var trace_olympic_gold_medals = new Chart(ctx, {
+            type: "radar",
+            
+            data: {
+                labels: stats_name.slice(0, 10),
+                datasets: [
+                    {
+                        label: "Ranking",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: stats_points.slice(0, 10),
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
     }
-
-    onMount(getPEStats);
-    
+    onMount(getStats);
 </script>
 
 <svelte:head>
-    <script src='https://cdn.plot.ly/plotly-2.11.1.min.js'></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
+        on:load={loadGraph}></script>
 </svelte:head>
 
 <main>
-    <h2>Predicciones</h2>
-    <h4>Biblioteca: Plotly</h4>
-    <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
-    <a href="/#/integrations" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
+    <h2>Ranking ATP</h2>
+    <h4>Biblioteca: Chart.js</h4>
+    <!--<button class="btn btn-primary hBack" type="button">Volver</button>
+    <a href="/#/tennis" class="btn btn-primary hBack" role="button" >Volver</a> -->
+    <a
+        href="/#/integrations"
+        class="btn btn-primary btn-lg active"
+        role="button"
+        aria-pressed="true">Volver</a
+    >
+
+    <canvas id="myChart" />
 </main>
 
 <style>
-    h2{
+    h2 {
         text-align: center;
     }
-    h4{
+    h4 {
         text-align: center;
     }
 </style>

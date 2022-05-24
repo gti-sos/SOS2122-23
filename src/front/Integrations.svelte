@@ -63,12 +63,6 @@
                         <a href="/#/premier-league/apiext2list"><li type="circle"> Vista en tabla</li></a>
                         <a href="/#/premier-league/apiext2chart"><li type="circle"> Grafica</li></a>
                     </ul>
-                <h6>Integración Externa 3 (Football Prediction)</h6>
-                    <ul>
-                        <a href="/api/v1/pred"><li type="circle"> Archivo JSON</li></a>
-                        <a href="/#/premier-league/apipredictionlist"><li type="circle"> Vista en tabla</li></a>
-                        <a href="/#/premier-league/apipredictionchart"><li type="circle"> Grafica</li></a>
-                    </ul>
             </div>
             <div class="col-4">
                 <h5 id="titulo">Fernando</h5>

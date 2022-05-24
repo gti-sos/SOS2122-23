@@ -26,7 +26,7 @@ module.exports.register = (app) => {
     axios.request(options).then(function (response) {
         ext3=response.data;
     }).catch(function (error) {
-        //console.error(error);
+        console.error(error);
     });   
 
     app.get(BASE_API + "/apiext3", (req, res) => {

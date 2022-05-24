@@ -26,7 +26,7 @@ module.exports.register = (app) => {
   axios.request(options).then(function (response) {
     tennisplayers2 = response.data.data;
   }).catch(function (error) {
-    //console.error(error);
+    console.error(error);
   });
 
   app.get(BASE_API + "/apiext5", (req, res) => {
