@@ -24,12 +24,12 @@ module.exports.register = (app) => {
 
 
   axios.request(options).then(function (response) {
-    tennisplayers = response.data.data;
+    tennisplayers2 = response.data.data;
   }).catch(function (error) {
     console.error(error);
   });
 
   app.get(BASE_API + "/apiext5", (req, res) => {
-    res.send(JSON.stringify(tennisplayers));
+    res.send(JSON.stringify(tennisplayers2));
   });
 }

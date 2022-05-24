@@ -23,12 +23,12 @@ module.exports.register = (app) => {
 
     
     axios.request(options).then(function (response) {
-        tennisplayers=response.data.data;
+        tennisplayers1=response.data.data;
     }).catch(function (error) {
         //console.error(error);
     });   
 
     app.get(BASE_API + "/tennis-apiext", (req, res) => {
-        res.send(JSON.stringify(tennisplayers));
+        res.send(JSON.stringify(tennisplayers1));
     });
 }
