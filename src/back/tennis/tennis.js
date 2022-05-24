@@ -3,23 +3,6 @@ const bodyParser = require("body-parser");
 const BASI_API_TENNIS = "/api/v1/tennis";
 
 //API Antonio Saborido
-//Proxy
-
-var paths='/remoteAPI';
-var apiServerHost = 'https://sos2122-23.herokuapp.com/api/v2/tennis';
-
-app.use(paths, function(req, res) {
-  var url = apiServerHost + req.url;
-  console.log('piped: ' + req.url);
-  req.pipe(request(url)).pipe(res);
-});
-
-var remoteAPI1 = "http://api.quotable.io/random"
-var pathQuote = "/random"
-app.use(pathQuote, function(req,res){
-	console.log("Piped:" + req.baseUrl + req.url);
-	req.pipe(request(remoteAPI1)).pipe(res);
-});
 
 var tennis = [
     {
