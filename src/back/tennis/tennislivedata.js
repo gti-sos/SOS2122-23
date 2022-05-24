@@ -15,8 +15,8 @@ module.exports.register = (app) => {
       method: 'GET',
       url: 'https://ultimate-tennis1.p.rapidapi.com/live_leaderboard/50',
       headers: {
-        'X-RapidAPI-Host': 'ultimate-tennis1.p.rapidapi.com',
-        'X-RapidAPI-Key': 'e950eb3f63msh045c2ecb2e5934ep10bdf6jsne4c2ebde5819'
+        //'X-RapidAPI-Host': 'ultimate-tennis1.p.rapidapi.com',
+        //'X-RapidAPI-Key': 'e950eb3f63msh045c2ecb2e5934ep10bdf6jsne4c2ebde5819'
       }
     };
     
