@@ -4,9 +4,10 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 8081;
 const BASE_API_URL = "/api/v1"; 
+const cors = require("cors");
 
 const Datastore = require('nedb');
-
+app.use(cors());
 
 //BASE DE DATOS
 db_premier_league = new Datastore();

@@ -57,7 +57,7 @@ loading
 			</tr>
 			{#each entries as entry}
 				<tr>
-					<td>{entry.description}</td>
+					<td>{entry.protein}</td>
 					
 				</tr>
 			{/each}
