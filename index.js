@@ -53,6 +53,9 @@ api_prediction.register(app);
 const api_food = require("./src/back/premier-league-stats/foodnutrition");
 api_food.register(app);
 
+const api_transfer = require("./src/back/premier-league-stats/transferfootball");
+api_transfer.register(app);
+
 
 //API Antonio Saborido
 const apiext5 = require("./src/back/tennis/apiext5");

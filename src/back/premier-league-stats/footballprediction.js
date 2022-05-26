@@ -20,12 +20,12 @@ module.exports.register = (app) => {
 
     
       axios.request(options).then(function (response) {
-        tennisplayers1=response.data.data;
+        predApi=response.data.data;
     }).catch(function (error) {
         console.error(error);
     });   
 
     app.get(BASE_API + "/pred", (req, res) => {
-        res.send(JSON.stringify(tennisplayers1));
+        res.send(JSON.stringify(predApi));
     })
 }

@@ -9,7 +9,7 @@
 
     async function getEntries(){
         console.log("Fetching entries....");
-        const res = await fetch("/api/v1/prediction"); 
+        const res = await fetch("/api/v1/pred"); 
         if(res.ok){
             const data = await res.json();
             entries = data;
