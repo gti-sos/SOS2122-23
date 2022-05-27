@@ -427,12 +427,11 @@ module.exports.register = (app) => {
                         !dataNew.cleanSheets ||
                         !dataNew.goals) {
                         console.log("Number of parameters is incorrect.");
-                        return res.status(400).send("Format incorrect.");
+                        res.sendStatus(400,"FORMAT INCORRETCT");
                     }else {
                         console.log("Inserting new data in DB: " + JSON.stringify(dataNew, null, 2));
                         db.insert(dataNew);
-                        return res.status(201).send("Se ha creado correctamente: " +JSON.stringify(dataNew, null, 2));
-                    }
+                        res.sendStatus(201,"CREATED");                    }
                 } else {
                     console.log("Conflit is detected.");
                     res.sendStatus(409);

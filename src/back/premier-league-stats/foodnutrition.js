@@ -6,7 +6,7 @@ const BASE_API = "/api/v1";
 const _ = require('lodash');
 const axios = require('axios').default;
 
-
+var foodNut = [];
 module.exports.register = (app) => {
     const options = {
         method: 'GET',
@@ -19,7 +19,7 @@ module.exports.register = (app) => {
 
     
     axios.request(options).then(function (response) {
-      foodNut = response.data.labelNutrients;
+      foodNut = response.data.foodUpdateLog;
     }).catch(function (error) {
       console.error(error);
     });

@@ -4,10 +4,9 @@
 
     const delay = ms => new Promise(res => setTimeout(res,ms));
     let data = [];
-    let stats_comida
-    let stats_grasas = [];
-    let stats_carbohidratos = [];
-    let stats_proteinas = [];
+    let stats_description = [];
+    let stats_publicationDate = [];
+    let stats_marketCountry = [];
 
     async function getPEStats(){
         console.log("Fetching stats....");
@@ -17,10 +16,9 @@
             console.log("Estadísticas recibidas: "+data.length);
            
             data.forEach(stat => {
-                stats_comida.push(stat.description);
-                stats_grasas.push(stat.fat["value"]);
-                stats_carbohidratos.push(stat.carbohydrates["value"]);
-                stats_proteinas.push(stat.protein["value"]);
+                stats_description.push(stat["description"]);
+                stats_publicationDate.push(stat["publicationDate"]);
+                stats_marketCountry.push(stat["marketCountry"]);
             });
             
             loadGraph();
@@ -30,27 +28,21 @@
     }
 
     async function loadGraph() {
-        var trace_fat = {
-            x: stats_comida,
-            y: stats_grasas,
+        var trace_description = {
+            x: stats_publicationDate,
+            y: stats_description,
             type: 'bar',
-            name: 'Grasas'
+            name: 'Nombre comida'
         };
-        var trace_carbohydrates = {
-            x: stats_comida,
-            y: stats_carbohidratos,
+        var trace_marketCountry = {
+            x: stats_publicationDate,
+            y: stats_marketCountry,
             type: 'bar',
-            name: 'Carbohidratos'
-        };
-        var trace_protein = {
-            x: stats_comida,
-            y: stats_proteinas,
-            type: 'bar',
-            name: 'Proteinas'
+            name: 'País del mercado'
         };
        
        
-        var dataPlot = [trace_fat, trace_carbohydrates, trace_protein];
+        var dataPlot = [trace_description, trace_marketCountry];
         Plotly.newPlot('myDiv', dataPlot);
     }
 

@@ -14,6 +14,7 @@
 			const data = await res.json();
 			console.log(data);
             entries = data;
+			console.log(entries);
 			console.log("Received entries: "+ entries.length);
         }
     }
@@ -46,9 +47,9 @@ loading
 			<tr>
 				
                 <th>Nombre comida</th>
-				<!--<th>Grasas</th>
-				<th>Carbohidratos</th>
-                <th>Proteinas</th>-->
+				<th>Fecha Publicación</th>
+				<th>Mercado del País</th>
+                
                		
 		</tr>
 		</thead>
@@ -57,7 +58,9 @@ loading
 			</tr>
 			{#each entries as entry}
 				<tr>
-					<td>{entry.protein}</td>
+					<td>{entry.description}</td>
+					<td>{entry.publicationDate}</td>
+					<td>{entry.marketCountry}</td>
 					
 				</tr>
 			{/each}
