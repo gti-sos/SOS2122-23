@@ -38,6 +38,8 @@
 	import apinutritionchart from "./premier-league/apinutritionchart.svelte";
 	import apitransferlist from "./premier-league/apitransferlist.svelte";
 	import apitransferchart from "./premier-league/apitransferchart.svelte";
+	import apiseriealist from "./premier-league/apiseriealist.svelte";
+	import apiserieachart from "./premier-league/apiserieachart.svelte";
 	
 	import NbaList from "./nba-stats/nbaList.svelte";
 	import NbaEdit from "./nba-stats/nbaEdit.svelte";
@@ -89,6 +91,8 @@
 		"/premier-league/apinutritionchart" : apinutritionchart,
 		"/premier-league/apitransferlist" : apitransferlist,
 		"/premier-league/apitransferchart" : apitransferchart,
+		"/premier-league/apiseriealist" : apiseriealist,
+		"/premier-league/apiserieachart" : apiserieachart,
 		
 		"/nba-stats" : NbaList,
 		"/nba-stats/:country/:year": NbaEdit

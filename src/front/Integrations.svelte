@@ -69,6 +69,18 @@
                         <a href="/#/premier-league/apipredictionlist"><li type="circle"> Vista en tabla</li></a>
                         <a href="/#/premier-league/apipredictionchart"><li type="circle"> Grafica</li></a>
                     </ul>
+                <h6>Integración Externa 4 (Football GoldenBoot)</h6>
+                    <ul>
+                        <a href="/api/v1/transfer"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/premier-league/apitransferlist"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/premier-league/apitransferchart"><li type="circle"> Grafica</li></a>
+                    </ul>
+                <h6>Integración Externa 5 (Nutrition Food)</h6>
+                    <ul>
+                        <a href="/api/v1/food"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/premier-league/apinutritionlist"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/premier-league/apinutritionchart"><li type="circle"> Grafica</li></a>
+                    </ul>
             </div>
             <div class="col-4">
                 <h5 id="titulo">Fernando</h5>

@@ -24,7 +24,7 @@
 
 	<figure class="text-center">
 		<blockquote class="blockquote">
-		  <h1>API: Premier League Transfer</h1>
+		  <h1>API: Premier League GoldenBoot</h1>
 		</blockquote>
 		
 	  </figure>
@@ -46,7 +46,7 @@ loading
 				
 				<th>Jugador</th>
 				<th>Edad</th>
-				<th>Nombre del Equipo</th>
+				<th>Puntos</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -55,8 +55,8 @@ loading
 			{#each entries as entry}
 				<tr>
 					<td>{entry.playerName}</td>
-					<td>{entry.age}</td>
-					<td>{entry.clubName}</td>
+					<td>{entry.playerAge}</td>
+					<td>{entry.points}</td>
 				</tr>
 			{/each}
 			
