@@ -81,6 +81,12 @@
                         <a href="/#/premier-league/apinutritionlist"><li type="circle"> Vista en tabla</li></a>
                         <a href="/#/premier-league/apinutritionchart"><li type="circle"> Grafica</li></a>
                     </ul>
+                <h6>Integración Externa 6 (Serie A League)</h6>
+                    <ul>
+                        <a href="/api/v1/seriea"><li type="circle"> Archivo JSON</li></a>
+                        <a href="/#/premier-league/apiseriealist"><li type="circle"> Vista en tabla</li></a>
+                        <a href="/#/premier-league/apiserieachart"><li type="circle"> Grafica</li></a>
+                    </ul>
             </div>
             <div class="col-4">
                 <h5 id="titulo">Fernando</h5>
