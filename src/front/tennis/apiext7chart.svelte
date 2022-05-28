@@ -59,7 +59,7 @@
     async function loadGraph(){
         Highcharts.chart('container', {
             chart: {
-                type: 'gauge'
+                type: 'scatter'
             },
             title: {
                 text: 'Gráficas conjuntas'

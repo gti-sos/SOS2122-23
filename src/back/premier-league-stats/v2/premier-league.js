@@ -1,6 +1,8 @@
 var Datastore = require("nedb");
 var db = new Datastore();
 var BASE_API_PATH = "/api/v2/premier-league"; 
+const express = require("express");
+const app = express();
 
 var premierStats = [];
 
