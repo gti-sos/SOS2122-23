@@ -470,6 +470,11 @@
         }}>
             Gráfica
         </Button>
+        <Button color="info" on:click={function (){
+            window.location.href = `/#/premier-league/charts2`
+        }}>
+            Gráfica2
+        </Button>
 		<br>
 		<div style="text-align:center">
 			<Button outline color="primary" on:click="{getPreviewPage}">

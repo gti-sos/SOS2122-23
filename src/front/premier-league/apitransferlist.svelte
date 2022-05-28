@@ -45,8 +45,8 @@ loading
 			<tr>
 				
 				<th>Jugador</th>
-				<th>Valor</th>
-               		
+				<th>Edad</th>
+				<th>Nombre del Equipo</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -54,9 +54,9 @@ loading
 			</tr>
 			{#each entries as entry}
 				<tr>
-					<td>{entry.share.title}</td>
-					<td>{entry.marketValueDevelopment.marketValueUnformatted}</td>
-	
+					<td>{entry.playerName}</td>
+					<td>{entry.age}</td>
+					<td>{entry.clubName}</td>
 				</tr>
 			{/each}
 			

@@ -27,6 +27,7 @@
 	import Premier from "./premier-league/premier.svelte";
 	import PremierEdit from "./premier-league/premierEdit.svelte";
 	import PremierChart from "./premier-league/premierCharts.svelte";
+	import PremierChart2 from "./premier-league/premierCharts2.svelte";
 	import apiext1list from "./premier-league/apiext1list.svelte";
 	import apiext1chart from "./premier-league/apiext1chart.svelte";
 	import apiext2list from "./premier-league/apiext2list.svelte";
@@ -77,6 +78,7 @@
 		"/premier-league" : Premier,
 		"/premier-league/:country/:year": PremierEdit,
 		"/premier-league/charts" : PremierChart,
+		"/premier-league/charts2" : PremierChart2,
 		"/premier-league/apiext1list": apiext1list,
 		"/premier-league/apiext1chart": apiext1chart,
 		"/premier-league/apiext2list": apiext2list,
