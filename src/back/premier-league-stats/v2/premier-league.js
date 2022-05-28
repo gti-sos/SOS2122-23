@@ -5,6 +5,22 @@ var BASE_API_PATH = "/api/v2/premier-league";
 var premierStats = [];
 
 
+var paths='/remoteAPI';
+var apiServerHost = 'https://sos2122-23.herokuapp.com/api/v2/premier-league';
+
+app.use(paths, function(req, res) {
+  var url = apiServerHost + req.url;
+  console.log('piped: ' + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+var remoteAPI1 = "http://api.quotable.io/random"
+var pathQuote = "/random"
+app.use(pathQuote, function(req,res){
+	console.log("Piped:" + req.baseUrl + req.url);
+	req.pipe(request(remoteAPI1)).pipe(res);
+});
+
 module.exports.register = (app) => {
     
     //Portal de Documentacion
@@ -180,7 +196,7 @@ module.exports.register = (app) => {
 
     */
 
-    //GET ANTONIO
+    //GET 
     app.get(BASE_API_PATH,(req, res)=>{
     
         var year = req.query.year;
@@ -442,7 +458,7 @@ module.exports.register = (app) => {
 
      //POST A UN RECURSO(No está permitido)
      app.post(BASE_API_PATH+"/:country/:year",(req,res)=>{
-        res.sendStatus(405);
+        res.sendStatus(405, "METHOD NOT ALLOWED");
         console.log("Se ha intentado hacer POST a un recurso concreto.");
     });
 
@@ -511,7 +527,7 @@ module.exports.register = (app) => {
             } else {
                 if(data != 0){
                     console.log(`NEW DELETE request to <${reqcountry}>, <${reqyear}>`);
-                    res.status(200).send("The corresponding data for " + reqcountry + " and " + reqyear + " has been deleted");
+                    res.sendStatus(200,"DELETED");
                 }else{
                     console.log("Data not found");
                     res.sendStatus(404);
