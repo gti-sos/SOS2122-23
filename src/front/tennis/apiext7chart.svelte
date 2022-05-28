@@ -56,99 +56,81 @@
             loadGraph();
         }   
     }
-    async function loadGraph(){
-        Highcharts.chart('container', {
-            chart: {
-                type: 'scatter'
-            },
-            title: {
-                text: 'Gráficas conjuntas'
-            },
-            subtitle: {
-                text: 'Integracion Tennis + PublicExpenditure | Tipo: Scatter'
-            },
-            yAxis: {
-                title: {
-                    text: 'Valor'
-                }
-            },
-            xAxis: {
-                title: {
-                    text: "País-Año",
-                },
-               // categories: stats_country_date,
-               categories: xLabel,
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },            
-            series: [
-                //Tennis
-                {
-                name: 'Grand Slams Ganados',
-                data: stats_mostgrandslams
-                },
-                {
-                name: 'Medallas Olimpicas',
-                data: stats_olympicgoldmedals
-                },
-                {
-                name: 'Finales de masters',
-                data: stats_mastersfinals
-                },
-                //PremierLeauge
-                {
-                name: 'Gasto Publico',
-                data: public_expenditure_stats
-                },
-                {
-                name: 'PE en Defensa',
-                data: pe_on_defence_stats,
-                },
-                {
-                name: 'PE to GDP',
-                data: pe_to_gdp_stats
-                },
-                //NBA
-            ],
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
+    async function loadGraph() {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var trace_olympic_gold_medals = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: xLabel,
+                datasets: [
+                    {
+                        label: "Grand Slams Ganados",
+                        backgroundColor: "rgba(104, 255, 51)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: stats_mostgrandslams,
                     },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
-            }
+                    {
+                        label: "Medallas Olimpicas",
+                        backgroundColor: "rgba(255, 51, 51)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: stats_olympicgoldmedals,
+                    },
+                    {
+                        label: "Finales de masters",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: stats_mastersfinals,
+                    },
+                    {
+                        label: "Gasto Publico",
+                        backgroundColor: "rgba(51, 125, 255)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: public_expenditure_stats,
+                    },
+                    {
+                        label: "PE en Defensa",
+                        backgroundColor: "rgba(243, 51, 255)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: pe_on_defence_stats,
+                    },
+                    {
+                        label: "PE to GDP",
+                        backgroundColor: "rgba(243, 255, 51)",
+                        borderColor: "rgb(255, 255, 255)",
+                        data: pe_to_gdp_stats,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
         });
     }
-   
     onMount(getData);
     
 </script>
 
 <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>    
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"
+        on:load={loadGraph}></script>
 </svelte:head>
 
 <main>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            
-        </p>
-    </figure>
+    <h2>Más visitas</h2>
+    <h4>Biblioteca: Chart.js</h4>
+    <!--<button class="btn btn-primary hBack" type="button">Volver</button>
+    <a href="/#/tennis" class="btn btn-primary hBack" role="button" >Volver</a> -->
+    <a
+        href="/#/integrations"
+        class="btn btn-primary btn-lg active"
+        role="button"
+        aria-pressed="true">Volver</a
+    >
 
-    <Button outline color="secondary" href="/">Volver</Button>
+    <canvas id="myChart" />
 </main>
