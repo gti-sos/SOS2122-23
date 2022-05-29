@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "135bbe60-45bc-4e2d-bb52-91579b356e09",
-		"name": "Premier-League",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "12228fbb-db97-403e-89ed-5d166a886d1d",
+		"name": "Premier-League v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19586040"
 	},
 	"item": [
 		{
@@ -24,17 +25,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2122-23.herokuapp.com/api/v1/premier-league/loadInitialData",
-					"protocol": "https",
+					"raw": "{{host}}/loadInitialData",
 					"host": [
-						"sos2122-23",
-						"herokuapp",
-						"com"
+						"{{host}}"
 					],
 					"path": [
-						"api",
-						"v1",
-						"premier-league",
 						"loadInitialData"
 					]
 				}
@@ -68,9 +63,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					]
 				}
 			},
@@ -100,9 +95,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/Belgium",
+					"raw": "{{host}}/Belgium",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Belgium"
@@ -135,9 +130,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/Belgium/2017",
+					"raw": "{{host}}/Belgium/2017",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Belgium",
@@ -183,9 +178,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}?year=2017",
+					"raw": "{{host}}?year=2017",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"query": [
 						{
@@ -226,9 +221,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}?offset=2&limit=3",
+					"raw": "{{host}}?offset=2&limit=3",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"query": [
 						{
@@ -281,9 +276,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}?from=2017&to=2020",
+					"raw": "{{host}}?from=2017&to=2020",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"query": [
 						{
@@ -323,7 +318,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"raw": "{\r\n    \"country\":\"Guatemala\",\r\n    \"year\":2017,\r\n    \"appearences\":13,\r\n    \"cleanSheets\":13,\r\n    \"goals\":31\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -331,9 +326,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					]
 				}
 			},
@@ -367,51 +362,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST variable para recurso",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 405\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
-							"});\r",
-							"pm.test(\"Response time is less than 400ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":25,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{HOST}}/Netherlands",
-					"host": [
-						"{{HOST}}"
-					],
-					"path": [
-						"Netherlands"
+						"{{host}}"
 					]
 				}
 			},
@@ -445,9 +398,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Netherlands/2017",
+					"raw": "{{host}}/Netherlands/2017",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Netherlands",
@@ -485,9 +438,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					]
 				}
 			},
@@ -521,13 +474,52 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Netherlands/2017",
+					"raw": "{{host}}/Netherlands/2017",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Netherlands",
 						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT variable errónea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function(){\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":\"pepe\",\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Netherlands",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Netherlands"
 					]
 				}
 			},
@@ -561,9 +553,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					]
 				}
 			},
@@ -600,9 +592,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Greece",
+					"raw": "{{host}}/Greece",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Greece"
@@ -639,9 +631,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}/Netherlands/2017",
+					"raw": "{{host}}/Netherlands/2017",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					],
 					"path": [
 						"Netherlands",
@@ -679,9 +671,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{HOST}}",
+					"raw": "{{host}}",
 					"host": [
-						"{{HOST}}"
+						"{{host}}"
 					]
 				}
 			},
