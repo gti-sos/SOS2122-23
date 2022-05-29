@@ -97,6 +97,24 @@ tennis_API.register(app,db_tennis);
 const tennis_APIv2 = require("./src/back/tennis/tennisv2.js");
 tennis_APIv2.register(app,db_tennis2);
 
+
+//Proxy Antonio Saborido Campos: 
+
+var paths3='/remoteApiBelen';
+var paths4='/remoteApiBelenLoadInitialData';
+
+var apiServerHost3 = 'https://sos2122-22.herokuapp.com/api/v2/coal-stats';
+var apiServerHost4 = 'https://sos2122-22.herokuapp.com/api/v2/coal-stats/loadInitialData';
+
+app.use(paths3, function(req, res) {
+  var url1 = apiServerHost3 + req.url;
+  req.pipe(request(url1)).pipe(res);	
+});
+app.use(paths4, function(req, res) {
+  var url2 = apiServerHost4 + req.url;
+  req.pipe(request(url2)).pipe(res);	
+});
+
 //API Fernando Pardo Beltrán(nba-stats)
 
 const nbaStats_API = require("./src/back/nba-stats/nba-stats_v1");
