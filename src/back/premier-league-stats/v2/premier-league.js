@@ -435,8 +435,7 @@ module.exports.register = (app) => {
         
         db.find({ country: countryNew, year: yearNew }, (err, data) => {
             if (err) {
-                console.error("Error accessing DB in POST: " + err);
-                res.sendStatus(500);
+                res.sendStatus(500, "ERROR");
             } else {
                 if (data.length == 0) {
                     if (!dataNew.country ||
@@ -444,15 +443,13 @@ module.exports.register = (app) => {
                         !dataNew.appearences ||
                         !dataNew.cleanSheets ||
                         !dataNew.goals) {
-                        console.log("Number of parameters is incorrect.");
                         res.sendStatus(400,"FORMAT INCORRETCT");
                     }else {
-                        console.log("Inserting new data in DB: " + JSON.stringify(dataNew, null, 2));
                         db.insert(dataNew);
-                        res.sendStatus(201,"CREATED");                    }
+                        res.sendStatus(201,"CREATED");                    
+                    }
                 } else {
-                    console.log("Conflit is detected.");
-                    res.sendStatus(409);
+                    res.sendStatus(409, "CONFLICT");
                 }
             }
         });
@@ -461,7 +458,6 @@ module.exports.register = (app) => {
      //POST A UN RECURSO(No está permitido)
      app.post(BASE_API_PATH+"/:country/:year",(req,res)=>{
         res.sendStatus(405, "METHOD NOT ALLOWED");
-        console.log("Se ha intentado hacer POST a un recurso concreto.");
     });
 
     /*------------------- PUTs -------------------*/
@@ -474,21 +470,17 @@ module.exports.register = (app) => {
         var data = req.body;
 
         if (Object.keys(data).length != 5) {
-            console.log("Actualizacion de campos no valida");
-            res.sendStatus(400, "BAD REQUEST - Parametros incorrectos");
+            res.sendStatus(400, "BAD REQUEST");
         }        
         else {
             db.update({ country: reqcountry, year: reqyear }, { $set: data }, {}, function (err, dataUpdate) {
                 if (err) {
-                    console.error("ERROR accesing DB in GET");
-                    res.sendStatus(500);
+                    res.sendStatus(500, "ERROR");
                 } else {
                     if (dataUpdate == 0) {
-                        console.error("No data found");
-                        res.sendStatus(404);
+                        res.sendStatus(404, "DATA NOT FOUND");
                     } else {
-                        console.log("Campos actualizados")
-                        res.sendStatus(200);
+                        res.sendStatus(200, "OK");
                     }
                 }
             });
@@ -509,11 +501,9 @@ module.exports.register = (app) => {
      app.delete(BASE_API_PATH, (req,res) => {
         db.remove({}, {multi: true}, (err, numDataRemoved) => {
             if (err || numDataRemoved == 0){
-                console.log("ERROR deleting DB: "+err);
-                res.sendStatus(500);
+                res.sendStatus(500, "ERROR");
             }else{
-                console.log(numDataRemoved+" has been successfully deleted from the BD.");
-                res.sendStatus(200);
+                res.sendStatus(200,"DELETED");
             }
         });
     });
@@ -524,15 +514,12 @@ module.exports.register = (app) => {
         var reqyear = parseInt(req.params.year);
         db.remove({country : reqcountry, year : reqyear},{multi:true}, (err, data) => {
             if (err) {
-                console.error("ERROR in GET");
-                res.sendStatus(500);
+                res.sendStatus(500, "ERROR");
             } else {
                 if(data != 0){
-                    console.log(`NEW DELETE request to <${reqcountry}>, <${reqyear}>`);
                     res.sendStatus(200,"DELETED");
                 }else{
-                    console.log("Data not found");
-                    res.sendStatus(404);
+                    res.sendStatus(404, "NOT FOUND");
                 }
             }
         });

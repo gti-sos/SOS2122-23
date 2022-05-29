@@ -318,7 +318,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"country\":\"Guatemala\",\r\n    \"year\":2017,\r\n    \"appearences\":13,\r\n    \"cleanSheets\":13,\r\n    \"goals\":31\r\n}",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":2017,\r\n    \"appearences\":13,\r\n    \"cleanSheets\":13,\r\n    \"goals\":31\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -453,8 +453,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 400\", function(){\r",
-							"    pm.response.to.have.status(400);\r",
+							"pm.test(\"Status code is 404\", function(){\r",
+							"    pm.response.to.have.status(404);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -506,7 +506,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\":\"pepe\",\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"raw": "{\r\n    \"country\":\"Netherlands\",\r\n    \"year\": 2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -514,12 +514,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/Netherlands",
+					"raw": "{{host}}/Netherlands/2017",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"Netherlands"
+						"Netherlands",
+						"2017"
 					]
 				}
 			},
@@ -623,7 +624,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"city\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
