@@ -61,8 +61,8 @@ const api_seriea = require("./src/back/premier-league-stats/seriea");
 api_seriea.register(app);
 
 
-var paths3='/remoteApiTennis';
-var paths4='/remoteApiTennisLoadInitialData';
+var paths3='/remoteApi';
+var paths4='/remoteApiInitialData';
 var apiServerHost3 = 'https://sos2122-21.herokuapp.com/api/v1/productions-vehicles';
 var apiServerHost4 = 'https://sos2122-21.herokuapp.com/api/v1/productions-vehicles/loadInitialData';
 
