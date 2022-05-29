@@ -480,6 +480,10 @@ module.exports.register = (app) => {
                     if (dataUpdate == 0) {
                         res.sendStatus(404, "DATA NOT FOUND");
                     }
+                    if(reqcountry != data.country || reqyear != data.year){
+                        res.sendStatus(400,"BAD REQUEST");
+                        return;
+                    }
                     else {
                         res.sendStatus(200, "OK");
                     }
