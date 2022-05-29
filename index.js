@@ -61,6 +61,20 @@ const api_seriea = require("./src/back/premier-league-stats/seriea");
 api_seriea.register(app);
 
 
+var paths3='/remoteApiTennis';
+var paths4='/remoteApiTennisLoadInitialData';
+var apiServerHost3 = 'https://sos2122-21.herokuapp.com/api/v1/productions-vehicles';
+var apiServerHost4 = 'https://sos2122-21.herokuapp.com/api/v1/productions-vehicles/loadInitialData';
+
+app.use(paths3, function(req, res) {
+  var url1 = apiServerHost3 + req.url;
+  req.pipe(request(url1)).pipe(res);	
+});
+app.use(paths4, function(req, res) {
+  var url2 = apiServerHost4 + req.url;
+  req.pipe(request(url2)).pipe(res);	
+});
+
 //API Antonio Saborido
 const apiext5 = require("./src/back/tennis/apiext5");
 apiext5.register(app);
