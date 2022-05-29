@@ -479,7 +479,8 @@ module.exports.register = (app) => {
                 } else {
                     if (dataUpdate == 0) {
                         res.sendStatus(404, "DATA NOT FOUND");
-                    } else {
+                    }
+                    else {
                         res.sendStatus(200, "OK");
                     }
                 }

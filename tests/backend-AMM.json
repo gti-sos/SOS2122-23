@@ -447,46 +447,6 @@
 			"response": []
 		},
 		{
-			"name": "PUT fallo para recurso",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 404\", function(){\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"country\":\"Spain\",\r\n    \"year\":2017,\r\n    \"appearences\":18,\r\n    \"cleanSheets\":11,\r\n    \"goals\":12\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{host}}/Netherlands/2017",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"Netherlands",
-						"2017"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "PUT variable errónea",
 			"event": [
 				{
